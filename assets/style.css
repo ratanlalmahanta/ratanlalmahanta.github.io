@@ -29,3 +29,13 @@ section h2 {
     font-size: 1.5em;
     margin-top: 0;
 }
+.social-media a {
+    margin: 0 10px;
+    font-size: 24px;
+    color: #000;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #007bff; /* Change to your desired hover color */
+}
