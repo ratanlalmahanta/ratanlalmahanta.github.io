@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header, nav, section {
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #007acc;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+section h2 {
+    font-size: 1.5em;
+    margin-top: 0;
+}
