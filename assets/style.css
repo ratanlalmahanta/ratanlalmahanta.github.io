@@ -71,4 +71,25 @@ footer {
     font-size: 0.9em;
     color: #666;
 }
+#projects {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.project {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.project h3 {
+    color: #007bff;
+}
+
+.project p {
+    font-size: 1em;
+    color: #333;
+}
 
