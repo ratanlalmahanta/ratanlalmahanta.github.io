@@ -1,4 +1,3 @@
-# ratanlalmahanta.github.io
 
 # Ratanlal Mahanta
 
