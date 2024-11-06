@@ -92,4 +92,30 @@ footer {
     font-size: 1em;
     color: #333;
 }
+#publications {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.publication {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.publication h3 {
+    color: #007bff;
+}
+
+.publication p {
+    font-size: 1em;
+    color: #333;
+}
+
+.publication a {
+    color: #007bff;
+    text-decoration: none;
+}
 
