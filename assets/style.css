@@ -1,129 +1,39 @@
-/* Global Font and Reset Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-    line-height: 1.6;
-    background-color: #f7f8fa;
-}
-
 /* Header Styles */
-header {
-    background: #007acc;
-    color: #fff;
-    text-align: center;
-    padding: 50px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
 header h1 {
     font-family: 'Merriweather', serif;
-    font-size: 2.8em;
+    font-size: 3.5em; /* Increased font size for name */
     margin-bottom: 10px;
 }
 
 header p {
-    font-size: 1.2em;
+    font-size: 1.4em; /* Increased size for the tagline */
     font-weight: 300;
+    color: #ddd; /* Softer color for contrast */
 }
 
-/* Navigation Styles */
-nav {
-    background: #f0f0f5;
-    padding: 15px 20px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
+/* Navigation Styling */
 nav a {
-    font-size: 1.1em;
+    font-size: 1.3em; /* Slightly larger size for nav links */
     color: #007acc;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 20px;
     transition: color 0.3s;
 }
 
-nav a:hover {
-    color: #005f99;
-}
-
 /* Introduction Section */
-#intro {
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    text-align: center;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
 #intro h2 {
     font-family: 'Merriweather', serif;
-    font-size: 2.2em;
+    font-size: 2.5em; /* Larger 'Welcome' section header */
     color: #333;
     margin-bottom: 10px;
 }
 
 #intro p {
-    font-size: 1.15em;
+    font-size: 1.25em; /* Increased size for intro paragraph */
     color: #444;
     line-height: 1.8;
-}
-
-/* Footer Styling */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 30px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
     text-align: center;
-    margin-top: 40px;
-}
-
-footer .footer-content h2 {
-    font-family: 'Merriweather', serif;
-    font-size: 1.7em;
-    color: #ddd;
-}
-
-footer .social-icons {
-    margin-top: 20px;
-}
-
-footer .social-icons a {
-    font-size: 2.2em;
-    color: #fff;
-    margin: 0 20px;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-footer .social-icons a:hover {
-    color: #007acc;
-    transform: scale(1.2);
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2em;
-    }
-
-    nav a {
-        font-size: 1em;
-        margin: 0 10px;
-    }
-
-    #intro h2 {
-        font-size: 1.8em;
-    }
-
-    footer .social-icons a {
-        font-size: 1.8em;
-        margin: 0 15px;
-    }
 }
