@@ -32,8 +32,6 @@ nav:
     url: "/projects/"
   - title: "Publications"
     url: "/publications/"
-  - title: "Blog"
-    url: "/blog/"
 
 # Exclude files from the generated site
 exclude:
