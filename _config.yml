@@ -1,3 +1,33 @@
+# Site settings
 title: "Ratanlal Mahanta - Computational Finance & AI"
-description: "Personal website showcasing professional experience and research in quantitative finance."
-theme: minima
+#email: "your.email@example.com"
+description: "Computational Finance | AI-Driven Quantitative Research"
+baseurl: "" # Leave it empty unless your site is hosted in a subfolder
+url: "https://ratanlalmahanta.github.io" # Your GitHub Pages URL
+
+# Theme settings
+theme: "minimal-mistakes-jekyll"
+
+# Social media links
+social_links:
+  - icon: "github"
+    icon_url: "https://github.com/ratanlalmahanta"
+  - icon: "linkedin"
+    icon_url: "https://www.linkedin.com/in/ratanlalmahanta/"
+  - icon: "google-scholar"
+    icon_url: "https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en"
+
+# Navigation menu
+nav:
+  - title: "About"
+    url: "/about/"
+  - title: "Projects"
+    url: "/projects/"
+  - title: "Publications"
+    url: "/publications/"
+  - title: "Blog"
+    url: "/blog/"
+
+# Exclude files from the generated site
+exclude:
+  - "README.md"
