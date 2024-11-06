@@ -1,99 +1,31 @@
-/* General Reset and Font Settings */
-* {
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-body {
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    background-color: #f5f7fa;
 }
 
-/* Sidebar Styling */
-.sidebar {
-    width: 250px;
-    background-color: #2b2d42;
-    color: #edf2f4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    position: fixed;
-    height: 100vh;
+header, nav, section {
+    padding: 20px;
     text-align: center;
 }
 
-.sidebar h1 {
-    font-family: 'Merriweather', serif;
-    font-size: 2.2em;
-    margin-bottom: 10px;
+header h1 {
+    font-size: 2em;
+    margin-bottom: 0;
 }
 
-.sidebar p {
-    font-size: 1em;
-    margin-bottom: 30px;
-    color: #8d99ae;
-}
-
-.sidebar nav {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-}
-
-.sidebar nav a {
-    font-size: 1.1em;
-    color: #edf2f4;
+nav a {
+    margin: 0 15px;
     text-decoration: none;
-    padding: 10px 0;
-    transition: color 0.3s;
-}
-.sidebar nav a:hover {
-    color: #8d99ae;
+    color: #007acc;
 }
 
-/* Social Icons in Sidebar */
-.sidebar .social-icons {
-    margin-top: auto;
-    display: flex;
-    gap: 15px;
-    font-size: 1.5em;
-    color: #edf2f4;
-}
-
-.sidebar .social-icons a {
-    color: #edf2f4;
-    transition: color 0.3s;
-}
-.sidebar .social-icons a:hover {
-    color: #8d99ae;
-}
-
-/* Main Content Area */
-main {
-    margin-left: 250px;
-    padding: 50px 20px;
-    width: 100%;
-}
-
-section {
-    max-width: 800px;
-    margin: 0 auto 50px;
-    padding-bottom: 50px;
-    border-bottom: 1px solid #ddd;
+nav a:hover {
+    text-decoration: underline;
 }
 
 section h2 {
-    font-family: 'Merriweather', serif;
-    font-size: 2.5em;
-    color: #2b2d42;
-    margin-bottom: 15px;
-}
-
-section p {
-    font-size: 1.2em;
-    color: #4a4a4a;
-    line-height: 1.6;
+    font-size: 1.5em;
+    margin-top: 0;
 }
