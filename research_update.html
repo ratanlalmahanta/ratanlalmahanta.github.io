@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ratanlal Mahanta's comprehensive profile on computational finance and AI-driven research.">
+    <title>Research Updates - Ratanlal Mahanta</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Research Updates</h1>
+    </header>
+
+    <!-- Research Impact Section -->
+    <section id="research-impact">
+        <h2>Research Impact</h2>
+        <canvas id="citationHeatmap"></canvas>
+        <script>
+            // Example chart: Heatmap of citation impact over years
+            var ctx = document.getElementById('citationHeatmap').getContext('2d');
+            var heatmapData = {
+                // Customize with real data
+                labels: ['2014', '2016', '2018', '2020', '2022', '2024'],
+                datasets: [{
+                    label: 'Impact',
+                    data: [1, 12, 54, 160, 285, 333], // Example data
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)'
+                }]
+            };
+            new Chart(ctx, { type: 'bar', data: heatmapData });
+        </script>
+    </section>
+
+    <!-- Publications Timeline -->
+    <section id="publication-timeline">
+        <h2>Publication Timeline</h2>
+        <div class="timeline">
+            <!-- Example Timeline Events -->
+            <div class="event">
+                <p>2014: First Publication on R Machine Learning Essentials</p>
+            </div>
+            <div class="event">
+                <p>2019: Key publication in Algorithmic Trading with Python</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reflections Section -->
+    <section id="personal-reflections">
+        <h2>Personal Insights</h2>
+        <p>Sharing experiences from various research breakthroughs...</p>
+        <p>For example: "The process of developing a robust AI-based trading algorithm taught me the intricacies of real-time risk assessment."</p>
+    </section>
+
+    <!-- Conference Activities -->
+    <section id="conferences">
+        <h2>Conference Activities</h2>
+        <p>Upcoming: Odisha AI Conference 2024, IMRC Milan Conference, etc.</p>
+        <p>Highlights: "Presentation on Tail Risk Hedging at IRMC 2024."</p>
+    </section>
+
+    <!-- Email Subscription -->
+    <section id="email-alerts">
+        <h2>Subscribe for Updates</h2>
+        <form>
+            <input type="email" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ratanlal Mahanta | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
