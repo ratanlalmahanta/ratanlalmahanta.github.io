@@ -6,12 +6,43 @@
     <meta name="description" content="Ratanlal Mahanta's publications in Computational Finance and AI-driven Quantitative Research.">
     <title>Publications - Ratanlal Mahanta</title>
     <link rel="stylesheet" href="assets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
     <header>
         <h1>Publications</h1>
     </header>
 
+    <!-- Citations Graph Section -->
+    <section id="citations-graph">
+        <h2>Citation Graph</h2>
+        <canvas id="citationsChart"></canvas>
+        <script>
+            var ctx = document.getElementById('citationsChart').getContext('2d');
+            var citationsChart = new Chart(ctx, {
+                type: 'line',  // Type of graph: line chart
+                data: {
+                    labels: ['2019', '2020', '2021', '2022', '2023'], // Example years
+                    datasets: [{
+                        label: 'Citations Over Time',
+                        data: [20, 50, 100, 200, 331], // Example citation counts
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: { title: { display: true, text: 'Year' } },
+                        y: { title: { display: true, text: 'Citation Count' } }
+                    }
+                }
+            });
+        </script>
+    </section>
+
+    <!-- Publications Section -->
     <section id="publications">
         <h2>Selected Publications</h2>
 
