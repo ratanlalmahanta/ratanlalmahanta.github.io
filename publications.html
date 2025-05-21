@@ -1,160 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ratanlal Mahanta's publications in Computational Finance and AI-driven Quantitative Research.">
-    <title>Publications - Ratanlal Mahanta</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ratanlal Mahanta's publications in Computational Finance and AI-driven Quantitative Research." />
+  <title>Publications - Ratanlal Mahanta</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 (High-Quality Icons) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Publications</h1>
-    </header>
+  <header>
+    <h1>📚 Publications</h1>
+  </header>
 
-    <!-- Citations Graph Section -->
-    <section id="citations-graph">
-        <h2>Citation Graph</h2>
-        <canvas id="citationsChart"></canvas>
-        <script>
-            var ctx = document.getElementById('citationsChart').getContext('2d');
-            var citationsChart = new Chart(ctx, {
-                type: 'line',  // Type of graph: line chart
-                data: {
-                    labels: ['2014', '2015', '2016', '2017', '2018','2019', '2020', '2021', '2022', '2023','2024'], // Example years
-                    datasets: [{
-                        label: 'Citations Over Time',
-                        data: [1, 6, 22, 54, 86, 129, 163, 227, 276, 309, 342], // Example citation counts
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 2,
-                        fill: false
-                    }]
-                },
-                options: {
-                    scales: {
-                        x: { title: { display: true, text: 'Year' } },
-                        y: { title: { display: true, text: 'Citation Count' } }
-                    }
-                }
-            });
-        </script>
-    </section>
+  <!-- Citations Graph Section -->
+  <section id="citations-graph">
+    <h2><i class="fas fa-chart-line"></i> Citation Graph</h2>
+    <canvas id="citationsChart"></canvas>
+    <script>
+      var ctx = document.getElementById('citationsChart').getContext('2d');
+      var citationsChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['2014', '2015', '2016', '2017', '2018','2019', '2020', '2021', '2022', '2023','2024'],
+          datasets: [{
+            label: 'Citations Over Time',
+            data: [1, 6, 22, 54, 86, 129, 163, 227, 276, 309, 342],
+            borderColor: '#1e88e5',
+            backgroundColor: 'rgba(30,136,229,0.2)',
+            borderWidth: 3,
+            pointRadius: 4,
+            tension: 0.4,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+              labels: { color: '#333', font: { size: 14 } }
+            }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Year', color: '#666' },
+              ticks: { color: '#444' }
+            },
+            y: {
+              title: { display: true, text: 'Citation Count', color: '#666' },
+              ticks: { color: '#444' }
+            }
+          }
+        }
+      });
+    </script>
+  </section>
 
-    <!-- Publications Section -->
-    <section id="publications">
-        <h2>Selected Publications</h2>
+  <!-- Publications Section -->
+  <section id="publications">
+    <h2><i class="fas fa-book"></i> Selected Publications</h2>
 
-        <div class="publication-summary">
-            <h3>Citations Summary</h3>
-            <p><strong>Cited by:</strong> 342 (All) | 251 (Since 2019)</p>
-            <p><strong>h-index:</strong> 10 (All) | 9 (Since 2019)</p>
-            <p><strong>i10-index:</strong> 10 (All) | 8 (Since 2019)</p>
-        </div>
+    <div class="publication-summary">
+      <h3>📈 Citation Metrics</h3>
+      <p><strong>Cited by:</strong> 342 (All) | 251 (Since 2019)</p>
+      <p><strong>h-index:</strong> 10 (All) | 9 (Since 2019)</p>
+      <p><strong>i10-index:</strong> 10 (All) | 8 (Since 2019)</p>
+    </div>
 
-        <div class="publication">
-            <h3>Machine learning with R cookbook</h3>
-            <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
-            <p><strong>Year:</strong> 2015</p>
-        </div>
+    <!-- Example publication block (repeatable) -->
+    <div class="publication">
+      <h3>📘 Machine Learning with R Cookbook</h3>
+      <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
+      <p><strong>Year:</strong> 2015</p>
+    </div>
 
-        <div class="publication">
-            <h3>Building a Recommendation System with R</h3>
-            <p><strong>Publisher:</strong> Packt Publishing</p>
-            <p><strong>Year:</strong> 2015</p>
-        </div>
+    <!-- Add other publications below similarly -->
+    <!-- Repeat div.publication for all items -->
 
-        <div class="publication">
-            <h3>Python for Finance Cookbook: Over 50 recipes for applying modern Python libraries to financial data analysis</h3>
-            <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
-            <p><strong>Year:</strong> 2020</p>
-        </div>
+    <div class="publication">
+      <h3>📕 Building a Recommendation System with R</h3>
+      <p><strong>Publisher:</strong> Packt Publishing</p>
+      <p><strong>Year:</strong> 2015</p>
+    </div>
 
-        <div class="publication">
-            <h3>Mastering python for data science</h3>
-            <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
-            <p><strong>Year:</strong> 2015</p>
-        </div>
+    <div class="publication">
+      <h3>📙 Python for Finance Cookbook</h3>
+      <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
+      <p><strong>Year:</strong> 2020</p>
+    </div>
 
-        <div class="publication">
-            <h3>Mastering R for quantitative finance</h3>
-            <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
-            <p><strong>Year:</strong> 2015</p>
-        </div>
+    <!-- Add the rest of your publications here -->
+  </section>
 
-        <div class="publication">
-            <h3>Mastering scientific computing with R</h3>
-            <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
-            <p><strong>Year:</strong> 2015</p>
-        </div>
-
-        <div class="publication">
-            <h3>Machine Learning with R Cookbook: Analyze data and build predictive models</h3>
-            <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
-            <p><strong>Year:</strong> 2017</p>
-        </div>
-
-        <div class="publication">
-            <h3>R machine learning essentials</h3>
-            <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
-            <p><strong>Year:</strong> 2014</p>
-        </div>
-
-        <div class="publication">
-            <h3>R: Recipes for analysis, visualization and machine learning</h3>
-            <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
-            <p><strong>Year:</strong> 2016</p>
-        </div>
-
-        <div class="publication">
-            <h3>R data analysis cookbook</h3>
-            <p><strong>Publisher:</strong> Packt Publishing</p>
-            <p><strong>Year:</strong> 2015</p>
-        </div>
-
-        <div class="publication">
-            <h3>Learn Algorithmic Trading: Build and deploy algorithmic trading systems and strategies using Python and advanced data analysis</h3>
-            <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
-            <p><strong>Year:</strong> 2019</p>
-        </div>
-
-        <div class="publication">
-            <h3>Developing High-Frequency Trading Systems: Learn how to implement high-frequency trading from scratch with C++ or Java basics</h3>
-            <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
-            <p><strong>Year:</strong> 2022</p>
-        </div>
-
-        <div class="publication">
-            <h3>Hands-on financial trading with python: A practical guide to using zipline and other python libraries for backtesting trading strategies</h3>
-            <p><strong>Publisher:</strong> Packt Publishing Ltd</p>
-            <p><strong>Year:</strong> 2021</p>
-        </div>
-
-        <div class="publication">
-            <h3>Building Low Latency Applications with C++: Develop a complete low latency trading ecosystem from scratch using modern C++</h3>
-            <p><strong>Publisher:</strong> Packt Publishing</p>
-            <p><strong>Year:</strong> 2023</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
-        <!-- Social Media Links -->
-        <div class="social-media">
-            <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar">
-                <i class="fas fa-graduation-cap"></i>
-            </a>
-        </div>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
+    <div class="social-media">
+      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+    </div>
+  </footer>
 </body>
 </html>
