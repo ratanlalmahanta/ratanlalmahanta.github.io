@@ -1,89 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ratanlal Mahanta's projects in Computational Finance and AI-driven Quantitative Research.">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ratanlal Mahanta's projects in Computational Finance and AI-driven Quantitative Research." />
     <title>Projects - Ratanlal Mahanta</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style.css" />
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #1e2a38;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        section#projects {
+            padding: 2rem;
+        }
+
+        .project {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-4px);
+        }
+
+        .project h3 {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            color: #0a3d62;
+        }
+
+        .project h3 i {
+            margin-right: 0.75rem;
+            color: #0097e6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1e2a38;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Projects</h1>
+        <h1><i class="fas fa-flask"></i> Projects</h1>
     </header>
 
     <section id="projects">
-        <h2>Research & Development Projects</h2>
+        <h2><i class="fas fa-lightbulb"></i> Research & Development Projects</h2>
 
         <div class="project">
-            <h3>AI-Driven Financial Markets</h3>
-            <p>Focused on integrating advanced AI methodologies to enhance financial market predictions, risk management, and decision-making. This includes building quantitative models that leverage machine learning for real-time analysis and scenario simulations.</p>
+            <h3><i class="fas fa-robot"></i> AI-Driven Financial Markets</h3>
+            <p>Integrating advanced AI methods to enhance financial predictions, risk management, and real-time scenario simulations.</p>
         </div>
 
         <div class="project">
-            <h3>QuantEquity Selection Model</h3>
-            <p>Developed a data-driven equity selection model, employing machine learning algorithms and risk management strategies. The model is designed for dynamic sector-wise stock selection using an ML approach for optimal portfolio construction.</p>
+            <h3><i class="fas fa-chart-line"></i> QuantEquity Selection Model</h3>
+            <p>Machine learning-based model for dynamic sectoral stock selection and risk-adjusted portfolio optimization.</p>
         </div>
 
         <div class="project">
-            <h3>Heston Model Calibration for Volatility</h3>
-            <p>Worked on calibrating the Heston model to fit market volatility quotes, focusing on achieving precise calibration for one-year maturity options. The project compares various model parameters to ensure alignment with real-world data.</p>
+            <h3><i class="fas fa-chart-area"></i> Heston Model Calibration for Volatility</h3>
+            <p>Calibrated the Heston model to market options data, ensuring high-fidelity volatility surface fitting.</p>
         </div>
 
         <div class="project">
-            <h3>Credit Valuation Adjustment (CVA) Computation</h3>
-            <p>Developed a robust method for calculating Credit Valuation Adjustment (CVA), incorporating Monte Carlo simulations and quantitative techniques to manage counterparty risk in credit derivatives.</p>
+            <h3><i class="fas fa-handshake"></i> Credit Valuation Adjustment (CVA) Computation</h3>
+            <p>Used Monte Carlo simulation to model CVA and manage counterparty risk in OTC derivatives.</p>
         </div>
 
         <div class="project">
-            <h3>Hull-White Short-Rate Model Calibration</h3>
-            <p>Explored interest rate modeling by calibrating the Hull-White model with a focus on parameters 'a' and 'sigma'. This project integrates QuantLib and Monte Carlo simulations to address credit risk modeling through real-world case studies.</p>
+            <h3><i class="fas fa-percentage"></i> Hull-White Short-Rate Model Calibration</h3>
+            <p>Calibrated Hull-White interest rate models with Monte Carlo simulations and real-market data.</p>
         </div>
 
         <div class="project">
-            <h3>Fundamental Review of the Trading Book (FRTB) Implementation</h3>
-            <p>Implemented the FRTB Standard Approach with applications to FX and interest rate asset classes. This involved complex mathematical derivations and modeling techniques, aimed at meeting regulatory requirements and mitigating market risks.</p>
+            <h3><i class="fas fa-university"></i> FRTB Implementation</h3>
+            <p>Developed models for regulatory market risk capital under Basel III's Fundamental Review of the Trading Book.</p>
         </div>
 
         <div class="project">
-            <h3>Green Finance & Climate Risk Modeling</h3>
-            <p>Part of a Special Issue paper submission focused on novel mathematical and statistical approaches to address climate risk and promote sustainable finance. Research integrates AI-based methods to optimize policies and financial products for environmental transition.</p>
+            <h3><i class="fas fa-leaf"></i> Green Finance & Climate Risk Modeling</h3>
+            <p>Used AI to support sustainable finance goals and climate-related risk assessment models.</p>
         </div>
 
         <div class="project">
-            <h3>Quantitative Trading Strategies</h3>
-            <p>Developed advanced trading strategies involving technical analysis, neural networks, and log-optimal portfolio construction. This project addresses asset forecasting and portfolio optimization through quantitative methods.</p>
-        </div>
-
-        <!-- Extended Projects -->
-        <div class="project">
-            <h3>Monte Carlo Simulation Engine for Credit Loss Forecasting</h3>
-            <p>Designed a robust simulation framework to forecast credit losses under stress scenarios. Incorporated ARIMA-based macroeconomic models and exposure evolution for dynamic ECL estimates aligned with IFRS 9.</p>
+            <h3><i class="fas fa-cogs"></i> Quantitative Trading Strategies</h3>
+            <p>Created neural network-based trading algorithms and log-optimal portfolio strategies.</p>
         </div>
 
         <div class="project">
-            <h3>Hybrid Scope 1/2/3 GHG Emissions Estimator using EEIO</h3>
-            <p>Developed a Monte Carlo-enabled carbon accounting model using Input-Output analysis and LCA data. Mapped financial exposure to sectoral emissions and simulated uncertainty bands for scenario stress testing.</p>
+            <h3><i class="fas fa-random"></i> Monte Carlo Simulation Engine for Credit Loss Forecasting</h3>
+            <p>Engineered a simulation tool using ARIMA models for dynamic ECL and IFRS 9 compliance.</p>
         </div>
 
         <div class="project">
-            <h3>Bermudan Swaption Pricing and Hedging Platform</h3>
-            <p>Built a dynamic simulation engine using QuantLib to price and hedge Bermudan swaptions with advanced interest rate models (G2++, Hull-White). Enabled DV01, Vega analytics and backtest of hedge strategies.</p>
+            <h3><i class="fas fa-recycle"></i> Hybrid Scope 1/2/3 GHG Estimator</h3>
+            <p>Built a stochastic carbon accounting tool linking EEIO data with financial exposures.</p>
         </div>
 
         <div class="project">
-            <h3>Validation Framework for FRTB and CVA Models</h3>
-            <p>Led the validation of market risk and counterparty credit risk models under Basel III. Performed benchmarking, PnL attribution testing, and backtesting of sensitivities across trading books.</p>
+            <h3><i class="fas fa-money-check-alt"></i> Bermudan Swaption Pricing Platform</h3>
+            <p>Developed an advanced hedging and pricing engine using QuantLib and term structure models.</p>
         </div>
 
         <div class="project">
-            <h3>CDS Spread Calibration with Merton Model</h3>
-            <p>Developed a structural credit risk model for default probability estimation and CDS spread calibration using firm asset simulations. Integrated ARIMA forecasts for dynamic spread term structure.</p>
+            <h3><i class="fas fa-shield-alt"></i> Validation Framework for FRTB & CVA</h3>
+            <p>Led comprehensive validation of market and credit risk models under regulatory frameworks.</p>
         </div>
 
         <div class="project">
-            <h3>Liquidity Risk and Interest Rate Shock Simulator</h3>
-            <p>Built an ALM simulation engine for interest rate risk in the banking book (IRRBB) and liquidity stress testing. Modeled deposit decay, behavioral optionality, and NII impact under stressed yield curves.</p>
+            <h3><i class="fas fa-chart-bar"></i> CDS Spread Calibration with Merton Model</h3>
+            <p>Built default probability models for CDS pricing with ARIMA-driven term structure evolution.</p>
+        </div>
+
+        <div class="project">
+            <h3><i class="fas fa-water"></i> Liquidity Risk and IRRBB Simulator</h3>
+            <p>Constructed an ALM engine modeling deposit runoff and income shocks under stressed curves.</p>
         </div>
     </section>
 
