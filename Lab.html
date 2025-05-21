@@ -1,122 +1,194 @@
-<section id="quant-trading-lab" style="background:#ffffff; color:#222222; padding:40px 20px; font-family: Arial, sans-serif; max-width:900px; margin:auto;">
-  <h2 style="color:#1abc9c; font-size:36px; margin-bottom:20px;">Quant Trading Research Lab</h2>
-  <p style="font-size:18px; line-height:1.6; margin-bottom:30px;">
-    The Quant Trading Research Lab(QFCM Lab, Bootstrap(Aug 2020- Feb 2025)) is dedicated to developing, validating, and deploying cutting-edge quantitative models and trading strategies across multi-asset portfolios. 
-    Leveraging advanced stochastic processes, Monte Carlo simulations, and machine learning, the lab focuses on market risk analytics, derivatives pricing, and dynamic hedging under realistic macroeconomic and stress scenarios. 
-    My work supports risk-adjusted alpha generation while aligning with regulatory framework.
-  </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quant Trading Research Lab</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
 
-  <h3 style="color:#1abc9c; font-size:28px; margin-bottom:15px;">Project Timeline (2020 – 2025)</h3>
-  <table style="width:100%; border-collapse: collapse; text-align:left; color:#222222;">
-    <thead>
-      <tr style="background:#d0f0ea; color:#11664d;">
-        <th style="padding:12px; border:1px solid #a3d5c9; width:90px;">Year</th>
-        <th style="padding:12px; border:1px solid #a3d5c9; width:90px;">Quarter</th>
-        <th style="padding:12px; border:1px solid #a3d5c9;">Quant Trading Projects</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- 2020 -->
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;" rowspan="4">2020</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q3</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Development Credit Risk Models for trading book exposures</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q3</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">COVID-19 stress testing applied to quant trading risk factors</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q3</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">interest rate scenario simulation for hedging strategies</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q4</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">VaR & CVaR Monte Carlo engine for multi-asset trading portfolios</td>
-      </tr>
+    section#quant-trading-lab {
+      background: #fff;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
 
-      <!-- 2021 -->
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;" rowspan="4">2021</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q1</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Merton-KMV framework implementation for CDS pricing and hedging</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q2</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">FRTB P&L Attribution Prototype integrating quant trading risk factors</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q3</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Cross-asset Monte Carlo pricing library (C++), Greeks calculation</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q4</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Volatility surface calibration for options trading strategies</td>
-      </tr>
+    h2 {
+      color: #1abc9c;
+      font-size: 36px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-      <!-- 2022 -->
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;" rowspan="4">2022</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q1</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Integration of GHG emissions risk in trading portfolio scenario analysis</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q2</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">CDO basket pricing with t-Copula Monte Carlo simulation</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q3</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Explainable AI-driven credit scorecard for trading signal enhancement</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q4</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Tail risk hedge simulation incorporating macroeconomic shocks</td>
-      </tr>
+    h3 {
+      color: #1abc9c;
+      font-size: 28px;
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
 
-      <!-- 2023 -->
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;" rowspan="4">2023</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q1</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Streamlit dashboard for climate risk and trading portfolio stress testing</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q2</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Proxy hedging framework for illiquid credit exposures</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q3</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Calibration of G2++ and Hull-White interest rate models for swaption trading</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q4</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">LSM-based Bermudan swaption pricing and hedge testing environment</td>
-      </tr>
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
 
-      <!-- 2024 -->
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;" rowspan="4">2024</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q1</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">ARIMA-driven CDS spread forecasting for dynamic trading signals</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q2</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Credit-market integrated VaR & CVaR risk simulator for trading portfolios</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q3</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">3D simulation project (algorithmic trajectory optimization)</td>
-      </tr>
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q4</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Quant model risk dashboard and validation audit trail automation</td>
-      </tr>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+    }
 
-      <!-- 2025 -->
-      <tr>
-        <td style="padding:10px; border:1px solid #a3d5c9;" rowspan="2">2025</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Q1</td>
-        <td style="padding:10px; border:1px solid #a3d5c9;">Real-time dynamic hedge efficiency analyzer with scenario input integration</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+    table th, table td {
+      border: 1px solid #a3d5c9;
+      padding: 12px 10px;
+      text-align: left;
+    }
+
+    table thead tr {
+      background: #d0f0ea;
+      color: #11664d;
+    }
+
+    table tbody tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    .icon {
+      font-size: 28px;
+      color: #1abc9c;
+    }
+
+    @media screen and (max-width: 768px) {
+      section#quant-trading-lab {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 20px;
+        border-bottom: 2px solid #e0e0e0;
+      }
+
+      td {
+        position: relative;
+        padding-left: 50%;
+      }
+
+      td::before {
+        position: absolute;
+        left: 15px;
+        top: 12px;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #1abc9c;
+      }
+
+      td:nth-of-type(1)::before { content: "Year"; }
+      td:nth-of-type(2)::before { content: "Quarter"; }
+      td:nth-of-type(3)::before { content: "Project"; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section id="quant-trading-lab">
+    <h2><i class="fas fa-flask icon"></i> Quant Trading Research Lab</h2>
+
+    <p>
+      The <strong>Quant Trading Research Lab (QFCM Lab)</strong>, active from <em>Aug 2020 to Feb 2025</em>, focused on developing, validating, and deploying cutting-edge quantitative models and trading strategies across multi-asset portfolios. Leveraging stochastic processes, Monte Carlo simulations, and machine learning, the lab specialized in market risk analytics, derivatives pricing, and dynamic hedging under realistic macroeconomic and stress scenarios. The research supported risk-adjusted alpha generation in alignment with regulatory frameworks.
+    </p>
+
+    <h3><i class="fas fa-clock icon"></i> Project Timeline (2020 – 2025)</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Quarter</th>
+          <th>Quant Trading Projects</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- You can paste the full timeline rows from your original HTML here directly. Here's a few to illustrate -->
+        <tr>
+          <td rowspan="4">2020</td>
+          <td>Q3</td>
+          <td>Development Credit Risk Models for trading book exposures</td>
+        </tr>
+        <tr><td>Q3</td><td>COVID-19 stress testing applied to quant trading risk factors</td></tr>
+        <tr><td>Q3</td><td>Interest rate scenario simulation for hedging strategies</td></tr>
+        <tr><td>Q4</td><td>VaR & CVaR Monte Carlo engine for multi-asset trading portfolios</td></tr>
+
+        <tr>
+          <td rowspan="4">2021</td>
+          <td>Q1</td>
+          <td>Merton-KMV framework implementation for CDS pricing and hedging</td>
+        </tr>
+        <tr><td>Q2</td><td>FRTB P&L Attribution Prototype integrating quant trading risk factors</td></tr>
+        <tr><td>Q3</td><td>Cross-asset Monte Carlo pricing library (C++), Greeks calculation</td></tr>
+        <tr><td>Q4</td><td>Volatility surface calibration for options trading strategies</td></tr>
+
+        <tr>
+          <td rowspan="4">2022</td>
+          <td>Q1</td>
+          <td>Integration of GHG emissions risk in trading portfolio scenario analysis</td>
+        </tr>
+        <tr><td>Q2</td><td>CDO basket pricing with t-Copula Monte Carlo simulation</td></tr>
+        <tr><td>Q3</td><td>Explainable AI-driven credit scorecard for trading signal enhancement</td></tr>
+        <tr><td>Q4</td><td>Tail risk hedge simulation incorporating macroeconomic shocks</td></tr>
+
+        <tr>
+          <td rowspan="4">2023</td>
+          <td>Q1</td>
+          <td>Streamlit dashboard for climate risk and trading portfolio stress testing</td>
+        </tr>
+        <tr><td>Q2</td><td>Proxy hedging framework for illiquid credit exposures</td></tr>
+        <tr><td>Q3</td><td>Calibration of G2++ and Hull-White models for swaption trading</td></tr>
+        <tr><td>Q4</td><td>LSM-based Bermudan swaption pricing and hedge testing</td></tr>
+
+        <tr>
+          <td rowspan="4">2024</td>
+          <td>Q1</td>
+          <td>ARIMA-driven CDS spread forecasting for dynamic trading signals</td>
+        </tr>
+        <tr><td>Q2</td><td>Credit-market integrated VaR & CVaR risk simulator</td></tr>
+        <tr><td>Q3</td><td>3D simulation project (algorithmic trajectory optimization)</td></tr>
+        <tr><td>Q4</td><td>Quant model risk dashboard and validation audit trail automation</td></tr>
+
+        <tr>
+          <td rowspan="1">2025</td>
+          <td>Q1</td>
+          <td>Real-time dynamic hedge efficiency analyzer with scenario input integration</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</body>
+</html>
