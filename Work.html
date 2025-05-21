@@ -2,111 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ratanlal Mahanta's publications in Computational Finance and AI-driven Quantitative Research." />
-  <title>Publications - Ratanlal Mahanta</title>
-  
-  <!-- External Styles and Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Chart Libraries -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work Experience Timeline</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f4f7fa;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .timeline {
+      border-left: 4px solid #3498db;
+      padding-left: 20px;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -8px;
+      width: 16px;
+      height: 16px;
+      background: #3498db;
+      border-radius: 50%;
+    }
+    .entry {
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .entry::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 8px;
+      height: 4px;
+      width: 16px;
+      background: #3498db;
+    }
+    .entry h3 {
       margin: 0;
-      padding: 0;
-      background-color: #f7f9fc;
-      color: #1a1a1a;
+      font-size: 18px;
+      color: #2c3e50;
     }
-
-    header {
-      background-color: #1e293b;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
+    .entry span {
+      color: #7f8c8d;
+      font-size: 14px;
     }
-
-    h1, h2 {
-      margin-bottom: 0.5rem;
+    .entry p {
+      margin: 5px 0 0;
+      font-size: 15px;
     }
-
-    section {
-      padding: 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    #citations-graph canvas {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 1rem;
-    }
-
-    .publication-summary {
-      background: #ffffff;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    .publication {
-      background: white;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-left: 4px solid #3b82f6;
-      border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-    }
-
-    .publication h3 {
-      margin-top: 0;
-      font-size: 1.1rem;
-      color: #1e3a8a;
-    }
-
-    footer {
-      background: #1e293b;
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .social-media {
-      margin-top: 1rem;
-    }
-
-    .social-media a {
-      color: white;
-      margin: 0 0.75rem;
-      font-size: 1.25rem;
-      transition: color 0.3s ease;
-    }
-
-    .social-media a:hover {
-      color: #3b82f6;
-    }
-
-    @media (max-width: 768px) {
-      section {
-        padding: 1rem;
-      }
+    #careerChart {
+      max-width: 700px;
+      margin: 0 auto;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1><i class="fas fa-book-open"></i> Career Timeline</h1>
-  </header>
+  <h1>Career Timeline</h1>
 
-  
   <div class="timeline">
     <div class="entry">
       <h3>RSRL <span>(2019–2025)</span></h3>
