@@ -1,68 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ratanlal Mahanta's profile in Computational Finance and AI-driven Quantitative Research.">
-    <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Finance Modeling">
-    <title>Blog - Ratanlal Mahanta</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <!-- Font Awesome CDN for Social Media Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ratanlal Mahanta's profile in Computational Finance and AI-driven Quantitative Research." />
+  <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Finance Modeling" />
+  <title>Blog - Ratanlal Mahanta</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6.5.1 CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #f7f9fb, #e2ecf3);
+      color: #333;
+    }
+
+    header {
+      background: #1e2a38;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+    }
+
+    nav {
+      background: #0d1b2a;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+    }
+
+    nav a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00bfa6;
+    }
+
+    section#blog {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h2, h3 {
+      color: #1abc9c;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 25px;
+    }
+
+    li a {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1e3a5f;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      color: #00796b;
+    }
+
+    li p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 6px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      background: #1e2a38;
+      color: #ddd;
+      margin-top: 40px;
+    }
+
+    .social-media {
+      margin-top: 15px;
+    }
+
+    .social-media a {
+      color: #ddd;
+      margin: 0 12px;
+      font-size: 1.5rem;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .social-media a:hover {
+      color: #00bfa6;
+      transform: scale(1.15);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+
+      section#blog {
+        padding: 20px;
+        margin: 20px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Ratanlal Mahanta</h1>
-        <p>Computational Finance | AI-Driven Quantitative Research</p>
-    </header>
-    
-    <nav>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="publications.html">Publications</a>
-        <a href="blog.html">Blog</a>
-    </nav>
+  <header>
+    <h1>Ratanlal Mahanta</h1>
+    <p>Computational Finance | AI-Driven Quantitative Research</p>
+  </header>
 
-    <section id="blog">
-        <h2>Welcome to My Blog</h2>
-        <p>In this space, I share insights on computational finance, AI-driven quantitative research, risk management strategies, and other innovations in the financial sector. My blog serves as a platform for exploring the cutting edge of financial technology, from machine learning applications to sustainable finance practices. Stay updated with the latest research, projects, and ideas that shape the future of finance.</p>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="publications.html">Publications</a>
+    <a href="blog.html">Blog</a>
+  </nav>
 
-        <h3>Latest Posts</h3>
-        <ul>
-            <li>
-                <a href="blog_post_1.html">Understanding the Role of AI in Financial Modeling</a>
-                <p>A deep dive into how AI is transforming quantitative finance and its role in improving predictive models and decision-making.</p>
-            </li>
-            <li>
-                <a href="blog_post_2.html">Risk Management with Machine Learning</a>
-                <p>Exploring the intersection of machine learning and risk management frameworks, with a focus on enhancing predictive accuracy.</p>
-            </li>
-            <li>
-                <a href="blog_post_3.html">Climate Risk and Green Finance: A New Era</a>
-                <p>How the financial industry is adapting to the challenges of climate risk and supporting sustainable investment strategies.</p>
-            </li>
-        </ul>
+  <section id="blog">
+    <h2><i class="fas fa-pen-nib"></i> Welcome to My Blog</h2>
+    <p>
+      In this space, I share insights on computational finance, AI-driven quantitative research, risk management strategies, and other innovations in the financial sector. 
+      Stay updated with the latest research, projects, and ideas that shape the future of finance.
+    </p>
 
-        <p>Explore more posts to stay informed on the evolving landscape of finance and AI. Join the conversation, and feel free to leave comments or share your thoughts!</p>
-    </section>
+    <h3><i class="fas fa-newspaper"></i> Latest Posts</h3>
+    <ul>
+      <li>
+        <a href="blog_post_1.html">Understanding the Role of AI in Financial Modeling</a>
+        <p>A deep dive into how AI is transforming quantitative finance and its role in improving predictive models and decision-making.</p>
+      </li>
+      <li>
+        <a href="blog_post_2.html">Risk Management with Machine Learning</a>
+        <p>Exploring the intersection of machine learning and risk management frameworks, with a focus on enhancing predictive accuracy.</p>
+      </li>
+      <li>
+        <a href="blog_post_3.html">Climate Risk and Green Finance: A New Era</a>
+        <p>How the financial industry is adapting to the challenges of climate risk and supporting sustainable investment strategies.</p>
+      </li>
+    </ul>
 
-    <footer>
-        <p>&copy; 2024 Ratanlal Mahanta | All Rights Reserved</p>
-        <!-- Social Media Links -->
-        <div class="social-media">
-            <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar">
-                <i class="fas fa-graduation-cap"></i>
-            </a>
-        </div>
-    </footer>
+    <p>Explore more posts, join the conversation, and share your thoughts on the evolving landscape of finance and AI!</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Ratanlal Mahanta | All Rights Reserved</p>
+    <div class="social-media">
+      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+    </div>
+  </footer>
 </body>
 </html>
