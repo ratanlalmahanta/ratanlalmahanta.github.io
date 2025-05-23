@@ -1,56 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RsRL Project Timeline</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f4f4f4;
       margin: 0;
-      padding: 2rem;
+      padding: 2rem 1rem;
+      line-height: 1.5;
+    }
+
+    h2 {
+      text-align: center;
+      color: #007acc;
+      margin-bottom: 2rem;
     }
 
     .timeline {
-      max-width: 800px;
-      margin: auto;
       position: relative;
-      padding-left: 40px;
-      border-left: 3px solid #007acc;
+      max-width: 900px;
+      margin: auto;
+      padding-left: 20px;
+      border-left: 4px solid #007acc;
     }
 
     .event {
       margin: 1.5rem 0;
       position: relative;
+      padding-left: 1rem;
     }
 
     .event::before {
       content: '';
       position: absolute;
-      left: -10px;
-      top: 5px;
+      left: -12px;
+      top: 6px;
       width: 16px;
       height: 16px;
       background-color: #007acc;
-      border-radius: 50%;
       border: 2px solid white;
+      border-radius: 50%;
+      z-index: 1;
     }
 
     .event h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #333;
+      margin: 0 0 0.3rem 0;
+      font-size: 1.1rem;
+      color: #222;
     }
 
     .event span {
       font-size: 0.95rem;
       color: #666;
     }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      .timeline {
+        padding-left: 15px;
+      }
+
+      .event h3 {
+        font-size: 1rem;
+      }
+
+      .event span {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <h2 style="text-align:center;">RsRL Project Timeline</h2>
+  <h2>RsRL Project Timeline</h2>
   <div class="timeline">
     <div class="event">
       <h3>Asset Rating and Grading</h3>
