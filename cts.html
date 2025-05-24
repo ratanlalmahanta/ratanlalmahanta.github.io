@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NASDAQ Index Development Project</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      color: #1a237e;
+    }
+    h2 {
+      color: #283593;
+    }
+    ul {
+      margin-top: 0;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      font-size: 90%;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>NASDAQ and NASDAQ-Listed Index Development, Rebalancing, and Maintenance</h1>
+
+  <div class="section">
+    <h2>Tools & Technologies</h2>
+    <ul>
+      <li><strong>Languages:</strong> R (tidyverse, data.table, quantmod, lubridate)</li>
+      <li><strong>Platform:</strong> Databricks (R Notebooks, Delta Lake)</li>
+      <li><strong>Data Sources:</strong> NASDAQ feeds, SEC filings, Yahoo Finance, Quandl</li>
+      <li><strong>Storage:</strong> Delta Lake</li>
+      <li><strong>Orchestration:</strong> Databricks Jobs, DBFS mount</li>
+      <li><strong>Visualization:</strong> ggplot2, plotly, Databricks Dashboards</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Objective</h2>
+    <p>Design and automate a suite of customized indices based on NASDAQ-listed stocks, including rebalancing, performance benchmarking, and full audit trail maintenance.</p>
+  </div>
+
+  <div class="section">
+    <h2>Key Components</h2>
+
+    <h3>1. Index Design & Construction</h3>
+    <ul>
+      <li>Developed sectoral and thematic indices (e.g., NASDAQ GreenTech Index).</li>
+      <li>Rule-based screening: liquidity, float-adjusted market cap, listing type.</li>
+    </ul>
+
+    <h3>2. Data Pipeline (Databricks)</h3>
+    <ul>
+      <li>Ingested price, market cap, and sector data via APIs into Delta Lake.</li>
+      <li>Implemented full ETL using R Notebooks on Databricks platform.</li>
+    </ul>
+
+    <h3>3. Rebalancing Logic</h3>
+    <ul>
+      <li>Quarterly/monthly rebalancing using optimization via <code>quadprog</code>.</li>
+      <li>Scheduled with Databricks Jobs and stored as Delta tables with history.</li>
+    </ul>
+
+    <h3>4. Backtesting & Analytics</h3>
+    <ul>
+      <li>Calculated returns, volatility, Sharpe, drawdown, and tracking error.</li>
+      <li>Benchmarked against NASDAQ Composite, QQQ, and thematic ETFs.</li>
+    </ul>
+
+    <h3>5. Maintenance Automation</h3>
+    <ul>
+      <li>Handled corporate actions (splits, delistings) automatically.</li>
+      <li>Alert system to flag violations in eligibility criteria.</li>
+    </ul>
+
+    <h3>6. Compliance & Audit Trail</h3>
+    <ul>
+      <li>Used Delta Lake versioning and Change Data Feed for traceability.</li>
+      <li>Each rebalance includes justification and rule-based logging.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Outcomes</h2>
+    <ul>
+      <li>90% reduction in manual effort for index maintenance and rebalance.</li>
+      <li>Performance outperformance demonstrated in backtests (e.g., GreenTech index).</li>
+      <li>Comprehensive dashboard for index attribution and sector exposure.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Future Enhancements</h2>
+    <ul>
+      <li>Incorporate ESG and alternative datasets.</li>
+      <li>Apply clustering and PCA for advanced constituent selection.</li>
+      <li>Enable near-real-time streaming updates via Auto Loader.</li>
+    </ul>
+  </div>
+
+</body>
+</html>
