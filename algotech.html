@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algotech Portfolio Timeline</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #0d6efd;
+      margin-bottom: 30px;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 0;
+      padding-left: 30px;
+      border-left: 3px solid #0d6efd;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 15px 0 15px 20px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 18px;
+      width: 16px;
+      height: 16px;
+      background-color: #0d6efd;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+
+    .timeline-item h4 {
+      margin: 0;
+      color: #0d6efd;
+      font-size: 1.1em;
+    }
+
+    .timeline-item p {
+      margin: 5px 0 0;
+      color: #333;
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 600px) {
+      .timeline {
+        padding-left: 20px;
+      }
+
+      .timeline-item {
+        padding-left: 15px;
+      }
+
+      .timeline-item::before {
+        width: 12px;
+        height: 12px;
+        top: 16px;
+      }
+
+      .timeline-item h4 {
+        font-size: 1em;
+      }
+
+      .timeline-item p {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Algotech Portfolio – Project Timeline</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h4>Quantitative Research & Automation</h4>
+      <p>Researched equity derivatives and automated live trading for Volatility Arbitrage and Premarket long/short strategies.</p>
+    </div>
+    <div class="timeline-item">
+      <h4>ETF & Index Option Arbitrage</h4>
+      <p>Prototyped algorithmic trading strategies for ETF and index option arbitrage.</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Portfolio Asset Allocation</h4>
+      <p>Developed allocation models using stocks, futures, and options, based on investment horizon and risk tolerance.</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Nifty-BeES ETF Hedging</h4>
+      <p>Built a model to hedge Nifty-BeES with its constituent stocks in the Indian market.</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Sharpe-Optimized Value-Neutral Portfolio</h4>
+      <p>Constructed a Nifty 50 portfolio with equal buy/sell value and optimized weights to maximize the Sharpe Ratio.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
