@@ -3,198 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ratanlal Mahanta's profile in Computational Finance and AI-driven Quantitative Research." />
-  <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Derivatives, Machine Learning, Fintech" />
-  <meta name="author" content="Ratanlal Mahanta" />
-  <meta name="theme-color" content="#1a1a1a" />
+  <meta name="description" content="Ratanlal Mahanta's publications in Computational Finance and AI-driven Quantitative Research." />
+  <title>Publications - Ratanlal Mahanta</title>
+  
+  <!-- Fonts and Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Open Graph for Social Sharing -->
-  <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
-  <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
-  <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
-  <meta property="og:type" content="website" />
-
-  <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #222;
-    }
-
-    header {
-      background: #1a1a1a;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.8em;
-    }
-
-    header p {
-      margin: 0;
-      font-size: 0.9em;
-      color: #ccc;
-    }
-
-    #menu-toggle {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5em;
-      cursor: pointer;
-    }
-
-    aside.sidebar {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background: #333;
-      padding-top: 60px;
-      overflow-y: auto;
-      transition: left 0.3s ease-in-out;
-      z-index: 1000;
-    }
-
-    .sidebar.active {
-      left: 0;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .sidebar ul li {
-      padding: 15px 20px;
-    }
-
-    .sidebar ul li a {
-      color: white;
-      text-decoration: none;
-      display: block;
-      font-weight: bold;
-    }
-
-    .sidebar ul li a:hover,
-    .sidebar ul li a.active {
-      background: #444;
-      color: #2ecc71;
-    }
-
-    #close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.2em;
-      cursor: pointer;
-    }
-
-    main {
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2, h3 {
+      background-color: #f7f9fc;
       color: #1a1a1a;
     }
 
-    footer {
-      background: #1a1a1a;
-      color: #ccc;
+    header {
+      background-color: #1e293b;
+      color: white;
+      padding: 2rem 1rem;
       text-align: center;
+    }
+
+    h1, h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    section {
+      padding: 2rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: auto !important;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 1rem;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 40px auto;
+    }
+
+    .card {
+      background: #ffffff;
       padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     }
 
-    footer a {
-      color: #ccc;
-      margin: 0 10px;
+    .card h3 {
+      margin-top: 0;
+      font-size: 1rem;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 0.5rem 0;
+      padding: 3px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      color: white;
+    }
+
+    .card a {
+      color: #3498db;
       text-decoration: none;
+      font-weight: 500;
     }
 
-    footer a:hover {
-      color: #2ecc71;
+    .card a:hover {
+      text-decoration: underline;
     }
 
-    .social-media i {
-      margin: 0 5px;
-      font-size: 1.2em;
+    footer {
+      background: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
     }
 
-    .sr-only {
-      position: absolute;
-      left: -9999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
+    .social-media {
+      margin-top: 1rem;
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.4em;
+    .social-media a {
+      color: white;
+      margin: 0 0.75rem;
+      font-size: 1.25rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-media a:hover {
+      color: #3b82f6;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
       }
 
-      #menu-toggle {
-        font-size: 1.3em;
-      }
-
-      .sidebar ul li {
-        padding: 12px 16px;
-      }
-
-      main {
-        padding: 15px;
+      .card h3 {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
-
 <body>
+
   <header>
-    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
-    <div>
-      <h1>Ratanlal Mahanta</h1>
-      <p>Computational Finance | AI-Driven Quantitative Research</p>
-    </div>
-  </header>
-
-  <aside id="sidebar" class="sidebar" aria-label="Main Navigation">
-    <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="Lab.html">Lab & Innovation</a></li>
-      <li><a href="research_update.html">Research Update</a></li>
-      <li><a href="Work.html">Work Experience</a></li>
-      <li><a href="Talk.html">Quant Research</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
-  </aside>
-
-  <main>
-<header>
     <h1><i class="fas fa-book-open"></i> Research Update</h1>
   </header>
 
@@ -417,39 +345,23 @@
 
   </section>
 
-  </main>
-
-  <footer>
+ <footer>
     <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
     <p>
       Contact:
-      <a href="mailto:ratanlalmahanta@gmail.com" title="Email"><i class="fas fa-envelope"></i><span class="sr-only">Email</span></a>
+      <a href="mailto:ratanlalmahanta@gmail.com" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
     </p>
+
     <div class="social-media">
-      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="sr-only">LinkedIn</span></a>
-      <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a>
-      <a href="https://youtu.be/rjShU07P6Ds" target="_blank" title="YouTube"><i class="fab fa-youtube"></i><span class="sr-only">YouTube</span></a>
-      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i><span class="sr-only">GitHub</span></a>
-      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i><span class="sr-only">Google Scholar</span></a>
-      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i><span class="sr-only">Gemini</span></a>
-      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i><span class="sr-only">Grok</span></a>
+      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://youtu.be/rjShU07P6Ds" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
+      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X (Twitter)"><i class="fas fa-brain"></i></a>
     </div>
   </footer>
-
-  <script>
-    const sidebar = document.getElementById("sidebar");
-    const toggleBtn = document.getElementById("menu-toggle");
-    const closeBtn = document.getElementById("close-btn");
-
-    toggleBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-      toggleBtn.setAttribute("aria-expanded", sidebar.classList.contains("active"));
-    });
-
-    closeBtn.addEventListener("click", () => {
-      sidebar.classList.remove("active");
-      toggleBtn.setAttribute("aria-expanded", "false");
-    });
-  </script>
 </body>
 </html>
