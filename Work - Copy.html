@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work Experience Timeline</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f7fa;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .timeline {
+      border-left: 4px solid #3498db;
+      padding-left: 20px;
+      margin-bottom: 60px;
+      position: relative;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -8px;
+      width: 16px;
+      height: 16px;
+      background: #3498db;
+      border-radius: 50%;
+    }
+
+    .entry {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .entry::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 8px;
+      height: 4px;
+      width: 16px;
+      background: #3498db;
+    }
+
+    .entry h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #2c3e50;
+    }
+
+    .entry span {
+      color: #7f8c8d;
+      font-size: 14px;
+    }
+
+    .entry p {
+      margin: 5px 0 0;
+      font-size: 15px;
+    }
+
+    #careerChart {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 40px;
+      display: block;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      background: #ecf0f1;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    .social-media a {
+      margin: 0 8px;
+      color: #333;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .social-media a:hover {
+      color: #3498db;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Career Timeline</h1>
+
+  <div class="timeline">
+    <div class="entry">
+      <h3></i> <a href="rsrl.html">RSRL <span></a>(2019–2025)</span></h3>
+      <p>Lead Quant - AI-driven risk modeling, Model Validation, FRTB, XVA and hedging strategies.</p>
+    </div>
+    <div class="entry">
+      <h3></i> <a href="cts.html">Cognizant <span></a>(2019)</span></h3>
+      <p>Team Manager – Risk & Quant Analytics.</p>
+    </div>
+    <div class="entry">
+      <h3><h3></i> <a href="gpsk.html">GPSK Investment <span></a>(2014–2018)</span></h3>
+      <p>Senior Quant – Derivatives, macro hedging, alpha models.</p>
+    </div>
+    <div class="entry">
+      <h3><a href="algotech.html">Algotech Portfolio <span></a>(2012–2013)</span></h3>
+      <p>Quant Analyst – Algo trading, volatility models.</p>
+    </div>
+    <div class="entry">
+      <h3><a href="sharekhan.html">ShareKhan <span></a>(2012)</span></h3>
+      <p>Intern – Equity research and investment strategy.</p>
+    </div>
+  </div>
+
+  <h2>Career Duration Chart</h2>
+  <canvas id="careerChart"></canvas>
+
+  <img src="assets/images/GPSK1.jpg" alt="GPSK Investment" />
+
+  <footer>
+    <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
+    <p>Contact:
+      <a href="mailto:ratanlalmahanta@gmail.com" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </p>
+
+    <div class="social-media">
+      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://youtu.be/rjShU07P6Ds" target="_blank" title="Watch on YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini">
+        <i class="fas fa-atom"></i>
+      </a>
+      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X (Twitter)">
+        <i class="fas fa-brain"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    const ctx = document.getElementById('careerChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['ShareKhan', 'Algotech', 'GPSK', 'Cognizant', 'RSRL'],
+        datasets: [{
+          label: 'Years Worked',
+          data: [1, 1, 5, 1, 6],
+          backgroundColor: [
+            '#e74c3c',
+            '#9b59b6',
+            '#3498db',
+            '#f39c12',
+            '#2ecc71'
+          ],
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return `${context.parsed.y} year(s)`;
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Years'
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
