@@ -23,7 +23,6 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 20px;
-      position: relative;
     }
 
     header h1 {
@@ -94,6 +93,28 @@
     main {
       padding: 20px;
     }
+
+    footer {
+      background: #1a1a1a;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #ccc;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .social-media i {
+      margin: 0 5px;
+      font-size: 1.2em;
+    }
   </style>
 </head>
 
@@ -138,24 +159,10 @@
     </section>
   </main>
 
-  <script>
-    const sidebar = document.getElementById("sidebar");
-    const toggleBtn = document.getElementById("menu-toggle");
-    const closeBtn = document.getElementById("close-btn");
-
-    toggleBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-    });
-
-    closeBtn.addEventListener("click", () => {
-      sidebar.classList.remove("active");
-    });
-  </script>
-</body>
-</html>
-<footer>
+  <footer>
     <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
-    <p>Contact:
+    <p>
+      Contact:
       <a href="mailto:ratanlalmahanta@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
     </p>
 
@@ -171,16 +178,16 @@
   </footer>
 
   <script>
-    const menuToggle = document.getElementById("menu-toggle");
     const sidebar = document.getElementById("sidebar");
+    const toggleBtn = document.getElementById("menu-toggle");
     const closeBtn = document.getElementById("close-btn");
 
-    menuToggle.addEventListener("click", () => {
-      sidebar.classList.add("open");
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
     });
 
     closeBtn.addEventListener("click", () => {
-      sidebar.classList.remove("open");
+      sidebar.classList.remove("active");
     });
   </script>
 </body>
