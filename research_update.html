@@ -3,133 +3,365 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ratanlal Mahanta's profile in Computational Finance and AI-driven Quantitative Research." />
-  <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Derivatives, Machine Learning, Fintech" />
-  <meta name="author" content="Ratanlal Mahanta" />
-  <meta name="theme-color" content="#1a1a1a" />
+  <meta name="description" content="Ratanlal Mahanta's publications in Computational Finance and AI-driven Quantitative Research." />
+  <title>Publications - Ratanlal Mahanta</title>
+  
+  <!-- Fonts and Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Open Graph for Social Sharing -->
-  <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
-  <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
-  <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
-  <meta property="og:type" content="website" />
-
-  <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <!-- Chart.js -->
+  <!-- Charts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
-    /* [Keep your style block unchanged here, it’s already good] */
-    /* No changes needed in CSS – structure and responsiveness are solid */
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #f7f9fc;
+      color: #1a1a1a;
+    }
+
+    header {
+      background-color: #1e293b;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    h1, h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    section {
+      padding: 2rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: auto !important;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 1rem;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 40px auto;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1rem;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 0.5rem 0;
+      padding: 3px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      color: white;
+    }
+
+    .card a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .social-media {
+      margin-top: 1rem;
+    }
+
+    .social-media a {
+      color: white;
+      margin: 0 0.75rem;
+      font-size: 1.25rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-media a:hover {
+      color: #3b82f6;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .card h3 {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
-
 <body>
+
   <header>
-    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
-    <div>
-      <h1>Ratanlal Mahanta</h1>
-      <p>Computational Finance | AI-Driven Quantitative Research</p>
-    </div>
+    <h1><i class="fas fa-book-open"></i> Research Update</h1>
   </header>
 
-  <aside id="sidebar" class="sidebar" aria-label="Main Navigation">
-    <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="Lab.html">Lab & Innovation</a></li>
-      <li><a href="research_update.html">Research Update</a></li>
-      <li><a href="Work.html">Work Experience</a></li>
-      <li><a href="Talk.html">Quant Research</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
-  </aside>
-
-  <main>
-    <section>
-      <h2><i class="fas fa-book-open"></i> Research Update</h2>
-    </section>
-
-    <section id="citations-graph">
-      <h2><i class="fas fa-chart-line"></i> Citation Graph</h2>
-      <canvas id="citationsChart"></canvas>
-      <script>
-        const ctx = document.getElementById('citationsChart').getContext('2d');
-        new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: ['2014', '2015', '2016', '2017', '2018','2019', '2020', '2021', '2022', '2023','2024','2025'],
-            datasets: [{
-              label: 'Citations Over Time',
-              data: [1, 6, 22, 54, 86, 129, 163, 227, 276, 309, 347, 362],
-              borderColor: '#3b82f6',
-              backgroundColor: 'rgba(59, 130, 246, 0.2)',
-              tension: 0.4,
-              fill: true,
-              pointRadius: 4,
-              pointHoverRadius: 6
-            }]
+  <section id="citations-graph">
+    <h2><i class="fas fa-chart-line"></i> Citation Graph</h2>
+    <canvas id="citationsChart"></canvas>
+    <script>
+      const ctx = document.getElementById('citationsChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['2014', '2015', '2016', '2017', '2018','2019', '2020', '2021', '2022', '2023','2024','2025'],
+          datasets: [{
+            label: 'Citations Over Time',
+            data: [1, 6, 22, 54, 86, 129, 163, 227, 276, 309, 347,362],
+            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+            tension: 0.4,
+            fill: true,
+            pointRadius: 4,
+            pointHoverRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: true }
           },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: { display: true }
-            },
-            scales: {
-              x: { title: { display: true, text: 'Year' }},
-              y: { title: { display: true, text: 'Citation Count' }}
-            }
+          scales: {
+            x: { title: { display: true, text: 'Year' }},
+            y: { title: { display: true, text: 'Citation Count' }}
           }
-        });
-      </script>
-    </section>
+        }
+      });
+    </script>
+  </section>
 
-    <section class="grid-cards">
-      <!-- Your cards start here -->
-      <!-- No change needed to individual cards, just make sure this section is fully enclosed -->
-      <!-- [Place all your <div class="card">...</div> here as-is] -->
-      <!-- Cards are already well-formatted -->
-    </section>
-  </main>
+  <section class="grid-cards">
+    <div class="card">
+      <h3>📘 Monte Carlo Risk Overlay</h3>
+      <span class="tag" style="background: #27ae60;">May 2025</span>
+      <p>Dynamic hedge framework blending GARCH and Monte Carlo simulations with volatility surface shifts.</p>
+      <a href="#">🔗 View Research</a>
+    </div>
 
-  <footer>
+    <div class="card">
+      <h3>📊 Financed Emissions Uncertainty</h3>
+      <span class="tag" style="background: #f39c12;">April 2025</span>
+      <p>EEIO-based Scope 3 modeling with Monte Carlo bands and sectoral CPI-normalized trajectories.</p>
+      <a href="#">🔗 View Research</a>
+    </div>
+
+    <div class="card">
+      <h3>🔍 Bermudan Swaption Hedging</h3>
+      <span class="tag" style="background: #8e44ad;">March 2025</span>
+      <p>LSM-based pricing with DV01/Vega overlays using QuantLib and comparative G2++ vs Hull-White stress tests.</p>
+      <a href="#">🔗 View Research</a>
+    </div>
+
+    <div class="card">
+      <h3>📉 CDS Pricing via Structural Models</h3>
+      <span class="tag" style="background: #c0392b;">February 2025</span>
+      <p>CDS valuation via Merton-style firm value simulations linked to macro-default probabilities.</p>
+      <a href="#">🔗 View Research</a>
+    </div>
+
+    <div class="card">
+      <h3>🧮 t-Copula Default Basket Swaps</h3>
+      <span class="tag" style="background: #2c3e50;">January 2025</span>
+      <p>t-Copula pricing for kth-to-default swaps with antithetic variates and dynamic threshold analytics.</p>
+      <a href="#">🔗 View Research</a>
+    </div>
+
+    <div class="card">
+      <h3>🌍 Scope 1–3 Monte Carlo Engine</h3>
+      <span class="tag" style="background: #16a085;">Dec 2024</span>
+      <p>Unified simulator using hybrid LCA and EEIO methods with volatility overlays across sectors.</p>
+      <a href="#">🔗 View Research</a>
+    </div>
+
+    <div class="card">
+      <h3>🏦 Advanced IRRBB Analytics</h3>
+      <span class="tag" style="background: #2980b9;">Nov 2024</span>
+      <p>Basel-compliant IRRBB models capturing basis, repricing, and optionality effects.</p>
+      <a href="#">🔗 View Research</a>
+    </div>
+
+    <div class="card">
+      <h3>🤖 Reinforcement Learning in Algo Trading</h3>
+      <span class="tag" style="background: #d35400;">Oct 2024</span>
+      <p>Adaptive market making with Q-learning and policy gradient techniques under variable liquidity.</p>
+      <a href="#">🔗 View Research</a>
+    </div>
+  <!-- Research Card 9 (continued) -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">⚡ Stress Testing & Macro Scenario Overlay</h3>
+    <span style="background: #7f8c8d; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">October 2024</span>
+    <p>Framework for overlaying macroeconomic shocks on portfolio-level exposures using regime-switching VARs and scenario trees to assess systemic risk amplification.</p>
+    <a href="link-to-paper-9.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  <!-- Research Card 10 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">📡 Kalman Filter Yield Curve Estimation</h3>
+    <span style="background: #6c5ce7; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">September 2024</span>
+    <p>Latent factor modeling of the term structure using Kalman filters, integrating noise from market liquidity and central bank signaling for forward rate extraction.</p>
+    <a href="link-to-paper-10.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  <!-- Research Card 11 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">📈 Proxy Hedge Backtesting Framework</h3>
+    <span style="background: #00b894; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">August 2024</span>
+    <p>Design of a proxy hedging model for illiquid assets using liquid instruments, with historical stress period validation and cost-efficiency scoring.</p>
+    <a href="link-to-paper-11.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  
+  <!-- Research Card 13 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">🔄 LSM-Based Bermudan Swaption Hedging</h3>
+    <span style="background: #fdcb6e; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">June 2024</span>
+    <p>Longstaff-Schwartz Monte Carlo model with regression-based continuation value estimation to price and hedge Bermudan swaptions under volatility smiles.</p>
+    <a href="link-to-paper-13.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  <!-- Research Card 14 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">📉 G2++ vs Hull-White Model Comparison</h3>
+    <span style="background: #e17055; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">May 2024</span>
+    <p>Calibration and pricing comparison of G2++ and Hull-White models using swaptions and callable structures; includes PCA factor analysis for curve risk.</p>
+    <a href="link-to-paper-14.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  <!-- Research Card 15 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">📊 Credit Loss Forecasting under Stress</h3>
+    <span style="background: #fab1a0; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">April 2024</span>
+    <p>IFRS 9-compliant credit loss engine with term structure overlays, macroeconomic variable regression, and forward-looking PD estimation using ML models.</p>
+    <a href="link-to-paper-15.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  
+  <!-- Research Card 17 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">🧮 Copula-Based Basket Default Modeling</h3>
+    <span style="background: #b2bec3; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">February 2024</span>
+    <p>Implementation of Gaussian and t-copula models for kth-to-default pricing with antithetic variates, recovery-rate uncertainty, and Monte Carlo simulation.</p>
+    <a href="link-to-paper-17.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  <!-- Research Card 18 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">💡 CDS Term Structure via Structural Models</h3>
+    <span style="background: #d63031; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">January 2024</span>
+    <p>Merton model calibration to market CDS spreads with firm value dynamics, default barrier estimation, and term-structure aligned survival probability curves.</p>
+    <a href="link-to-paper-18.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+</div>
+
+  <!-- Research Card 19 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">🔧 VBA to Python: Bermudan Swaption Greeks</h3>
+    <span style="background: #6c5ce7; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">December 2023</span>
+    <p>Converted VBA models into QuantLib-Python framework for efficient computation of DV01 and Vega of callable Bermudan swaptions under dynamic yield curves.</p>
+    <a href="link-to-paper-19.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  <!-- Research Card 20 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">📈 Monte Carlo GHG Emissions Dashboard</h3>
+    <span style="background: #00b894; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">November 2023</span>
+    <p>End-to-end dashboard integrating Input-Output models, sector-based emission intensities, and Monte Carlo simulation for Scope 1–3 GHG emissions tracking.</p>
+    <a href="link-to-paper-20.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  
+  
+  <!-- Research Card 23 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">💹 Macro-Hedging Simulator for Derivatives</h3>
+    <span style="background: #e84393; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">August 2023</span>
+    <p>Hedge payoff simulator integrating macroeconomic scenario paths, Monte Carlo overlays, and Greeks analysis to evaluate hedge effectiveness and tail risks.</p>
+    <a href="link-to-paper-23.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+    
+  <!-- Research Card 26 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">🔍 CDS Pricing via Structural Credit Models</h3>
+    <span style="background: #2d3436; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">May 2023</span>
+    <p>Integrated Merton and reduced-form credit risk frameworks for CDS spread pricing and term structure calibration using historical defaults and asset volatilities.</p>
+    <a href="link-to-paper-26.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  
+  <!-- Research Card 28 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">📊 Interactive CVA VaR Surface Simulator</h3>
+    <span style="background: #fab1a0; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">March 2023</span>
+    <p>Monte Carlo tool to simulate CVA exposure profiles under correlated interest and credit spread shocks, with dynamic VaR/CVaR heatmaps and XVA adjustments.</p>
+    <a href="link-to-paper-28.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  <!-- Research Card 29 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">📉 G2++ vs Hull-White Bermudan Calibration</h3>
+    <span style="background: #e17055; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">February 2023</span>
+    <p>Compared swaption prices and sensitivities under calibrated G2++ and Hull-White one-factor models using market swaptions and volatility term structures.</p>
+    <a href="link-to-paper-29.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  <!-- Research Card 30 -->
+  <div style="border-radius: 12px; background: #ffffff; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">📦 t-Copula Basket CDS Pricing Engine</h3>
+    <span style="background: #d63031; color: white; padding: 3px 10px; border-radius: 15px; font-size: 12px;">January 2023</span>
+    <p>Python implementation of t-copula-based kth-to-default pricing for correlated credit baskets using antithetic variates and historical calibration of copula parameters.</p>
+    <a href="link-to-paper-30.pdf" target="_blank" style="color: #3498db; text-decoration: none;">🔗 View Research</a>
+  </div>
+
+  </section>
+
+ <footer>
     <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
     <p>
       Contact:
-      <a href="mailto:ratanlalmahanta@gmail.com" title="Email"><i class="fas fa-envelope"></i><span class="sr-only">Email</span></a>
+      <a href="mailto:ratanlalmahanta@gmail.com" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
     </p>
+
     <div class="social-media">
-      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="sr-only">LinkedIn</span></a>
-      <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a>
-      <a href="https://youtu.be/rjShU07P6Ds" target="_blank" title="YouTube"><i class="fab fa-youtube"></i><span class="sr-only">YouTube</span></a>
-      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i><span class="sr-only">GitHub</span></a>
-      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i><span class="sr-only">Google Scholar</span></a>
-      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i><span class="sr-only">Gemini</span></a>
-      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i><span class="sr-only">Grok</span></a>
+      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://youtu.be/rjShU07P6Ds" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
+      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X (Twitter)"><i class="fas fa-brain"></i></a>
     </div>
   </footer>
-
-  <script>
-    const sidebar = document.getElementById("sidebar");
-    const toggleBtn = document.getElementById("menu-toggle");
-    const closeBtn = document.getElementById("close-btn");
-
-    toggleBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-      toggleBtn.setAttribute("aria-expanded", sidebar.classList.contains("active"));
-    });
-
-    closeBtn.addEventListener("click", () => {
-      sidebar.classList.remove("active");
-      toggleBtn.setAttribute("aria-expanded", "false");
-    });
-  </script>
 </body>
 </html>
