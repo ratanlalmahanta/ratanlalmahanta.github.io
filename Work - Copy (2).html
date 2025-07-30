@@ -20,6 +20,9 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -118,6 +121,10 @@
       color: #1a1a1a;
     }
 
+    .timeline .entry {
+      margin-bottom: 20px;
+    }
+
     footer {
       background: #1a1a1a;
       color: #ccc;
@@ -194,37 +201,33 @@
   </aside>
 
   <main>
-    <section>
-      <h2>Welcome!</h2>
-      <!-- Intro content remains unchanged -->
-      <p>I’m <strong>Ratanlal Mahanta</strong>, a dedicated researcher and lead scientist specializing in 
-        <a href="https://en.wikipedia.org/wiki/Computational_finance" target="_blank" rel="noopener"><strong>Computational Finance</strong></a> and <strong>AI-driven Quantitative Research</strong>.
-      </p>
-	   <p>Currently, I work on pioneering projects that integrate <strong>machine learning</strong>, <strong>stochastic modeling</strong>, and <strong>scenario simulations</strong> to push the boundaries of finance. My expertise spans various fields, including <strong>option pricing models</strong>, <strong>credit valuation adjustments (CVA)</strong>, <strong>climate risk</strong> in finance, and <strong>tail risk hedging</strong> through scenario simulations. I have an extensive background in <strong>Bayesian machine learning</strong>, <strong>quantitative trading strategies</strong>, and <strong>dynamic hedging</strong>.</p>
+    <h1>Career Timeline</h1>
+    <div class="timeline">
+      <div class="entry">
+        <h3><a href="rsrl.html">RSRL</a> <span>(2019–2025)</span></h3>
+        <p>Lead Quant - AI-driven risk modeling, Model Validation, FRTB, XVA and hedging strategies.</p>
+      </div>
+      <div class="entry">
+        <h3><a href="cts.html">Cognizant</a> <span>(2019)</span></h3>
+        <p>Team Manager – Risk & Quant Analytics.</p>
+      </div>
+      <div class="entry">
+        <h3><a href="gpsk.html">GPSK Investment</a> <span>(2014–2018)</span></h3>
+        <p>Senior Quant – Derivatives, macro hedging, alpha models.</p>
+      </div>
+      <div class="entry">
+        <h3><a href="algotech.html">Algotech Portfolio</a> <span>(2012–2013)</span></h3>
+        <p>Quant Analyst – Algo trading, volatility models.</p>
+      </div>
+      <div class="entry">
+        <h3><a href="sharekhan.html">ShareKhan</a> <span>(2012)</span></h3>
+        <p>Intern – Equity research and investment strategy.</p>
+      </div>
+    </div>
 
-        <p>My career bridges the depth of quantitative development and the rigor of model validation. I’ve led validations of high-impact models including CVA, IRRBB, FRTB-SA, repo VaR, and various internal capital engines. I work closely with regulatory stakeholders and internal audit teams to establish robust governance frameworks, helping financial institutions meet both compliance and innovation goals.</p>
-
-        <p>With over <strong>330 citations</strong> and an <strong>h-index of 10</strong>, my work is recognized in global conferences such as <strong>IRMC 2024</strong>, <strong>IMRC Milan</strong>, and the <strong>Odisha AI Conference 2024</strong>. My contributions span cutting-edge research and enterprise-grade implementation, from <strong>Monte Carlo CVA engines</strong> and <strong>deep hedging via reinforcement learning</strong> to <strong>fire-sale repo haircut stress testing</strong> and <strong>wrong-way risk modeling via copulas</strong>.</p>
-
-        <p>I’ve built full validation stacks, dashboards, and regulatory submission toolkits that integrate Python, Excel, and Streamlit. My strategic focus includes aligning AI-powered quant models with capital planning, scenario design, NMRF assessments, and ESG-aligned stress frameworks. With a strong foundation in startup culture and product innovation, I combine agility and technical depth to solve frontier problems in financial risk and derivatives modeling.</p>
-
-        <p>Here, I aim to share insights into my evolving projects—from <strong>quantitative alpha strategy development</strong> to <strong>green finance risk engines</strong>—while showcasing how <strong>AI, regulation, and quantitative finance</strong> are converging to reshape global markets.</p>
-      <!-- Full detailed bio here (as in your message above) -->
-    </section>
-
-    <section id="highlights">
-      <h3><i class="fas fa-star"></i> Highlights</h3>
-      <ul>
-        <li><strong>Quantitative Expertise</strong>: Option pricing, credit valuation, climate risk, and stochastic volatility modeling.</li>
-        <li><strong>Risk Management Focus</strong>: Scenario simulation for tail risk hedging and dynamic hedging.</li>
-        <li><strong>Model Validation Leadership</strong>: CVA Greeks, repo VaR, FRTB-SA, IRRBB, and deep audit tooling.</li>
-        <li><strong>Innovative Research</strong>: AI/ML-driven finance with reinforcement learning and Bayesian inference models.</li>
-        <li><strong>Regulatory Readiness</strong>: Alignment with ECB, CBUAE, PRA and audit-driven stress scenario platforms.</li>
-        <li><strong>Recognized Scholar</strong>: Publications, citations, and invited talks at leading finance and AI forums.</li>
-        <li><strong>System Development</strong>: Streamlit/Excel dashboards, quant API stacks, and live scenario simulators.</li>
-        <li><strong>Thought Leadership</strong>: Driving the frontier in capital modeling, margin optimization, and AI governance.</li>
-      </ul>
-    </section>
+    <h2>Career Duration Chart</h2>
+    <canvas id="careerChart"></canvas>
+    <img src="assets/images/GPSK1.jpg" alt="GPSK Investment" />
   </main>
 
   <footer>
@@ -257,6 +260,42 @@
     closeBtn.addEventListener("click", () => {
       sidebar.classList.remove("active");
       toggleBtn.setAttribute("aria-expanded", "false");
+    });
+
+    const ctx = document.getElementById('careerChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['ShareKhan', 'Algotech', 'GPSK', 'Cognizant', 'RSRL'],
+        datasets: [{
+          label: 'Years Worked',
+          data: [1, 1, 5, 1, 6],
+          backgroundColor: ['#e74c3c', '#9b59b6', '#3498db', '#f39c12', '#2ecc71'],
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return `${context.parsed.y} year(s)`;
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Years'
+            }
+          }
+        }
+      }
     });
   </script>
 </body>
