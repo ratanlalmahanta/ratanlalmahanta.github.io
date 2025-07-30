@@ -26,74 +26,41 @@
     header {
       background: #2c3e50;
       color: #fff;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 40px 20px;
+      text-align: center;
     }
 
     header h1 {
       margin: 0;
-      font-size: 1.8rem;
+      font-size: 2.5rem;
     }
 
     header p {
-      font-size: 1rem;
-      margin: 5px 0 0;
+      font-size: 1.2rem;
       opacity: 0.9;
     }
 
-    #menu-toggle {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -260px;
-      width: 250px;
-      height: 100%;
+    nav {
       background: #34495e;
-      color: white;
-      transition: left 0.3s ease-in-out;
-      padding: 1rem;
-      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
     }
 
-    .sidebar.open {
-      left: 0;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .sidebar ul li {
-      padding: 0.8rem 0;
-      border-bottom: 1px solid #2c3e50;
-    }
-
-    .sidebar ul li a {
-      color: white;
+    nav a {
+      color: #ecf0f1;
+      padding: 14px 20px;
       text-decoration: none;
       font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
     }
 
-    #close-btn {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      cursor: pointer;
+    nav a:hover {
+      background-color: #2ecc71;
+      color: #fff;
     }
 
     section#intro {
@@ -151,6 +118,10 @@
       color: #2ecc71;
     }
 
+    .social-media i {
+      vertical-align: middle;
+    }
+
     footer p a {
       color: #2ecc71;
       text-decoration: none;
@@ -160,9 +131,26 @@
       text-decoration: underline;
     }
 
+    /* Responsive Styles */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        padding: 12px 16px;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #2c3e50;
       }
 
       section#intro {
@@ -188,42 +176,38 @@
 
 <body>
   <header>
-    <button id="menu-toggle"><i class="fas fa-bars"></i></button>
-    <div>
-      <h1>Ratanlal Mahanta</h1>
-      <p>Computational Finance | AI-Driven Quantitative Research</p>
-    </div>
+    <h1>Ratanlal Mahanta</h1>
+    <p>Computational Finance | AI-Driven Quantitative Research<strong></strong><a href="https://en.wikipedia.org/wiki/Computational_finance" target="_blank"></p>
   </header>
 
-  <nav id="sidebar" class="sidebar">
-    <button id="close-btn"><i class="fas fa-times"></i></button>
-    <ul>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="Lab.html">Lab & Innovation</a></li>
-      <li><a href="research_update.html">Research Update</a></li>
-      <li><a href="Work.html">Work Experience</a></li>
-      <li><a href="Talk.html">Quant Research</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="publications.html">Publications</a>
+    <a href="Lab.html">Lab & Innovation</a>
+    <a href="research_update.html">Research Update</a>
+    <a href="Work.html">Work Experience</a>
+    <a href="Talk.html">Talks</a>
+    <a href="blog.html">Blog</a>
   </nav>
 
   <section id="intro">
     <h2>Welcome</h2>
     <img src="assets/images/ratanlal-mahanta.jpg" alt="Ratanlal Mahanta" />
     <p>With 12 years of experience in <a href="https://en.wikipedia.org/wiki/Computational_finance" target="_blank">Computational Finance</a> and AI, I lead with a hands-on approach to developing and deploying <a href="https://en.wikipedia.org/wiki/Quantitative_analysis_(finance)#Quantitative_investment_management" target="_blank">advanced quantitative models</a>. My work integrates machine learning, stochastic processes, and complex risk management frameworks to address critical challenges in finance.</p>
-    <p>I build advanced simulation engines for pricing exotic options, XVA, and FRTB frameworks. I lead development of reusable model validation frameworks covering IRRBB, CVA, repo risk, and historical VaR. My work blends regulatory precision, ML inference, stochastic modeling, and capital analytics.</p>
-    <p>I’ve authored practical frameworks on topics like Bermudan swaption LSM hedging, t-copula basket default swaps, CDS pricing under Merton models, and repo haircut–spread dynamics. I develop institutional training programs, dashboards for audit-ready model governance, and LaTeX-based research deliverables.</p>
-    <p>My current focus: intelligent validation systems, Bayesian credit models, dynamic liquidity simulation under FRTB-SA, and margin stress engines with FX/repo contagion effects. Let’s shape robust financial systems through quant rigor and applied AI.</p>
+
     <p>I specialize in the calibration and application of models such as the Heston model, Hull-White interest rate models, and the Merton model, tailoring them to meet the precise demands of risk management and market risk.</p>
+
     <p>My recent projects include FRTB simulation frameworks, tail risk hedging, XVA and Bayesian inference models for predictive analytics. Explore my work and research to discover how AI and finance converge to shape tomorrow's markets.</p>
   </section>
 
   <footer>
     <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
-    <p>Contact:
-      <a href="mailto:ratanlalmahanta@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <p>
+      Contact:
+      <a href="mailto:ratanlalmahanta@gmail.com" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
     </p>
 
     <div class="social-media">
@@ -234,21 +218,8 @@
       <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
       <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
       <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X (Twitter)"><i class="fas fa-brain"></i></a>
+      <a href="https://copilot.microsoft.com/shares/5DfT4GEBbwKB4hDpNUUhf" target="_blank" title="Copilot"><i class="fas fa-brain"></i></a>
     </div>
   </footer>
-
-  <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const sidebar = document.getElementById("sidebar");
-    const closeBtn = document.getElementById("close-btn");
-
-    menuToggle.addEventListener("click", () => {
-      sidebar.classList.add("open");
-    });
-
-    closeBtn.addEventListener("click", () => {
-      sidebar.classList.remove("open");
-    });
-  </script>
 </body>
 </html>
