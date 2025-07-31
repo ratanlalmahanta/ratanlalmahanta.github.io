@@ -86,7 +86,6 @@
       text-decoration: none;
       display: block;
       font-weight: bold;
-      cursor: pointer;
     }
 
     .sidebar ul li a:hover,
@@ -95,23 +94,22 @@
       color: #2ecc71;
     }
 
-    .submenu {
-      display: none;
+    .sidebar ul li ul {
       padding-left: 10px;
-      transition: all 0.3s ease-in-out;
+      margin-top: 5px;
     }
 
-    .submenu li {
+    .sidebar ul li ul li {
       padding: 8px 20px;
       font-weight: normal;
     }
 
-    .submenu li a {
+    .sidebar ul li ul li a {
       color: #ccc;
       font-weight: normal;
     }
 
-    .submenu li a:hover {
+    .sidebar ul li ul li a:hover {
       color: #2ecc71;
     }
 
@@ -206,10 +204,8 @@
       <li><a href="Lab.html">Lab & Innovation</a></li>
       <li><a href="research_update.html">Research Update</a></li>
       <li>
-        <a class="has-submenu" id="workToggle">
-          Work Experience <i class="fas fa-caret-down" style="float:right;"></i>
-        </a>
-        <ul class="submenu" id="workSubmenu">
+        <a href="Work.html">Work Experience <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul>
           <li><a href="work_rsrl.html">RsRL</a></li>
           <li><a href="work_cognizant.html">Cognizant</a></li>
           <li><a href="work_gpsk.html">GPSK</a></li>
@@ -231,8 +227,8 @@
       <p>My current focus: intelligent validation systems, Bayesian credit models, dynamic liquidity simulation under FRTB-SA, and margin stress engines with FX/repo contagion effects. Let’s shape robust financial systems through quant rigor and applied AI.</p>
       <p>I specialize in the calibration and application of models such as the Heston model, Hull-White interest rate models, and the Merton model, tailoring them to meet the precise demands of risk management and market risk.</p>
       <p>My recent projects include FRTB simulation frameworks, tail risk hedging, XVA and Bayesian inference models for predictive analytics. Explore my work and research to discover how AI and finance converge to shape tomorrow's markets.</p>
-      <p>With a deep focus on algorithmic trading infrastructure, I’ve built a modular, production-grade Python framework that spans the full lifecycle of quantitative strategy development—from signal generation to live server deployment.</p>
-      <p>This system integrates financial time series modeling, machine learning, and technical indicators to construct momentum, mean-reversion, and multi-factor rule-based strategies. I’ve engineered reusable components for data ingestion, preprocessing pipelines, and signal processing.</p>
+      <p> With a deep focus on algorithmic trading infrastructure, I’ve built a modular, production-grade Python framework that spans the full lifecycle of quantitative strategy development—from signal generation to live server deployment.<p>
+      <p> This system integrates financial time series modeling, machine learning, and technical indicators to construct momentum, mean-reversion, and multi-factor rule-based strategies. I’ve engineered reusable components for data ingestion , preprocessing pipelines, and signal processing.<p>
     </section>
   </main>
 
@@ -265,15 +261,6 @@
     closeBtn.addEventListener("click", () => {
       sidebar.classList.remove("active");
       toggleBtn.setAttribute("aria-expanded", "false");
-    });
-
-    // Toggle Work Experience submenu
-    const workToggle = document.getElementById("workToggle");
-    const workSubmenu = document.getElementById("workSubmenu");
-
-    workToggle.addEventListener("click", () => {
-      const isVisible = workSubmenu.style.display === "block";
-      workSubmenu.style.display = isVisible ? "none" : "block";
     });
   </script>
 </body>

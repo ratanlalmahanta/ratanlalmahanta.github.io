@@ -8,6 +8,7 @@
   <meta name="author" content="Ratanlal Mahanta" />
   <meta name="theme-color" content="#1a1a1a" />
 
+  <!-- Open Graph for Social Sharing -->
   <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
   <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
   <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
@@ -86,32 +87,11 @@
       text-decoration: none;
       display: block;
       font-weight: bold;
-      cursor: pointer;
     }
 
     .sidebar ul li a:hover,
     .sidebar ul li a.active {
       background: #444;
-      color: #2ecc71;
-    }
-
-    .submenu {
-      display: none;
-      padding-left: 10px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .submenu li {
-      padding: 8px 20px;
-      font-weight: normal;
-    }
-
-    .submenu li a {
-      color: #ccc;
-      font-weight: normal;
-    }
-
-    .submenu li a:hover {
       color: #2ecc71;
     }
 
@@ -184,6 +164,42 @@
         padding: 15px;
       }
     }
+
+    /* Work Experience Slider Styles */
+    .work-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .work-card {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      min-width: 250px;
+      max-width: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .work-card h3 {
+      margin-top: 0;
+      color: #1a1a1a;
+    }
+
+    .work-card p {
+      font-size: 0.9em;
+      color: #555;
+    }
   </style>
 </head>
 
@@ -205,17 +221,7 @@
       <li><a href="publications.html">Publications</a></li>
       <li><a href="Lab.html">Lab & Innovation</a></li>
       <li><a href="research_update.html">Research Update</a></li>
-      <li>
-        <a class="has-submenu" id="workToggle">
-          Work Experience <i class="fas fa-caret-down" style="float:right;"></i>
-        </a>
-        <ul class="submenu" id="workSubmenu">
-          <li><a href="work_rsrl.html">RsRL</a></li>
-          <li><a href="work_cognizant.html">Cognizant</a></li>
-          <li><a href="work_gpsk.html">GPSK</a></li>
-          <li><a href="work_algotech.html">Algotech</a></li>
-        </ul>
-      </li>
+      <li><a href="Work.html">Work Experience</a></li>
       <li><a href="Talk.html">Quant Research</a></li>
       <li><a href="blog.html">Blog</a></li>
     </ul>
@@ -231,8 +237,30 @@
       <p>My current focus: intelligent validation systems, Bayesian credit models, dynamic liquidity simulation under FRTB-SA, and margin stress engines with FX/repo contagion effects. Let’s shape robust financial systems through quant rigor and applied AI.</p>
       <p>I specialize in the calibration and application of models such as the Heston model, Hull-White interest rate models, and the Merton model, tailoring them to meet the precise demands of risk management and market risk.</p>
       <p>My recent projects include FRTB simulation frameworks, tail risk hedging, XVA and Bayesian inference models for predictive analytics. Explore my work and research to discover how AI and finance converge to shape tomorrow's markets.</p>
-      <p>With a deep focus on algorithmic trading infrastructure, I’ve built a modular, production-grade Python framework that spans the full lifecycle of quantitative strategy development—from signal generation to live server deployment.</p>
-      <p>This system integrates financial time series modeling, machine learning, and technical indicators to construct momentum, mean-reversion, and multi-factor rule-based strategies. I’ve engineered reusable components for data ingestion, preprocessing pipelines, and signal processing.</p>
+      <p> With a deep focus on algorithmic trading infrastructure, I’ve built a modular, production-grade Python framework that spans the full lifecycle of quantitative strategy development—from signal generation to live server deployment.<p>
+      <p> This system integrates financial time series modeling, machine learning, and technical indicators to construct momentum, mean-reversion, and multi-factor rule-based strategies. I’ve engineered reusable components for data ingestion , preprocessing pipelines, and signal processing.<p> 
+    </section>
+
+    <section id="work">
+      <h2>Work Experience</h2>
+      <div class="work-slider">
+        <div class="work-card">
+          <h3>RsRL</h3>
+          <p>Led quantitative validation and AI-driven risk engines for structured derivatives. Focused on repo, FRTB, and regulatory model governance.</p>
+        </div>
+        <div class="work-card">
+          <h3>Cognizant</h3>
+          <p>Developed financial models and Monte Carlo engines across CVA, XVA, and regulatory capital reporting frameworks.</p>
+        </div>
+        <div class="work-card">
+          <h3>GPSK</h3>
+          <p>Built enterprise-level model validation platforms with stress testing, VaR frameworks, and credit simulation architecture.</p>
+        </div>
+        <div class="work-card">
+          <h3>Algotech</h3>
+          <p>Engineered algorithmic trading pipelines using statistical learning, live market data, and Python-based quant infra.</p>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -267,13 +295,25 @@
       toggleBtn.setAttribute("aria-expanded", "false");
     });
 
-    // Toggle Work Experience submenu
-    const workToggle = document.getElementById("workToggle");
-    const workSubmenu = document.getElementById("workSubmenu");
+    // Optional drag-to-scroll for slider
+    const slider = document.querySelector('.work-slider');
+    let isDown = false;
+    let startX, scrollLeft;
 
-    workToggle.addEventListener("click", () => {
-      const isVisible = workSubmenu.style.display === "block";
-      workSubmenu.style.display = isVisible ? "none" : "block";
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => isDown = false);
+    slider.addEventListener('mouseup', () => isDown = false);
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2;
+      slider.scrollLeft = scrollLeft - walk;
     });
   </script>
 </body>
