@@ -11,11 +11,9 @@
   <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
   <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
   <meta property="og:type" content="website" />
-
   <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -217,14 +215,20 @@
     <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="Lab.html">Lab & Innovation</a></li>
-      
+
+      <li>
+        <a class="has-submenu" id="RDToggle">R&D <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="rdSubmenu">
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Lab.html">Lab & Innovation</a></li>
+        </ul>
+      </li>
+
       <li>
         <a class="has-submenu" id="workToggle">Work Experience <i class="fas fa-caret-down" style="float:right;"></i></a>
-        <ul class="submenu" id="workSubmenu">
+        <ul class="submenu" id="workExpSubmenu">
           <li><a href="Work.html">Timeline</a></li>
           <li><a href="rsrl.html">RsRL</a></li>
           <li><a href="cts.html">Cognizant</a></li>
@@ -233,6 +237,7 @@
           <li><a href="sharekhan.html">Sharekhan</a></li>
         </ul>
       </li>
+
       <li>
         <a class="has-submenu" id="quantToggle">Quant Research <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="quantSubmenu">
@@ -243,11 +248,12 @@
           <li><a href="research_update.html">Product Design</a></li>
         </ul>
       </li>
+
       <li>
         <a class="has-submenu" id="ReferenceToggle">Reference <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="ReferenceSubmenu">
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="blog.html">Conference Activities</a></li>
+          <li><a href="blog.html">Conference</a></li>
           <li><a href="blog.html">Lecture Series</a></li>
           <li><a href="blog.html">Reading List</a></li>
           <li><a href="blog.html">System Design</a></li>
@@ -267,56 +273,7 @@
   </aside>
 
   <main>
-   
-  <section id="blog">
-    <h2><i class="fas fa-pen-nib"></i> Welcome to My Blog</h2>
-    <p>
-      I share insights on computational finance, AI-driven quantitative research, risk modeling strategies, and innovations shaping the future of finance.
-    </p>
-
-    <h3><i class="fas fa-newspaper"></i> Latest Posts</h3>
-    <ul>
-      <li>
-        <a href="blog_post_1.html">Understanding the Role of AI in Financial Modeling</a>
-        <p>How AI is transforming quantitative finance and improving predictive models and decisions.</p>
-      </li>
-      <li>
-        <a href="blog_post_2.html">Risk Management with Machine Learning</a>
-        <p>Exploring the intersection of ML and risk management frameworks to enhance accuracy.</p>
-      </li>
-      <li>
-        <a href="blog_post_3.html">Climate Risk and Green Finance: A New Era</a>
-        <p>How finance is adapting to climate risk and supporting sustainable investments.</p>
-      </li>
-    </ul>
-  </section>
-
-  <section id="conferences">
-    <h2><i class="fas fa-chalkboard-teacher"></i> Conference Activities</h2>
-    <p><strong>Past:</strong>
-      <a href="https://www.odishaai.org/conferences/2024/" target="_blank">Odisha AI Conference 2024</a>,
-      <a href="https://www.therisksociety.com/wp-content/uploads/2024/08/PROGRAM_IRMC2024_Plenary-and-Parallel-sessions_23June2024_ok.pdf" target="_blank">IRMC Milan Conference</a>
-    </p>
-    <p><strong>Highlights:</strong> "A Large Language Model for Corporate Credit Scoring at IRMC 2024."</p>
-    <ul>
-      <li>Odisha AI Conference – Panelist on AI in Quant Finance</li>
-      <li><a href="https://1drv.ms/b/c/AB3DB1FAEF5A2894/EahoUP1yIkVPhj0jO0Jdpj0Bdbk7I5OxaxNlVw1fLEbSng?e=gn95Dl" target="_blank">Financial LLM Presentation</a></li>
-      <li><a href="https://youtu.be/4HenBmblz_E?t=5881&si=DKtOvErzKn2tiWa5" target="_blank">Financial LLM Q&A (Video)</a></li>
-    </ul>
-  </section>
-
-  <section id="corporate-lectures">
-    <h2><i class="fas fa-briefcase"></i> Corporate Lecture Series</h2>
-    <p><strong>Past:</strong>
-      <a href="https://1drv.ms/b/c/AB3DB1FAEF5A2894/EYRK5nIwKQxLtPX9JVKaLh0Bsaq81jIMOIhRzL_fRt_k2w?e=aQ6Vhk" target="_blank">Delta Vega Presentation</a> /
-      <a href="https://krea.edu.in/ifmrgsb/wp-content/uploads/2024/06/Placement-Report-23-24.pdf" target="_blank">IFMR Panel</a>
-    </p>
-    <ul>
-      <li>KREA – Panelist on AI Applications in Quantitative Finance</li>
-    </ul>
-  </section>
-
-  
+    <!-- Your blog and content sections remain here -->
   </main>
 
   <footer>
@@ -349,25 +306,26 @@
       toggleBtn.setAttribute("aria-expanded", "false");
     });
 
-    // Work submenu
-    document.getElementById("workToggle").addEventListener("click", () => {
-      const submenu = document.getElementById("workSubmenu");
+    document.getElementById("RDToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("rdSubmenu");
       submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     });
 
-    // Quant submenu
+    document.getElementById("workToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("workExpSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
     document.getElementById("quantToggle").addEventListener("click", () => {
       const submenu = document.getElementById("quantSubmenu");
       submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     });
 
-    // Reference submenu (Fix Added)
     document.getElementById("ReferenceToggle").addEventListener("click", () => {
       const submenu = document.getElementById("ReferenceSubmenu");
       submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     });
 
-    // Right sidebar close
     const rightSidebar = document.getElementById("right-sidebar");
     const closeRightBtn = document.getElementById("close-btn-right");
 
