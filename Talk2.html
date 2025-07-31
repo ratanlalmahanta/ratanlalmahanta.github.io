@@ -8,13 +8,10 @@
   <meta name="author" content="Ratanlal Mahanta" />
   <meta name="theme-color" content="#1a1a1a" />
 
-  <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
-  <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
-  <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
-  <meta property="og:type" content="website" />
-
   <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
@@ -46,76 +43,67 @@
       color: #ccc;
     }
 
-    #menu-toggle {
+    #menu-toggle, #right-menu-toggle {
       background: none;
       border: none;
       color: white;
       font-size: 1.5em;
       cursor: pointer;
+      margin-right: 10px;
     }
 
     aside.sidebar {
       position: fixed;
       top: 0;
-      left: -250px;
       width: 250px;
       height: 100%;
       background: #333;
       padding-top: 60px;
       overflow-y: auto;
-      transition: left 0.3s ease-in-out;
       z-index: 1000;
+      transition: all 0.3s ease-in-out;
     }
 
-    .sidebar.active {
-      left: 0;
-    }
-
-    .sidebar ul {
+    aside.sidebar ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    .sidebar ul li {
+    aside.sidebar ul li {
       padding: 15px 20px;
     }
 
-    .sidebar ul li a {
+    aside.sidebar ul li a {
       color: white;
       text-decoration: none;
-      display: block;
       font-weight: bold;
-      cursor: pointer;
     }
 
-    .sidebar ul li a:hover,
-    .sidebar ul li a.active {
+    aside.sidebar ul li a:hover,
+    aside.sidebar ul li a.active {
       background: #444;
       color: #2ecc71;
     }
 
-    .submenu {
-      display: none;
-      padding-left: 10px;
-      transition: all 0.3s ease-in-out;
+    #sidebar {
+      left: -250px;
     }
 
-    .submenu li {
-      padding: 8px 20px;
-      font-weight: normal;
+    #sidebar.active {
+      left: 0;
     }
 
-    .submenu li a {
-      color: #ccc;
-      font-weight: normal;
+    #right-sidebar {
+      right: -250px;
+      left: auto;
     }
 
-    .submenu li a:hover {
-      color: #2ecc71;
+    #right-sidebar.active {
+      right: 0;
     }
 
-    #close-btn {
+    #close-btn, #close-btn-right {
       position: absolute;
       top: 10px;
       right: 15px;
@@ -128,6 +116,9 @@
 
     main {
       padding: 20px;
+      margin-left: 0;
+      margin-right: 0;
+      transition: margin 0.3s ease-in-out;
       max-width: 1000px;
       margin: auto;
     }
@@ -161,7 +152,6 @@
     .sr-only {
       position: absolute;
       left: -9999px;
-      top: auto;
       width: 1px;
       height: 1px;
       overflow: hidden;
@@ -170,10 +160,6 @@
     @media (max-width: 768px) {
       header h1 {
         font-size: 1.4em;
-      }
-
-      #menu-toggle {
-        font-size: 1.3em;
       }
 
       .sidebar ul li {
@@ -189,14 +175,17 @@
 
 <body>
   <header>
-    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <div>
+      <button id="menu-toggle" aria-label="Open left menu"><i class="fas fa-bars"></i></button>
+      <button id="right-menu-toggle" aria-label="Open right menu"><i class="fas fa-ellipsis-v"></i></button>
+    </div>
     <div>
       <h1>Ratanlal Mahanta</h1>
       <p>Computational Finance | AI-Driven Quantitative Research</p>
     </div>
   </header>
-
-  <aside id="sidebar" class="sidebar" aria-label="Main Navigation">
+<!-- Left Sidebar -->
+<aside id="sidebar" class="sidebar" aria-label="Main Navigation">
     <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
@@ -223,7 +212,7 @@
     </ul>
   </aside>
 
-<!-- Right Sidebar -->
+  <!-- Right Sidebar -->
   <aside id="right-sidebar" class="sidebar right-sidebar" aria-label="Context Tools Sidebar">
     <button id="close-btn-right" aria-label="Close right menu"><i class="fas fa-times"></i></button>
     <ul>
@@ -252,33 +241,31 @@
       <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
       <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
-      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i></a>
     </div>
   </footer>
 
   <script>
     const sidebar = document.getElementById("sidebar");
+    const rightSidebar = document.getElementById("right-sidebar");
     const toggleBtn = document.getElementById("menu-toggle");
+    const toggleRightBtn = document.getElementById("right-menu-toggle");
     const closeBtn = document.getElementById("close-btn");
+    const closeBtnRight = document.getElementById("close-btn-right");
 
     toggleBtn.addEventListener("click", () => {
       sidebar.classList.toggle("active");
-      toggleBtn.setAttribute("aria-expanded", sidebar.classList.contains("active"));
+    });
+
+    toggleRightBtn.addEventListener("click", () => {
+      rightSidebar.classList.toggle("active");
     });
 
     closeBtn.addEventListener("click", () => {
       sidebar.classList.remove("active");
-      toggleBtn.setAttribute("aria-expanded", "false");
     });
 
-    // Toggle Work Experience submenu
-    const workToggle = document.getElementById("workToggle");
-    const workSubmenu = document.getElementById("workSubmenu");
-
-    workToggle.addEventListener("click", () => {
-      const isVisible = workSubmenu.style.display === "block";
-      workSubmenu.style.display = isVisible ? "none" : "block";
+    closeBtnRight.addEventListener("click", () => {
+      rightSidebar.classList.remove("active");
     });
   </script>
 </body>
