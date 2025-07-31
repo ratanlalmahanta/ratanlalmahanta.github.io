@@ -125,6 +125,7 @@
       cursor: pointer;
     }
 
+    /* Right Sidebar */
     .right-sidebar {
       position: fixed;
       top: 0;
@@ -225,7 +226,7 @@
       <li>
         <a class="has-submenu" id="workToggle">Work Experience <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="workSubmenu">
-          <li><a href="Work.html">Timeline</a></li>
+          <li><a href="Work.html">Timeline</a></li>  
           <li><a href="rsrl.html">RsRL</a></li>
           <li><a href="cts.html">Cognizant</a></li>
           <li><a href="gpsk.html">GPSK</a></li>
@@ -243,7 +244,8 @@
           <li><a href="sharekhan1.html">Product Design</a></li>
         </ul>
       </li>
-      <li>
+      
+    <li>
         <a class="has-submenu" id="ReferenceToggle">Reference <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="ReferenceSubmenu">
           <li><a href="rsrl1.html">Blog</a></li>
@@ -253,7 +255,10 @@
           <li><a href="sharekhan1.html">System Design</a></li>
         </ul>
       </li>
-    </ul>
+	
+	
+	
+	</ul>
   </aside>
 
   <aside id="right-sidebar" class="right-sidebar" aria-label="Context Tools Sidebar">
@@ -291,12 +296,10 @@
     const sidebar = document.getElementById("sidebar");
     const toggleBtn = document.getElementById("menu-toggle");
     const closeBtn = document.getElementById("close-btn");
-
     toggleBtn.addEventListener("click", () => {
       sidebar.classList.toggle("active");
       toggleBtn.setAttribute("aria-expanded", sidebar.classList.contains("active"));
     });
-
     closeBtn.addEventListener("click", () => {
       sidebar.classList.remove("active");
       toggleBtn.setAttribute("aria-expanded", "false");
@@ -314,16 +317,9 @@
       submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     });
 
-    // Reference submenu (Fix Added)
-    document.getElementById("ReferenceToggle").addEventListener("click", () => {
-      const submenu = document.getElementById("ReferenceSubmenu");
-      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-    });
-
     // Right sidebar close
     const rightSidebar = document.getElementById("right-sidebar");
     const closeRightBtn = document.getElementById("close-btn-right");
-
     closeRightBtn.addEventListener("click", () => {
       rightSidebar.classList.remove("active");
     });
