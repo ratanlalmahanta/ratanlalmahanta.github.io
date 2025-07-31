@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #222;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: #1a1a1a;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      z-index: 1001;
+      transition: box-shadow 0.3s ease;
+    }
+    header.scrolled {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    #menu-toggle, #right-menu-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    aside.sidebar {
+      position: fixed;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background: #333;
+      padding-top: 60px;
+      overflow-y: auto;
+      z-index: 1000;
+      transition: all 0.3s ease-in-out;
+    }
+    #sidebar { left: -250px; }
+    #sidebar.active { left: 0; }
+    #right-sidebar { right: -250px; left: auto; }
+    #right-sidebar.active { right: 0; }
+    .sidebar ul { list-style: none; padding: 0; margin: 0; }
+    .sidebar ul li { padding: 15px 20px; }
+    .sidebar ul li a { color: white; text-decoration: none; font-weight: bold; }
+    .sidebar ul li a:hover, .sidebar ul li a.active { background: #444; color: #2ecc71; }
+    #close-btn, #close-btn-right {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+    main {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    footer {
+      background: #1a1a1a;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+    }
+    footer a { color: #ccc; margin: 0 10px; text-decoration: none; }
+    footer a:hover { color: #2ecc71; }
+    .tabs { display: flex; border-bottom: 1px solid #444; }
+    .tab-link { flex: 1; background: #333; color: #fff; padding: 10px; cursor: pointer; border: none; }
+    .tab-link.active { background: #2ecc71; color: #000; }
+    .tab-content { padding: 15px; color: #fff; display: none; }
+    .tab-content.active { display: block; }
+    .dark-mode { background: #121212; color: #eee; }
+    .dark-mode header, .dark-mode aside, .dark-mode footer { background: #1e1e1e; }
+    .dark-mode a { color: #90caf9; }
+    #theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+      <button id="right-menu-toggle"><i class="fas fa-ellipsis-v"></i></button>
+    </div>
+    <div>
+      <h1>Ratanlal Mahanta</h1>
+      <p>Computational Finance | AI-Driven Quantitative Research</p>
+    </div>
+  </header>
+
+  <aside id="sidebar" class="sidebar">
+    <button id="close-btn"><i class="fas fa-times"></i></button>
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Publications</a></li>
+    </ul>
+  </aside>
+
+  <aside id="right-sidebar" class="sidebar">
+    <button id="close-btn-right"><i class="fas fa-times"></i></button>
+    <div class="tabs">
+      <button class="tab-link active" data-tab="notes">📝 Notes</button>
+      <button class="tab-link" data-tab="calendar">📅 Calendar</button>
+      <button class="tab-link" data-tab="todo">✅ To-Do</button>
+    </div>
+    <div class="tab-content active" id="notes">Write your notes here...</div>
+    <div class="tab-content" id="calendar">Embed calendar here...</div>
+    <div class="tab-content" id="todo">Add to-do list...</div>
+    <canvas id="miniChart" width="220" height="150"></canvas>
+  </aside>
+
+  <main>
+    <h2>Welcome</h2>
+    <p>This is the main content area. Explore Quant Research and AI in Finance.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
+  </footer>
+
+  <button id="theme-toggle">🌗 Theme</button>
+
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const rightSidebar = document.getElementById("right-sidebar");
+    const toggleBtn = document.getElementById("menu-toggle");
+    const toggleRightBtn = document.getElementById("right-menu-toggle");
+    const closeBtn = document.getElementById("close-btn");
+    const closeBtnRight = document.getElementById("close-btn-right");
+
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+      localStorage.setItem("sidebarLeftOpen", sidebar.classList.contains("active"));
+    });
+    toggleRightBtn.addEventListener("click", () => {
+      rightSidebar.classList.toggle("active");
+      localStorage.setItem("sidebarRightOpen", rightSidebar.classList.contains("active"));
+    });
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.remove("active");
+      localStorage.setItem("sidebarLeftOpen", false);
+    });
+    closeBtnRight.addEventListener("click", () => {
+      rightSidebar.classList.remove("active");
+      localStorage.setItem("sidebarRightOpen", false);
+    });
+
+    // Remember sidebar state
+    if (localStorage.getItem("sidebarLeftOpen") === "true") sidebar.classList.add("active");
+    if (localStorage.getItem("sidebarRightOpen") === "true") rightSidebar.classList.add("active");
+
+    // Theme toggle
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+
+    // Tab switching
+    const tabLinks = document.querySelectorAll(".tab-link");
+    const tabContents = document.querySelectorAll(".tab-content");
+    tabLinks.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabLinks.forEach(b => b.classList.remove("active"));
+        tabContents.forEach(c => c.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("active");
+      });
+    });
+
+    // Sticky header shadow
+    window.addEventListener("scroll", () => {
+      document.querySelector("header").classList.toggle("scrolled", window.scrollY > 10);
+    });
+
+    // Chart
+    const ctx = document.getElementById('miniChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        datasets: [{
+          label: 'Haircut %',
+          data: [5.1, 5.3, 5.4, 5.6, 5.5],
+          borderColor: '#2ecc71',
+          backgroundColor: 'rgba(46,204,113,0.2)',
+          fill: true
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: false } }
+      }
+    });
+  </script>
+</body>
+</html>

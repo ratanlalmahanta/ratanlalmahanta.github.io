@@ -8,10 +8,13 @@
   <meta name="author" content="Ratanlal Mahanta" />
   <meta name="theme-color" content="#1a1a1a" />
 
+  <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
+  <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
+  <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
+  <meta property="og:type" content="website" />
+
   <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
@@ -43,67 +46,74 @@
       color: #ccc;
     }
 
-    #menu-toggle, #right-menu-toggle {
+    #menu-toggle {
       background: none;
       border: none;
       color: white;
       font-size: 1.5em;
       cursor: pointer;
-      margin-right: 10px;
     }
 
     aside.sidebar {
       position: fixed;
       top: 0;
+      left: -250px;
       width: 250px;
       height: 100%;
       background: #333;
       padding-top: 60px;
       overflow-y: auto;
+      transition: left 0.3s ease-in-out;
       z-index: 1000;
-      transition: all 0.3s ease-in-out;
     }
 
-    aside.sidebar ul {
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    aside.sidebar ul li {
+    .sidebar ul li {
       padding: 15px 20px;
     }
 
-    aside.sidebar ul li a {
+    .sidebar ul li a {
       color: white;
       text-decoration: none;
+      display: block;
       font-weight: bold;
     }
 
-    aside.sidebar ul li a:hover,
-    aside.sidebar ul li a.active {
+    .sidebar ul li a:hover,
+    .sidebar ul li a.active {
       background: #444;
       color: #2ecc71;
     }
 
-    #sidebar {
-      left: -250px;
+    .sidebar ul li ul {
+      padding-left: 10px;
+      margin-top: 5px;
     }
 
-    #sidebar.active {
-      left: 0;
+    .sidebar ul li ul li {
+      padding: 8px 20px;
+      font-weight: normal;
     }
 
-    #right-sidebar {
-      right: -250px;
-      left: auto;
+    .sidebar ul li ul li a {
+      color: #ccc;
+      font-weight: normal;
     }
 
-    #right-sidebar.active {
-      right: 0;
+    .sidebar ul li ul li a:hover {
+      color: #2ecc71;
     }
 
-    #close-btn, #close-btn-right {
+    #close-btn {
       position: absolute;
       top: 10px;
       right: 15px;
@@ -116,9 +126,6 @@
 
     main {
       padding: 20px;
-      margin-left: 0;
-      margin-right: 0;
-      transition: margin 0.3s ease-in-out;
       max-width: 1000px;
       margin: auto;
     }
@@ -152,6 +159,7 @@
     .sr-only {
       position: absolute;
       left: -9999px;
+      top: auto;
       width: 1px;
       height: 1px;
       overflow: hidden;
@@ -160,6 +168,10 @@
     @media (max-width: 768px) {
       header h1 {
         font-size: 1.4em;
+      }
+
+      #menu-toggle {
+        font-size: 1.3em;
       }
 
       .sidebar ul li {
@@ -175,17 +187,13 @@
 
 <body>
   <header>
-    <div>
-      <button id="menu-toggle" aria-label="Open left menu"><i class="fas fa-bars"></i></button>
-      <button id="right-menu-toggle" aria-label="Open right menu"><i class="fas fa-ellipsis-v"></i></button>
-    </div>
+    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
     <div>
       <h1>Ratanlal Mahanta</h1>
       <p>Computational Finance | AI-Driven Quantitative Research</p>
     </div>
   </header>
 
-  <!-- Left Sidebar -->
   <aside id="sidebar" class="sidebar" aria-label="Main Navigation">
     <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
     <ul>
@@ -195,27 +203,32 @@
       <li><a href="publications.html">Publications</a></li>
       <li><a href="Lab.html">Lab & Innovation</a></li>
       <li><a href="research_update.html">Research Update</a></li>
-      <li><a href="Work.html">Work Experience</a></li>
+      <li>
+        <a href="Work.html">Work Experience <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul>
+          <li><a href="work_rsrl.html">RsRL</a></li>
+          <li><a href="work_cognizant.html">Cognizant</a></li>
+          <li><a href="work_gpsk.html">GPSK</a></li>
+          <li><a href="work_algotech.html">Algotech</a></li>
+        </ul>
+      </li>
       <li><a href="Talk.html">Quant Research</a></li>
       <li><a href="blog.html">Blog</a></li>
     </ul>
   </aside>
 
-  <!-- Right Sidebar -->
-  <aside id="right-sidebar" class="sidebar right-sidebar" aria-label="Context Tools Sidebar">
-    <button id="close-btn-right" aria-label="Close right menu"><i class="fas fa-times"></i></button>
-    <ul>
-      <li><a href="#">📌 Notes</a></li>
-      <li><a href="#">📅 Schedule</a></li>
-      <li><a href="#">📚 Reading</a></li>
-      <li><a href="#">🧠 Ideas</a></li>
-    </ul>
-  </aside>
-
   <main>
     <section id="intro">
-      <h2>Quant Research</h2>
-      
+      <h2>Welcome</h2>
+      <img src="assets/images/ratanlal-mahanta.jpg" alt="Ratanlal Mahanta" />
+      <p>With 12 years of experience in <a href="https://en.wikipedia.org/wiki/Computational_finance" target="_blank">Computational Finance</a> and AI, I lead with a hands-on approach to developing and deploying <a href="https://en.wikipedia.org/wiki/Quantitative_analysis_(finance)#Quantitative_investment_management" target="_blank">advanced quantitative models</a>. My work integrates machine learning, stochastic processes, and complex risk management frameworks to address critical challenges in finance.</p>
+      <p>I build advanced simulation engines for pricing exotic options, XVA, and FRTB frameworks. I lead development of reusable model validation frameworks covering IRRBB, CVA, repo risk, and historical VaR. My work blends regulatory precision, ML inference, stochastic modeling, and capital analytics.</p>
+      <p>I’ve authored practical frameworks on topics like Bermudan swaption LSM hedging, t-copula basket default swaps, CDS pricing under Merton models, and repo haircut–spread dynamics. I develop institutional training programs, dashboards for audit-ready model governance, and LaTeX-based research deliverables.</p>
+      <p>My current focus: intelligent validation systems, Bayesian credit models, dynamic liquidity simulation under FRTB-SA, and margin stress engines with FX/repo contagion effects. Let’s shape robust financial systems through quant rigor and applied AI.</p>
+      <p>I specialize in the calibration and application of models such as the Heston model, Hull-White interest rate models, and the Merton model, tailoring them to meet the precise demands of risk management and market risk.</p>
+      <p>My recent projects include FRTB simulation frameworks, tail risk hedging, XVA and Bayesian inference models for predictive analytics. Explore my work and research to discover how AI and finance converge to shape tomorrow's markets.</p>
+      <p> With a deep focus on algorithmic trading infrastructure, I’ve built a modular, production-grade Python framework that spans the full lifecycle of quantitative strategy development—from signal generation to live server deployment.<p>
+      <p> This system integrates financial time series modeling, machine learning, and technical indicators to construct momentum, mean-reversion, and multi-factor rule-based strategies. I’ve engineered reusable components for data ingestion , preprocessing pipelines, and signal processing.<p>
     </section>
   </main>
 
@@ -230,31 +243,24 @@
       <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
       <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
+      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i></a>
     </div>
   </footer>
 
   <script>
     const sidebar = document.getElementById("sidebar");
-    const rightSidebar = document.getElementById("right-sidebar");
     const toggleBtn = document.getElementById("menu-toggle");
-    const toggleRightBtn = document.getElementById("right-menu-toggle");
     const closeBtn = document.getElementById("close-btn");
-    const closeBtnRight = document.getElementById("close-btn-right");
 
     toggleBtn.addEventListener("click", () => {
       sidebar.classList.toggle("active");
-    });
-
-    toggleRightBtn.addEventListener("click", () => {
-      rightSidebar.classList.toggle("active");
+      toggleBtn.setAttribute("aria-expanded", sidebar.classList.contains("active"));
     });
 
     closeBtn.addEventListener("click", () => {
       sidebar.classList.remove("active");
-    });
-
-    closeBtnRight.addEventListener("click", () => {
-      rightSidebar.classList.remove("active");
+      toggleBtn.setAttribute("aria-expanded", "false");
     });
   </script>
 </body>
