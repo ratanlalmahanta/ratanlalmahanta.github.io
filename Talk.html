@@ -11,11 +11,9 @@
   <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
   <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
   <meta property="og:type" content="website" />
-
   <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -217,14 +215,20 @@
     <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="Lab.html">Lab & Innovation</a></li>
-      <li><a href="research_update.html">Research Update</a></li>
+
+      <li>
+        <a class="has-submenu" id="RDToggle">R&D <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="rdSubmenu">
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Lab.html">Lab & Innovation</a></li>
+        </ul>
+      </li>
+
       <li>
         <a class="has-submenu" id="workToggle">Work Experience <i class="fas fa-caret-down" style="float:right;"></i></a>
-        <ul class="submenu" id="workSubmenu">
+        <ul class="submenu" id="workExpSubmenu">
           <li><a href="Work.html">Timeline</a></li>
           <li><a href="rsrl.html">RsRL</a></li>
           <li><a href="cts.html">Cognizant</a></li>
@@ -233,21 +237,23 @@
           <li><a href="sharekhan.html">Sharekhan</a></li>
         </ul>
       </li>
+
       <li>
         <a class="has-submenu" id="quantToggle">Quant Research <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="quantSubmenu">
-          <li><a href="rsrl1.html">FX & IR</a></li>
-          <li><a href="cts1.html">Commodity</a></li>
-          <li><a href="gpsk1.html">Equity</a></li>
-          <li><a href="algotech1.html">Crypto</a></li>
-          <li><a href="sharekhan1.html">Product Design</a></li>
+          <li><a href="FX.html">FX & IR</a></li>
+          <li><a href="Com.html">Commodity</a></li>
+          <li><a href="Eq.html">Equity</a></li>
+          <li><a href="Crypto.html">Crypto</a></li>
+          <li><a href="research_update.html">Product Design</a></li>
         </ul>
       </li>
+
       <li>
         <a class="has-submenu" id="ReferenceToggle">Reference <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="ReferenceSubmenu">
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="blog.html">Conference Activities</a></li>
+          <li><a href="blog.html">Conference</a></li>
           <li><a href="blog.html">Lecture Series</a></li>
           <li><a href="blog.html">Reading List</a></li>
           <li><a href="blog.html">System Design</a></li>
@@ -267,9 +273,13 @@
   </aside>
 
   <main>
-    <section id="intro">
-      <h2>Quant Research</h2>
-    </section>
+    <!-- Your blog and content sections remain here -->
+	<section id="blog">
+    <h2><i class="fas fa-pen-nib"></i> Quant Research </h2>
+    
+  </section>
+
+  
   </main>
 
   <footer>
@@ -302,25 +312,26 @@
       toggleBtn.setAttribute("aria-expanded", "false");
     });
 
-    // Work submenu
-    document.getElementById("workToggle").addEventListener("click", () => {
-      const submenu = document.getElementById("workSubmenu");
+    document.getElementById("RDToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("rdSubmenu");
       submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     });
 
-    // Quant submenu
+    document.getElementById("workToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("workExpSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
     document.getElementById("quantToggle").addEventListener("click", () => {
       const submenu = document.getElementById("quantSubmenu");
       submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     });
 
-    // Reference submenu (Fix Added)
     document.getElementById("ReferenceToggle").addEventListener("click", () => {
       const submenu = document.getElementById("ReferenceSubmenu");
       submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     });
 
-    // Right sidebar close
     const rightSidebar = document.getElementById("right-sidebar");
     const closeRightBtn = document.getElementById("close-btn-right");
 
