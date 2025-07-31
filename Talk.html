@@ -7,7 +7,6 @@
   <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Derivatives, Machine Learning, Fintech" />
   <meta name="author" content="Ratanlal Mahanta" />
   <meta name="theme-color" content="#1a1a1a" />
-
   <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
   <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
   <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
@@ -126,6 +125,25 @@
       cursor: pointer;
     }
 
+    /* Right Sidebar */
+    .right-sidebar {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: #222;
+      color: white;
+      padding-top: 60px;
+      overflow-y: auto;
+      transition: right 0.3s ease-in-out;
+      z-index: 1000;
+    }
+
+    .right-sidebar.active {
+      right: 0;
+    }
+
     main {
       padding: 20px;
       max-width: 1000px;
@@ -206,24 +224,20 @@
       <li><a href="Lab.html">Lab & Innovation</a></li>
       <li><a href="research_update.html">Research Update</a></li>
       <li>
-        <a class="has-submenu" id="workToggle">
-          Work Experience <i class="fas fa-caret-down" style="float:right;"></i>
-        </a>
+        <a class="has-submenu" id="workToggle">Work Experience <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="workSubmenu">
-        <li><a href="Work.html">Timeline</a></li>  
-	<li><a href="rsrl.html">RsRL</a></li>
+          <li><a href="Work.html">Timeline</a></li>  
+          <li><a href="rsrl.html">RsRL</a></li>
           <li><a href="cts.html">Cognizant</a></li>
           <li><a href="gpsk.html">GPSK</a></li>
           <li><a href="algotech.html">Algotech</a></li>
           <li><a href="sharekhan.html">Sharekhan</a></li>
         </ul>
       </li>
-	<li>
-        <a class="has-submenu" id="workToggle">
-          Quant Research <i class="fas fa-caret-down" style="float:right;"></i>
-        </a>
-        <ul class="submenu" id="workSubmenu">
-       	<li><a href="rsrl1.html">FX & IR</a></li>
+      <li>
+        <a class="has-submenu" id="quantToggle">Quant Research <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="quantSubmenu">
+          <li><a href="rsrl1.html">FX & IR</a></li>
           <li><a href="cts1.html">Commodity</a></li>
           <li><a href="gpsk1.html">Equity</a></li>
           <li><a href="algotech1.html">Crypto</a></li>
@@ -233,10 +247,8 @@
       <li><a href="blog.html">Blog</a></li>
     </ul>
   </aside>
- 
 
-<!-- Right Sidebar -->
-  <aside id="right-sidebar" class="sidebar right-sidebar" aria-label="Context Tools Sidebar">
+  <aside id="right-sidebar" class="right-sidebar" aria-label="Context Tools Sidebar">
     <button id="close-btn-right" aria-label="Close right menu"><i class="fas fa-times"></i></button>
     <ul>
       <li><a href="#">📌 Notes</a></li>
@@ -249,14 +261,12 @@
   <main>
     <section id="intro">
       <h2>Quant Research</h2>
-      
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
-    <p>
-      Contact:
+    <p>Contact:
       <a href="mailto:ratanlalmahanta@gmail.com" title="Email"><i class="fas fa-envelope"></i><span class="sr-only">Email</span></a>
     </p>
     <div class="social-media">
@@ -273,24 +283,32 @@
     const sidebar = document.getElementById("sidebar");
     const toggleBtn = document.getElementById("menu-toggle");
     const closeBtn = document.getElementById("close-btn");
-
     toggleBtn.addEventListener("click", () => {
       sidebar.classList.toggle("active");
       toggleBtn.setAttribute("aria-expanded", sidebar.classList.contains("active"));
     });
-
     closeBtn.addEventListener("click", () => {
       sidebar.classList.remove("active");
       toggleBtn.setAttribute("aria-expanded", "false");
     });
 
-    // Toggle Work Experience submenu
-    const workToggle = document.getElementById("workToggle");
-    const workSubmenu = document.getElementById("workSubmenu");
+    // Work submenu
+    document.getElementById("workToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("workSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
 
-    workToggle.addEventListener("click", () => {
-      const isVisible = workSubmenu.style.display === "block";
-      workSubmenu.style.display = isVisible ? "none" : "block";
+    // Quant submenu
+    document.getElementById("quantToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("quantSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    // Right sidebar close
+    const rightSidebar = document.getElementById("right-sidebar");
+    const closeRightBtn = document.getElementById("close-btn-right");
+    closeRightBtn.addEventListener("click", () => {
+      rightSidebar.classList.remove("active");
     });
   </script>
 </body>
