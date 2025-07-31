@@ -8,6 +8,7 @@
   <meta name="author" content="Ratanlal Mahanta" />
   <meta name="theme-color" content="#1a1a1a" />
 
+  <!-- Open Graph for Social Sharing -->
   <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
   <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
   <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
@@ -15,6 +16,8 @@
 
   <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
@@ -86,32 +89,11 @@
       text-decoration: none;
       display: block;
       font-weight: bold;
-      cursor: pointer;
     }
 
     .sidebar ul li a:hover,
     .sidebar ul li a.active {
       background: #444;
-      color: #2ecc71;
-    }
-
-    .submenu {
-      display: none;
-      padding-left: 10px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .submenu li {
-      padding: 8px 20px;
-      font-weight: normal;
-    }
-
-    .submenu li a {
-      color: #ccc;
-      font-weight: normal;
-    }
-
-    .submenu li a:hover {
       color: #2ecc71;
     }
 
@@ -205,26 +187,14 @@
       <li><a href="publications.html">Publications</a></li>
       <li><a href="Lab.html">Lab & Innovation</a></li>
       <li><a href="research_update.html">Research Update</a></li>
-      <li>
-        <a class="has-submenu" id="workToggle">
-          Work Experience <i class="fas fa-caret-down" style="float:right;"></i>
-        </a>
-        <ul class="submenu" id="workSubmenu">
-        <li><a href="Work.html">Timeline</a></li>  
-	<li><a href="rsrl.html">RsRL</a></li>
-          <li><a href="cts.html">Cognizant</a></li>
-          <li><a href="gpsk.html">GPSK</a></li>
-          <li><a href="algotech.html">Algotech</a></li>
-          <li><a href="sharekhan.html">Sharekhan</a></li>
-        </ul>
-      </li>
+      <li><a href="Work.html">Work Experience</a></li>
       <li><a href="Talk.html">Quant Research</a></li>
       <li><a href="blog.html">Blog</a></li>
     </ul>
   </aside>
 
   <main>
-   <section>
+<section>
       <h2>Welcome!</h2>
       <!-- Intro content remains unchanged -->
       <p>I’m <strong>Ratanlal Mahanta</strong>, a dedicated researcher and lead scientist specializing in 
@@ -255,6 +225,7 @@
         <li><strong>Thought Leadership</strong>: Driving the frontier in capital modeling, margin optimization, and AI governance.</li>
       </ul>
     </section>
+
   </main>
 
   <footer>
@@ -264,12 +235,12 @@
       <a href="mailto:ratanlalmahanta@gmail.com" title="Email"><i class="fas fa-envelope"></i><span class="sr-only">Email</span></a>
     </p>
     <div class="social-media">
-      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
-      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i></a>
+      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="sr-only">LinkedIn</span></a>
+      <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a>
+      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i><span class="sr-only">GitHub</span></a>
+      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i><span class="sr-only">Google Scholar</span></a>
+      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i><span class="sr-only">Gemini</span></a>
+      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i><span class="sr-only">Grok</span></a>
     </div>
   </footer>
 
@@ -286,15 +257,6 @@
     closeBtn.addEventListener("click", () => {
       sidebar.classList.remove("active");
       toggleBtn.setAttribute("aria-expanded", "false");
-    });
-
-    // Toggle Work Experience submenu
-    const workToggle = document.getElementById("workToggle");
-    const workSubmenu = document.getElementById("workSubmenu");
-
-    workToggle.addEventListener("click", () => {
-      const isVisible = workSubmenu.style.display === "block";
-      workSubmenu.style.display = isVisible ? "none" : "block";
     });
   </script>
 </body>
