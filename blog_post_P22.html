@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ratanlal Mahanta's profile in Computational Finance and AI-driven Quantitative Research." />
+  <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Derivatives, Machine Learning, Fintech" />
+  <meta name="author" content="Ratanlal Mahanta" />
+  <meta name="theme-color" content="#1a1a1a" />
+  <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
+  <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
+  <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
+  <meta property="og:type" content="website" />
+  <title>Equity Volatility & CDS Pricing</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #222;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+    }
+    h1, h2, h3 {
+      color: #1a1a1a;
+    }
+    .equation-block {
+      background: #f9f9f9;
+      padding: 16px;
+      border-left: 4px solid #007acc;
+      margin: 24px 0;
+      font-size: 1.1rem;
+    }
+    .section {
+      padding: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ratanlal Mahanta</h1>
+    <p>Computational Finance | AI-Driven Quantitative Research</p>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>1. Merton Structural Model</h2>
+      <p>The Merton model links a firm's equity and debt structure to the probability of default. Under this framework, the firm defaults if the asset value falls below the debt at maturity.</p>
+      <div class="equation-block">
+        $$ P_D = \mathbb{P}(V_T < D) = \Phi\left(-d_2\right) $$
+      </div>
+      <p>where \( V_T \) is the asset value at maturity, \( D \) is the debt obligation, and \( \Phi \) is the standard normal CDF.</p>
+    </section>
+
+    <section class="section">
+      <h2>2. Estimating Asset Volatility</h2>
+      <p>Equity volatility \( \sigma_E \) is observable, but asset volatility \( \sigma_V \) must be inferred using Itô's Lemma:</p>
+      <div class="equation-block">
+        $$ \sigma_E = \frac{V}{E} \cdot \frac{\partial E}{\partial V} \cdot \sigma_V $$
+      </div>
+      <p>This relationship helps back out \( \sigma_V \) using market equity data and a numerical solver.</p>
+    </section>
+
+    <section class="section">
+      <h2>3. CDS Pricing from Default Probability</h2>
+      <p>Once we have the risk-neutral probability of default \( P_D \), the CDS spread can be approximated as:</p>
+      <div class="equation-block">
+        $$ \text{CDS Spread} \approx \frac{(1 - \text{Recovery Rate}) \cdot P_D}{\text{Duration}} $$
+      </div>
+      <p>This assumes constant hazard rate and flat yield curves.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
