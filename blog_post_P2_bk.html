@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Heston Model Calibration for Volatility</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- MathJax for Mathematical Rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --primary-color: #1a237e;
+      --background-color: #f4f6f8;
+      --container-bg: #ffffff;
+      --text-color: #2c3e50;
+      --heading-color: #37474f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 2em 1.5em;
+      background-color: var(--container-bg);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h1, h2 {
+      color: var(--primary-color);
+      margin-bottom: 0.6em;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+
+    h2 {
+      font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+      color: var(--heading-color);
+      margin-top: 2em;
+    }
+
+    p, ul {
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      line-height: 1.65;
+      margin: 1em 0;
+    }
+
+    ul {
+      padding-left: 1.4em;
+    }
+
+    code {
+      background-color: #e0e0e0;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.95em;
+    }
+
+    .equation {
+      text-align: center;
+      margin: 1.5em 0;
+      overflow-x: auto;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 2em auto 0;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1.2em;
+        border-radius: 8px;
+      }
+
+      ul {
+        padding-left: 1em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Heston Model Calibration for Volatility</h1>
+
+    <p>
+      The Heston model is a popular stochastic volatility model used in derivative pricing, particularly for options where implied
+      volatility varies with strike and maturity. It models the underlying asset price and its variance as coupled stochastic
+      processes:
+    </p>
+
+    <div class="equation">
+      $$
+      \begin{aligned}
+      dS_t &= \mu S_t \, dt + \sqrt{v_t} S_t \, dW_t^S \\\\
+      dv_t &= \kappa(\theta - v_t) \, dt + \sigma \sqrt{v_t} \, dW_t^v \\\\
+      dW_t^S \cdot dW_t^v &= \rho \, dt
+      \end{aligned}
+      $$
+    </div>
+
+    <p>
+      Here, \( S_t \) is the asset price, \( v_t \) the stochastic variance, \( \kappa \) the rate of mean reversion, \( \theta \)
+      the long-run variance, \( \sigma \) the volatility of volatility, and \( \rho \) the correlation between the asset and volatility
+      shocks.
+    </p>
+
+    <h2>Calibration Approach</h2>
+    <p>
+      We calibrate the Heston model to market-observed implied volatilities using a non-linear least squares optimization:
+    </p>
+
+    <div class="equation">
+      $$
+      \text{Loss}(\vec{\theta}) = \sum_{i=1}^N \left[ \text{IV}_{\text{market}}^{(i)} - \text{IV}_{\text{Heston}}^{(i)}(\vec{\theta}) \right]^2
+      $$
+    </div>
+
+    <p>
+      where \( \vec{\theta} = (\kappa, \theta, \sigma, v_0, \rho) \) is the parameter vector. The goal is to minimize the squared
+      differences between market and model implied volatilities across a range of strikes and maturities.
+    </p>
+
+    <h2>Model Validation & Error Surface</h2>
+    <p>
+      After calibration, we analyze the stability of the estimated parameters by perturbing initial conditions and using
+      <em>bootstrapped sub-samples</em> of option chains. The error surface is visualized in 2D and 3D plots to identify
+      <strong>local minima</strong> and degeneracies in parameter space.
+    </p>
+
+    <p>
+      Additionally, we perform out-of-sample backtesting by comparing pricing errors and hedging performance against the
+      <strong>Black-Scholes</strong> and <strong>SABR</strong> models:
+    </p>
+
+    <ul>
+      <li>Black-Scholes assumes constant volatility, often underpricing OTM options.</li>
+      <li>SABR captures skew but lacks stochastic variance dynamics.</li>
+      <li>Heston performs best in capturing volatility smiles and forward skew.</li>
+    </ul>
+
+    <p>
+      The Heston model, while computationally intensive, provides superior calibration performance in capturing market
+      volatility structures. It forms the basis for advanced derivative pricing engines and risk-neutral scenario generators
+      in real-time trading systems.
+    </p>
+
+    <img src="assets/images/HS.png" alt="Heston surface example" />
+  </div>
+</body>
+</html>

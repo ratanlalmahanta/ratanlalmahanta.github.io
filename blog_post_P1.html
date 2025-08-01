@@ -274,35 +274,60 @@
 
   <main>
 <!-- Publications Section -->
-  <section id="blog-post">
-        <h2>The Role of AI in Financial Modeling</h2>
-        <p><strong>Artificial Intelligence (AI)</strong> has rapidly evolved from a theoretical concept to a powerful tool transforming industries, and its influence on financial modeling is no exception. As finance becomes more data-driven and complex, AI enables models that are not only more accurate but also capable of predicting market trends, assessing risk, and optimizing portfolios in ways traditional methods cannot. In this blog, we explore the pivotal role AI plays in financial modeling.</p>
+  <section id="strategies">
+    <h2>Advanced Trading Strategies</h2>
 
-        <h3>1. AI in Risk Management</h3>
-        <p>In the financial world, managing risk is critical, and AI provides tools that enhance the precision and speed of risk analysis. Traditional risk models often rely on static assumptions and linear projections. However, AI-driven models can incorporate vast amounts of data, identifying patterns and correlations that might not be immediately apparent. Machine learning (ML) techniques, such as supervised learning and deep learning, are used to predict potential risk events, simulate market scenarios, and dynamically adjust strategies based on real-time market conditions.</p>
+    <div class="strategy">
+      <h3>1. Trend Following Strategies</h3>
+      <p>
+        We analyze financial time series spanning 10–20 years to uncover underlying market direction using advanced quant models.
+        Techniques include <strong>Genetic Algorithms</strong>, <strong>Support Vector Machines (SVMs)</strong>, and <strong>Artificial Neural Networks (ANNs)</strong>,
+        which allow adaptive, non-linear modeling of price dynamics. These models are particularly effective in capturing persistent
+        momentum across asset classes.
+      </p>
+    </div>
 
-        <h3>2. AI in Portfolio Optimization</h3>
-        <p>Portfolio optimization has traditionally been driven by statistical models that assume normal distributions and static correlations. AI models, particularly reinforcement learning and deep reinforcement learning, allow for dynamic portfolio optimization that adapts to changing market conditions. These models continuously learn from past performance and adjust portfolio allocations in real-time, improving the portfolio’s risk-return ratio over time.</p>
+    <div class="strategy">
+      <h3>2. Mean Reversion Strategies (Statistical Arbitrage)</h3>
+      <p>
+        Statistical arbitrage is a market-neutral strategy that involves matching long and short positions in highly correlated
+        instruments—such as pairs of stocks, ETFs, or options. We compute the <strong>half-life of mean reversion</strong> using an
+        <strong>Ornstein-Uhlenbeck process</strong>, allowing precise calibration of historical lookback windows. Cointegration
+        analysis forms the core of identifying tradeable spreads.
+      </p>
+    </div>
 
-        <h3>3. AI in Algorithmic Trading</h3>
-        <p>AI has revolutionized algorithmic trading, providing the ability to process and analyze market data at unprecedented speeds. Machine learning algorithms are used to develop trading strategies that can analyze massive amounts of data in real-time, detect trading signals, and execute trades at optimal times. Unlike traditional models, AI algorithms can learn from past mistakes and successes, iterating and improving over time without human intervention.</p>
+    <div class="strategy">
+      <h3>3. Volatility Arbitrage Strategies</h3>
+      <p>
+        These strategies exploit mispricings between implied and realized volatility. Due to the <em>volatility smile</em>,
+        out-of-the-money options often trade at inflated prices. By shorting high-IV strikes and longing lower-IV counterparts,
+        we construct delta-neutral portfolios. Greeks—especially <strong>Vega</strong>, <strong>Gamma</strong>, and <strong>Theta</strong>—
+        are dynamically monitored to manage risk and capture time decay asymmetries.
+      </p>
+    </div>
 
-        <h3>4. AI in Forecasting Market Trends</h3>
-        <p>Accurate market forecasting is essential for informed decision-making, and AI significantly enhances forecasting accuracy. Traditional methods rely on historical data and simple models to predict future outcomes, but AI can handle large and complex datasets, including unstructured data like text, images, and videos.</p>
+    <div class="strategy">
+      <h3>4. Gamma Scalping Strategies</h3>
+      <p>
+        Gamma scalping profits from large movements in the underlying while maintaining delta neutrality. Short options positions
+        typically have <strong>negative gamma</strong>, while long positions provide <strong>positive gamma</strong>. As delta changes
+        with price, we adjust hedges dynamically. Positive gamma helps traders outperform delta forecasts by profiting more on
+        large moves and losing less on small reversals.
+      </p>
+    </div>
 
-        <h3>5. AI in Valuation Models</h3>
-        <p>AI plays a key role in enhancing the accuracy of financial valuations. Traditional valuation models, such as discounted cash flow (DCF) or comparable company analysis, have inherent limitations in their assumptions and inputs. AI models, however, can dynamically adjust to market changes and optimize valuation by considering a broader set of factors such as changing interest rates, market volatility, or even environmental factors influencing company performance.</p>
-
-        <h3>6. Challenges and Limitations of AI in Financial Modeling</h3>
-        <p>While AI offers substantial benefits to financial modeling, its integration into financial markets does come with challenges. One of the key limitations is the black-box nature of some machine learning models. This lack of transparency can be problematic for regulatory compliance and risk management, as financial institutions must understand the rationale behind decisions made by AI models.</p>
-
-        <h3>7. The Future of AI in Financial Modeling</h3>
-        <p>The future of AI in financial modeling looks promising. As AI technologies continue to evolve, financial institutions are likely to see increased automation, enhanced predictive capabilities, and deeper insights into market behavior. Hybrid models that combine traditional finance with AI will also become more common, with AI augmenting, rather than replacing, human decision-making.</p>
-
-        <h3>Conclusion</h3>
-        <p>AI is undeniably reshaping financial modeling by enhancing risk management, optimizing portfolios, improving market forecasting, and refining valuation models. Its ability to process and analyze complex data in real-time, learn from past trends, and adapt to changing conditions gives financial institutions a competitive edge in today’s rapidly evolving markets. The continued integration of AI in finance holds the promise of more intelligent, data-driven financial strategies that will drive the future of the industry.</p>
-    </section>
-    
+    <div class="strategy">
+      <h3>5. Machine Learning-Based Strategies</h3>
+      <p>
+        Predicting market direction is notoriously noisy. We employ <strong>Deep Neural Networks (DNNs)</strong> with multiple hidden
+        layers to classify market states in a binary manner—upward or downward. Additionally, we apply <strong>K-Means clustering</strong>,
+        an unsupervised algorithm, to segment market regimes without labeled data. This approach is useful in real-world settings
+        where human labeling is infeasible.
+      </p>
+    </div>
+  </section>
+   
  </main>
 
   <footer>
