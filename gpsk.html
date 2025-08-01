@@ -2,133 +2,278 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GPSK Investment Timeline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ratanlal Mahanta's profile in Computational Finance and AI-driven Quantitative Research." />
+  <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Derivatives, Machine Learning, Fintech" />
+  <meta name="author" content="Ratanlal Mahanta" />
+  <meta name="theme-color" content="#1a1a1a" />
+  <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
+  <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
+  <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
+  <meta property="og:type" content="website" />
+  <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f2f5;
+      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
-    }
-
-    h2 {
-      text-align: center;
+      padding: 0;
+      background: #f4f4f4;
       color: #222;
-      margin-bottom: 40px;
     }
 
-    .timeline {
-      position: relative;
-      max-width: 900px;
-      margin: auto;
-      padding: 0 10px;
+    header {
+      background: #1a1a1a;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
     }
 
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 6px;
-      background-color: #d1d5db;
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    #menu-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+
+    aside.sidebar {
+      position: fixed;
       top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #333;
+      padding-top: 60px;
+      overflow-y: auto;
+      transition: left 0.3s ease-in-out;
+      z-index: 1000;
     }
 
-    .container {
-      padding: 20px 30px;
-      position: relative;
-      width: 50%;
-    }
-
-    .container::before {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      top: 20px;
-      background-color: #fff;
-      border: 4px solid #2563eb;
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    .left {
+    .sidebar.active {
       left: 0;
     }
 
-    .right {
-      left: 50%;
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .left::before {
-      right: -10px;
+    .sidebar ul li {
+      padding: 15px 20px;
     }
 
-    .right::before {
-      left: -10px;
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      font-weight: bold;
+      cursor: pointer;
     }
 
-    .content {
+    .sidebar ul li a:hover,
+    .sidebar ul li a.active {
+      background: #444;
+      color: #2ecc71;
+    }
+
+    .submenu {
+      display: none;
+      padding-left: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .submenu li {
+      padding: 8px 20px;
+      font-weight: normal;
+    }
+
+    .submenu li a {
+      color: #ccc;
+      font-weight: normal;
+    }
+
+    .submenu li a:hover {
+      color: #2ecc71;
+    }
+
+    #close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    .right-sidebar {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: #222;
+      color: white;
+      padding-top: 60px;
+      overflow-y: auto;
+      transition: right 0.3s ease-in-out;
+      z-index: 1000;
+    }
+
+    .right-sidebar.active {
+      right: 0;
+    }
+
+    main {
       padding: 20px;
-      background-color: #ffffff;
-      position: relative;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      max-width: 1000px;
+      margin: auto;
     }
 
-    .left .content {
-      text-align: right;
+    h2, h3 {
+      color: #1a1a1a;
     }
 
-    .right .content {
-      text-align: left;
+    footer {
+      background: #1a1a1a;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
     }
 
-    .content h3 {
-      margin-top: 0;
-      color: #111827;
-      font-size: 18px;
+    footer a {
+      color: #ccc;
+      margin: 0 10px;
+      text-decoration: none;
     }
 
-    .content p {
-      margin: 10px 0 0;
-      color: #374151;
-      font-size: 14px;
-      line-height: 1.5;
+    footer a:hover {
+      color: #2ecc71;
     }
 
-    @media screen and (max-width: 768px) {
-      .timeline::after {
-        left: 20px;
+    .social-media i {
+      margin: 0 5px;
+      font-size: 1.2em;
+    }
+
+    .sr-only {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.4em;
       }
 
-      .container {
-        width: 100%;
-        padding-left: 60px;
-        padding-right: 25px;
+      #menu-toggle {
+        font-size: 1.3em;
       }
 
-      .container::before {
-        left: 15px;
+      .sidebar ul li {
+        padding: 12px 16px;
       }
 
-      .left, .right {
-        left: 0%;
-      }
-
-      .left .content, .right .content {
-        text-align: left;
+      main {
+        padding: 15px;
       }
     }
   </style>
 </head>
+
 <body>
+  <header>
+    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <div>
+      <h1>Ratanlal Mahanta</h1>
+      <p>Computational Finance | AI-Driven Quantitative Research</p>
+    </div>
+  </header>
+
+  <aside id="sidebar" class="sidebar" aria-label="Main Navigation">
+    <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+
+      <li>
+        <a class="has-submenu" id="RDToggle">R&D <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="rdSubmenu">
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Lab.html">Lab & Innovation</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="has-submenu" id="workToggle">Work Experience <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="workExpSubmenu">
+          <li><a href="Work.html">Timeline</a></li>
+          <li><a href="rsrl.html">RsRL</a></li>
+          <li><a href="cts.html">Cognizant</a></li>
+          <li><a href="gpsk.html">GPSK</a></li>
+          <li><a href="algotech.html">Algotech</a></li>
+          <li><a href="sharekhan.html">Sharekhan</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="has-submenu" id="quantToggle">Quant Research <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="quantSubmenu">
+          <li><a href="FX.html">FX & IR</a></li>
+          <li><a href="Com.html">Commodity</a></li>
+          <li><a href="Eq.html">Equity</a></li>
+          <li><a href="Crypto.html">Crypto</a></li>
+          <li><a href="research_update.html">Product Design</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="has-submenu" id="ReferenceToggle">Reference <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="ReferenceSubmenu">
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="blog.html">Conference</a></li>
+          <li><a href="blog.html">Lecture Series</a></li>
+          <li><a href="blog.html">Reading List</a></li>
+          <li><a href="blog.html">System Design</a></li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+
+  <aside id="right-sidebar" class="right-sidebar" aria-label="Context Tools Sidebar">
+    <button id="close-btn-right" aria-label="Close right menu"><i class="fas fa-times"></i></button>
+    <ul>
+      <li><a href="#">📌 Notes</a></li>
+      <li><a href="#">📅 Schedule</a></li>
+      <li><a href="#">📚 Reading</a></li>
+      <li><a href="#">🧠 Ideas</a></li>
+    </ul>
+  </aside>
+
+  <main>
+      <body>
   <h2>GPSK Investment Timeline</h2>
   <div class="timeline">
     <div class="container left">
@@ -186,5 +331,67 @@
       </div>
     </div>
   </div>
+</body>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
+    <p>Contact:
+      <a href="mailto:ratanlalmahanta@gmail.com" title="Email"><i class="fas fa-envelope"></i><span class="sr-only">Email</span></a>
+    </p>
+    <div class="social-media">
+      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
+      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const toggleBtn = document.getElementById("menu-toggle");
+    const closeBtn = document.getElementById("close-btn");
+
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+      toggleBtn.setAttribute("aria-expanded", sidebar.classList.contains("active"));
+    });
+
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.remove("active");
+      toggleBtn.setAttribute("aria-expanded", "false");
+    });
+
+    document.getElementById("RDToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("rdSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.getElementById("workToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("workExpSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.getElementById("quantToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("quantSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.getElementById("ReferenceToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("ReferenceSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    const rightSidebar = document.getElementById("right-sidebar");
+    const closeRightBtn = document.getElementById("close-btn-right");
+
+    closeRightBtn.addEventListener("click", () => {
+      rightSidebar.classList.remove("active");
+    });
+  </script>
 </body>
 </html>
