@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monte Carlo + Finite Difference Greeks</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      line-height: 1.6;
+      color: #222;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #eef;
+      border-left: 4px solid #44f;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+    pre {
+      background: #f9f9f9;
+      padding: 1rem;
+      overflow-x: auto;
+      border-left: 4px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Monte Carlo Option Pricing and Greeks via Finite Differences</h1>
+
+<h2>1. Monte Carlo Simulation for Option Pricing</h2>
+
+<p>Assume the stock price follows geometric Brownian motion:</p>
+
+\[
+dS = r S dt + \sigma S dW_t
+\]
+
+<p>Under the risk-neutral measure:</p>
+
+\[
+S_T = S_0 \cdot \exp\left( \left(r - \frac{1}{2} \sigma^2\right) T + \sigma \sqrt{T} Z \right), \quad Z \sim \mathcal{N}(0,1)
+\]
+
+<p>The European call option value is:</p>
+
+\[
+C = e^{-rT} \cdot \mathbb{E}[\max(S_T - K, 0)]
+\]
+
+<h2>2. Basic Monte Carlo Algorithm</h2>
+
+<pre><code># Inputs: S0, K, r, T, sigma, N
+Z = np.random.randn(N)
+ST = S0 * np.exp((r - 0.5 * sigma**2) * T + sigma * sqrt(T) * Z)
+payoff = np.maximum(ST - K, 0)
+price = np.exp(-r * T) * np.mean(payoff)
+</code></pre>
+
+<h2>3. Greeks via Finite Difference</h2>
+
+<p>
+Finite difference approximates the derivative by re-running the Monte Carlo with slightly perturbed inputs:
+</p>
+
+<h3>Delta</h3>
+\[
+\Delta \approx \frac{C(S_0 + h) - C(S_0 - h)}{2h}
+\]
+
+<h3>Vega</h3>
+\[
+\text{Vega} \approx \frac{C(\sigma + h) - C(\sigma - h)}{2h}
+\]
+
+<h3>Rho</h3>
+\[
+\rho \approx \frac{C(r + h) - C(r - h)}{2h}
+\]
+
+<div class="note">
+  <strong>Tip:</strong> Use the same random numbers (common random numbers) for all evaluations to reduce variance in Greeks.
+</div>
+
+<h2>4. Python-Compatible Pseudocode</h2>
+
+<pre><code>def monte_carlo_price(S0, K, r, T, sigma, N, Z):
+    ST = S0 * np.exp((r - 0.5 * sigma**2) * T + sigma * np.sqrt(T) * Z)
+    payoff = np.maximum(ST - K, 0)
+    return np.exp(-r * T) * np.mean(payoff)
+
+Z = np.random.randn(N)
+
+# Base price
+C0 = monte_carlo_price(S0, K, r, T, sigma, N, Z)
+
+# Delta via finite difference
+h = 0.01
+C_plus = monte_carlo_price(S0 + h, K, r, T, sigma, N, Z)
+C_minus = monte_carlo_price(S0 - h, K, r, T, sigma, N, Z)
+delta = (C_plus - C_minus) / (2 * h)
+
+# Vega
+sigma_plus = monte_carlo_price(S0, K, r, T, sigma + h, N, Z)
+sigma_minus = monte_carlo_price(S0, K, r, T, sigma - h, N, Z)
+vega = (sigma_plus - sigma_minus) / (2 * h)
+
+# Rho
+r_plus = monte_carlo_price(S0, K, r + h, T, sigma, N, Z)
+r_minus = monte_carlo_price(S0, K, r - h, T, sigma, N, Z)
+rho = (r_plus - r_minus) / (2 * h)
+</code></pre>
+
+<h2>5. Notes</h2>
+<ul>
+  <li>Finite difference is simple and model-agnostic — works with Monte Carlo, trees, or PDEs.</li>
+  <li>Common random numbers greatly reduce noise in Greeks.</li>
+  <li>Choose \( h \) carefully: too small causes round-off error, too large introduces bias.</li>
+  <li>Greeks from simulation are noisy — consider using control variates or adjoint methods for efficiency.</li>
+</ul>
+
+<h2>6. Advantages and Disadvantages</h2>
+
+<table border="1" cellpadding="8">
+<tr><th>Pros</th><th>Cons</th></tr>
+<tr><td>Simple to implement</td><td>Slow convergence (\( \sim 1/\sqrt{N} \))</td></tr>
+<tr><td>General (can price exotic options)</td><td>Requires high computational effort</td></tr>
+<tr><td>Finite diff method is flexible</td><td>Prone to variance in Greeks</td></tr>
+</table>
+
+<footer style="margin-top: 3rem; font-size: 0.9rem; color: #888;">
+  &copy; 2025 | Monte Carlo Option Greeks (Finite Difference) | Quantitative Finance by Ratanlal Mahanta
+</footer>
+
+</body>
+</html>
