@@ -1,173 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Heston Model Calibration for Volatility</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- MathJax for Mathematical Rendering -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ratanlal Mahanta's profile in Computational Finance and AI-driven Quantitative Research." />
+  <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Derivatives, Machine Learning, Fintech" />
+  <meta name="author" content="Ratanlal Mahanta" />
+  <meta name="theme-color" content="#1a1a1a" />
+  <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
+  <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
+  <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
+  <meta property="og:type" content="website" />
+  <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    :root {
-      --primary-color: #1a237e;
-      --background-color: #f4f6f8;
-      --container-bg: #ffffff;
-      --text-color: #2c3e50;
-      --heading-color: #37474f;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-color);
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background: #f4f4f4;
+      color: #222;
     }
 
-    .container {
-      max-width: 960px;
-      margin: auto;
-      padding: 2em 1.5em;
-      background-color: var(--container-bg);
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    header {
+      background: #1a1a1a;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
     }
 
-    h1, h2 {
-      color: var(--primary-color);
-      margin-bottom: 0.6em;
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
     }
 
-    h1 {
-      text-align: center;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    header p {
+      margin: 0;
+      font-size: 0.9em;
+      color: #ccc;
     }
 
-    h2 {
-      font-size: clamp(1.4rem, 2.5vw, 1.75rem);
-      color: var(--heading-color);
-      margin-top: 2em;
+    #menu-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      cursor: pointer;
     }
 
-    p, ul {
-      font-size: clamp(1rem, 2.2vw, 1.15rem);
-      line-height: 1.65;
-      margin: 1em 0;
+    aside.sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #333;
+      padding-top: 60px;
+      overflow-y: auto;
+      transition: left 0.3s ease-in-out;
+      z-index: 1000;
     }
 
-    ul {
-      padding-left: 1.4em;
+    .sidebar.active {
+      left: 0;
     }
 
-    code {
-      background-color: #e0e0e0;
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 0.95em;
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .equation {
-      text-align: center;
-      margin: 1.5em 0;
-      overflow-x: auto;
+    .sidebar ul li {
+      padding: 15px 20px;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
       display: block;
-      margin: 2em auto 0;
-      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        padding: 1.2em;
-        border-radius: 8px;
+    .sidebar ul li a:hover,
+    .sidebar ul li a.active {
+      background: #444;
+      color: #2ecc71;
+    }
+
+    .submenu {
+      display: none;
+      padding-left: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .submenu li {
+      padding: 8px 20px;
+      font-weight: normal;
+    }
+
+    .submenu li a {
+      color: #ccc;
+      font-weight: normal;
+    }
+
+    .submenu li a:hover {
+      color: #2ecc71;
+    }
+
+    #close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    .right-sidebar {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: #222;
+      color: white;
+      padding-top: 60px;
+      overflow-y: auto;
+      transition: right 0.3s ease-in-out;
+      z-index: 1000;
+    }
+
+    .right-sidebar.active {
+      right: 0;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2, h3 {
+      color: #1a1a1a;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #ccc;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #2ecc71;
+    }
+
+    .social-media i {
+      margin: 0 5px;
+      font-size: 1.2em;
+    }
+
+    .sr-only {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.4em;
       }
 
-      ul {
-        padding-left: 1em;
+      #menu-toggle {
+        font-size: 1.3em;
+      }
+
+      .sidebar ul li {
+        padding: 12px 16px;
+      }
+
+      main {
+        padding: 15px;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Heston Model Calibration for Volatility</h1>
-
-    <p>
-      The Heston model is a popular stochastic volatility model used in derivative pricing, particularly for options where implied
-      volatility varies with strike and maturity. It models the underlying asset price and its variance as coupled stochastic
-      processes:
-    </p>
-
-    <div class="equation">
-      $$
-      \begin{aligned}
-      dS_t &= \mu S_t \, dt + \sqrt{v_t} S_t \, dW_t^S \\\\
-      dv_t &= \kappa(\theta - v_t) \, dt + \sigma \sqrt{v_t} \, dW_t^v \\\\
-      dW_t^S \cdot dW_t^v &= \rho \, dt
-      \end{aligned}
-      $$
+  <header>
+    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <div>
+      <h1>Ratanlal Mahanta</h1>
+      <p>Computational Finance | AI-Driven Quantitative Research</p>
     </div>
+  </header>
 
-    <p>
-      Here, \( S_t \) is the asset price, \( v_t \) the stochastic variance, \( \kappa \) the rate of mean reversion, \( \theta \)
-      the long-run variance, \( \sigma \) the volatility of volatility, and \( \rho \) the correlation between the asset and volatility
-      shocks.
-    </p>
-
-    <h2>Calibration Approach</h2>
-    <p>
-      We calibrate the Heston model to market-observed implied volatilities using a non-linear least squares optimization:
-    </p>
-
-    <div class="equation">
-      $$
-      \text{Loss}(\vec{\theta}) = \sum_{i=1}^N \left[ \text{IV}_{\text{market}}^{(i)} - \text{IV}_{\text{Heston}}^{(i)}(\vec{\theta}) \right]^2
-      $$
-    </div>
-
-    <p>
-      where \( \vec{\theta} = (\kappa, \theta, \sigma, v_0, \rho) \) is the parameter vector. The goal is to minimize the squared
-      differences between market and model implied volatilities across a range of strikes and maturities.
-    </p>
-
-    <h2>Model Validation & Error Surface</h2>
-    <p>
-      After calibration, we analyze the stability of the estimated parameters by perturbing initial conditions and using
-      <em>bootstrapped sub-samples</em> of option chains. The error surface is visualized in 2D and 3D plots to identify
-      <strong>local minima</strong> and degeneracies in parameter space.
-    </p>
-
-    <p>
-      Additionally, we perform out-of-sample backtesting by comparing pricing errors and hedging performance against the
-      <strong>Black-Scholes</strong> and <strong>SABR</strong> models:
-    </p>
-
+  <aside id="sidebar" class="sidebar" aria-label="Main Navigation">
+    <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
     <ul>
-      <li>Black-Scholes assumes constant volatility, often underpricing OTM options.</li>
-      <li>SABR captures skew but lacks stochastic variance dynamics.</li>
-      <li>Heston performs best in capturing volatility smiles and forward skew.</li>
+      <li><a href="index.html" class="active">Home</a></li>
+
+      <li>
+        <a class="has-submenu" id="RDToggle">R&D <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="rdSubmenu">
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Lab.html">Lab & Innovation</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="has-submenu" id="workToggle">Work Experience <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="workExpSubmenu">
+          <li><a href="Work.html">Timeline</a></li>
+          <li><a href="rsrl.html">RsRL</a></li>
+          <li><a href="cts.html">Cognizant</a></li>
+          <li><a href="gpsk.html">GPSK</a></li>
+          <li><a href="algotech.html">Algotech</a></li>
+          <li><a href="sharekhan.html">Sharekhan</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="has-submenu" id="quantToggle">Quant Research <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="quantSubmenu">
+          <li><a href="FX.html">FX & IR</a></li>
+          <li><a href="Com.html">Commodity</a></li>
+          <li><a href="Eq.html">Equity</a></li>
+          <li><a href="Crypto.html">Crypto</a></li>
+          <li><a href="research_update.html">Product Design</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="has-submenu" id="ReferenceToggle">Reference <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="ReferenceSubmenu">
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="blog.html">Conference</a></li>
+          <li><a href="blog.html">Lecture Series</a></li>
+          <li><a href="blog.html">Reading List</a></li>
+          <li><a href="blog.html">System Design</a></li>
+        </ul>
+      </li>
     </ul>
+  </aside>
 
-    <p>
-      The Heston model, while computationally intensive, provides superior calibration performance in capturing market
-      volatility structures. It forms the basis for advanced derivative pricing engines and risk-neutral scenario generators
-      in real-time trading systems.
+  <aside id="right-sidebar" class="right-sidebar" aria-label="Context Tools Sidebar">
+    <button id="close-btn-right" aria-label="Close right menu"><i class="fas fa-times"></i></button>
+    <ul>
+      <li><a href="#">📌 Notes</a></li>
+      <li><a href="#">📅 Schedule</a></li>
+      <li><a href="#">📚 Reading</a></li>
+      <li><a href="#">🧠 Ideas</a></li>
+    </ul>
+  </aside>
+
+  <main>
+<section id="blog-post">
+        <h2>Introduction to Risk Management in Finance</h2>
+        <p><strong>Risk management</strong> in the financial sector is a critical aspect of ensuring stability and profitability. Traditional risk management strategies rely heavily on historical data and pre-defined models to forecast potential losses and mitigate risks. However, these methods are often limited in their ability to handle the complexities of modern financial markets, where volatility and uncertainty are prevalent. With the advent of <strong>Machine Learning (ML)</strong>, financial institutions are now empowered to improve their risk management strategies through predictive analytics, anomaly detection, and dynamic adjustments to market changes.</p>
+
+        <h3>1. Predictive Analytics for Risk Assessment</h3>
+        <p>Machine learning algorithms enable predictive analytics by analyzing vast amounts of historical and real-time data. By identifying patterns and trends in the data, ML models can forecast future risks more accurately than traditional models. For example, risk managers use ML algorithms to predict the likelihood of credit defaults, market crashes, or liquidity crises. Techniques such as regression analysis, decision trees, and neural networks allow for the creation of models that can learn from past events and adapt to new market conditions, providing a more dynamic approach to risk management.</p>
+
+        <h3>2. Anomaly Detection for Identifying Emerging Risks</h3>
+        <p>One of the core strengths of machine learning is its ability to detect anomalies in large datasets. In the context of risk management, anomaly detection can help identify emerging risks or unusual market behavior that may go unnoticed by traditional methods. By continuously monitoring market data, transaction records, or asset prices, ML algorithms can flag irregularities and provide early warnings of potential risks. This can be particularly useful in detecting fraud, unusual trading activity, or sudden shifts in market sentiment.</p>
+
+        <h3>3. Real-Time Risk Monitoring and Dynamic Risk Models</h3>
+        <p>Machine learning models can continuously analyze data in real-time, allowing risk managers to adjust their strategies proactively. Unlike static models that rely on historical data and fixed parameters, ML-based models can update in real-time, incorporating new information as it becomes available. This dynamic nature of ML models helps risk managers respond more swiftly to changing market conditions, adjusting risk exposures, and making informed decisions to mitigate potential losses.</p>
+
+        <h3>4. Optimizing Risk-Return Trade-Off</h3>
+        <p>Machine learning can be used to optimize the risk-return trade-off in investment portfolios. Portfolio managers can use ML algorithms to analyze the historical performance of various assets and their correlations, developing strategies that maximize returns while minimizing risks. Advanced techniques such as <strong>reinforcement learning</strong> are used to create adaptive trading strategies that continuously optimize the risk-return ratio based on real-time market data.</p>
+
+        <h3>5. Stress Testing and Scenario Analysis with Machine Learning</h3>
+        <p>Stress testing is a critical component of risk management, where financial institutions simulate extreme market conditions to assess their exposure to potential risks. ML models can enhance stress testing by creating more realistic scenarios that account for complex interdependencies between market factors. By simulating a wide range of market conditions—such as economic downturns, political instability, or unexpected events—ML algorithms help organizations evaluate their resilience to various risk scenarios and develop more robust risk mitigation strategies.</p>
+
+        <h3>6. Machine Learning in Credit Risk Assessment</h3>
+        <p>Credit risk assessment involves determining the likelihood of a borrower defaulting on a loan or credit obligation. Traditional credit scoring models often rely on static features such as credit scores, income, and debt levels. Machine learning enhances credit risk assessment by incorporating a broader set of data points, including transaction history, social media activity, and even alternative data sources like payment behavior. This allows financial institutions to create more accurate credit models, improving the precision of lending decisions and reducing the risk of defaults.</p>
+
+        <h3>7. Challenges and Limitations of Machine Learning in Risk Management</h3>
+        <p>While machine learning offers significant advantages in risk management, there are challenges to its adoption. One of the primary concerns is the interpretability of ML models. Many machine learning algorithms, particularly deep learning models, operate as "black boxes," making it difficult for risk managers to understand how decisions are made. This lack of transparency can be a barrier to regulatory compliance and trust. Additionally, ML models are only as good as the data they are trained on, and biased or incomplete data can lead to inaccurate predictions and flawed risk management decisions.</p>
+
+        <h3>8. The Future of Machine Learning in Risk Management</h3>
+        <p>The integration of machine learning into risk management is still in its early stages, but its potential is immense. As data availability and computational power continue to grow, ML models will become even more sophisticated, enabling more accurate and efficient risk management strategies. In the future, we can expect to see the widespread use of AI-driven risk management systems, offering real-time decision-making, enhanced predictive capabilities, and more personalized risk mitigation strategies tailored to individual market conditions and organizational needs.</p>
+
+        <h3>Conclusion</h3>
+        <p>Machine learning is reshaping the landscape of risk management by offering enhanced predictive capabilities, real-time monitoring, and the ability to optimize risk-return trade-offs. While challenges remain, the future of risk management looks increasingly driven by AI and machine learning technologies. By harnessing the power of ML, financial institutions can make smarter, data-driven decisions that mitigate risk and enhance financial stability, ultimately improving the resilience of markets and organizations in the face of uncertainty.</p>
+    </section>
+    
+ </main>
+
+  <footer>
+    <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
+    <p>Contact:
+      <a href="mailto:ratanlalmahanta@gmail.com" title="Email"><i class="fas fa-envelope"></i><span class="sr-only">Email</span></a>
     </p>
+    <div class="social-media">
+      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
+      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i></a>
+    </div>
+  </footer>
 
-    <img src="assets/images/HS.png" alt="Heston surface example" />
-  </div>
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const toggleBtn = document.getElementById("menu-toggle");
+    const closeBtn = document.getElementById("close-btn");
+
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+      toggleBtn.setAttribute("aria-expanded", sidebar.classList.contains("active"));
+    });
+
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.remove("active");
+      toggleBtn.setAttribute("aria-expanded", "false");
+    });
+
+    document.getElementById("RDToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("rdSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.getElementById("workToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("workExpSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.getElementById("quantToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("quantSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.getElementById("ReferenceToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("ReferenceSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    const rightSidebar = document.getElementById("right-sidebar");
+    const closeRightBtn = document.getElementById("close-btn-right");
+
+    closeRightBtn.addEventListener("click", () => {
+      rightSidebar.classList.remove("active");
+    });
+  </script>
 </body>
 </html>
