@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monte Carlo Option Pricing</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      line-height: 1.6;
+      color: #222;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #eef;
+      border-left: 4px solid #44f;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+    pre {
+      background: #f9f9f9;
+      padding: 1rem;
+      overflow-x: auto;
+      border-left: 4px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Monte Carlo Simulation: Option Pricing & Greeks</h1>
+
+<h2>1. European Option Pricing via Monte Carlo</h2>
+
+<p>We simulate the asset price under risk-neutral dynamics:</p>
+
+\[
+S_T = S_0 \cdot \exp\left( \left(r - \frac{1}{2}\sigma^2\right)T + \sigma \sqrt{T} Z \right)
+\]
+<p>Where \( Z \sim \mathcal{N}(0,1) \).</p>
+
+<p>The price of a European call is:</p>
+
+\[
+C = e^{-rT} \mathbb{E}[\max(S_T - K, 0)]
+\]
+
+<p>For a put option:</p>
+
+\[
+P = e^{-rT} \mathbb{E}[\max(K - S_T, 0)]
+\]
+
+<h2>2. Algorithm</h2>
+
+<pre><code># Inputs: S0, K, r, T, sigma, N
+for i in 1 to N:
+    Z = random standard normal sample
+    ST = S0 * exp((r - 0.5 * sigma^2) * T + sigma * sqrt(T) * Z)
+    payoff[i] = max(ST - K, 0)    # for a call
+
+price = exp(-r * T) * average(payoff)
+</code></pre>
+
+<h2>3. Greeks Using Monte Carlo</h2>
+
+<h3>Delta (Pathwise Method)</h3>
+\[
+\Delta = \frac{\partial C}{\partial S_0} = e^{-rT} \cdot \mathbb{E} \left[ \mathbf{1}_{S_T > K} \cdot \frac{S_T}{S_0} \right]
+\]
+
+<h3>Vega (Pathwise or Likelihood Ratio)</h3>
+
+Pathwise:
+\[
+\text{Vega} = e^{-rT} \cdot \mathbb{E} \left[ \mathbf{1}_{S_T > K} \cdot S_T \cdot \left( \frac{Z}{\sigma} \right) \right]
+\]
+
+Likelihood ratio:
+\[
+\text{Vega} = e^{-rT} \cdot \mathbb{E} \left[ \max(S_T - K, 0) \cdot \left( \frac{Z^2 - 1}{\sigma} \right) \right]
+\]
+
+<h3>Rho</h3>
+\[
+\rho = \frac{\partial C}{\partial r} = T \cdot C + e^{-rT} \cdot \mathbb{E} \left[ \max(S_T - K, 0) \cdot (-T) \right]
+\]
+
+<div class="note">
+  <strong>Important:</strong> Greeks can have high variance. Use variance reduction (antithetic variates, control variates, etc.) to improve accuracy.
+</div>
+
+<h2>4. Notes and Assumptions</h2>
+<ul>
+  <li>Risk-neutral world: drift is \( r \), not actual return \( \mu \)</li>
+  <li>Monte Carlo is flexible: works for path-dependent options (Asian, Barrier, etc.)</li>
+  <li>Slow convergence: error ~ \( \frac{1}{\sqrt{N}} \), use millions of paths for precision</li>
+  <li>Parallelizable and GPU-friendly</li>
+</ul>
+
+<h2>5. Python-Compatible Version (Pseudocode)</h2>
+
+<pre><code>import numpy as np
+
+def monte_carlo_call(S0, K, r, T, sigma, N=100000):
+    Z = np.random.randn(N)
+    ST = S0 * np.exp((r - 0.5 * sigma**2) * T + sigma * np.sqrt(T) * Z)
+    payoff = np.maximum(ST - K, 0)
+    price = np.exp(-r * T) * np.mean(payoff)
+    return price
+</code></pre>
+
+<footer style="margin-top: 3rem; font-size: 0.9rem; color: #888;">
+  &copy; 2025 | Monte Carlo Option Pricing | Quantitative Finance by Ratanlal Mahanta
+</footer>
+
+</body>
+</html>
