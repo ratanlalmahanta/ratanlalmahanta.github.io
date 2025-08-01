@@ -7,19 +7,13 @@
   <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Derivatives, Machine Learning, Fintech" />
   <meta name="author" content="Ratanlal Mahanta" />
   <meta name="theme-color" content="#1a1a1a" />
-
-  <!-- Open Graph for Social Sharing -->
   <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
   <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
   <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
   <meta property="og:type" content="website" />
-
   <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -89,11 +83,32 @@
       text-decoration: none;
       display: block;
       font-weight: bold;
+      cursor: pointer;
     }
 
     .sidebar ul li a:hover,
     .sidebar ul li a.active {
       background: #444;
+      color: #2ecc71;
+    }
+
+    .submenu {
+      display: none;
+      padding-left: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .submenu li {
+      padding: 8px 20px;
+      font-weight: normal;
+    }
+
+    .submenu li a {
+      color: #ccc;
+      font-weight: normal;
+    }
+
+    .submenu li a:hover {
       color: #2ecc71;
     }
 
@@ -106,6 +121,24 @@
       color: white;
       font-size: 1.2em;
       cursor: pointer;
+    }
+
+    .right-sidebar {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: #222;
+      color: white;
+      padding-top: 60px;
+      overflow-y: auto;
+      transition: right 0.3s ease-in-out;
+      z-index: 1000;
+    }
+
+    .right-sidebar.active {
+      right: 0;
     }
 
     main {
@@ -182,19 +215,65 @@
     <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="Lab.html">Lab & Innovation</a></li>
-      <li><a href="research_update.html">Research Update</a></li>
-      <li><a href="Work.html">Work Experience</a></li>
-      <li><a href="Talk.html">Quant Research</a></li>
-      <li><a href="blog.html">Blog</a></li>
+
+      <li>
+        <a class="has-submenu" id="RDToggle">R&D <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="rdSubmenu">
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Lab.html">Lab & Innovation</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="has-submenu" id="workToggle">Work Experience <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="workExpSubmenu">
+          <li><a href="Work.html">Timeline</a></li>
+          <li><a href="rsrl.html">RsRL</a></li>
+          <li><a href="cts.html">Cognizant</a></li>
+          <li><a href="gpsk.html">GPSK</a></li>
+          <li><a href="algotech.html">Algotech</a></li>
+          <li><a href="sharekhan.html">Sharekhan</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="has-submenu" id="quantToggle">Quant Research <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="quantSubmenu">
+          <li><a href="FX.html">FX & IR</a></li>
+          <li><a href="Com.html">Commodity</a></li>
+          <li><a href="Eq.html">Equity</a></li>
+          <li><a href="Crypto.html">Crypto</a></li>
+          <li><a href="research_update.html">Product Design</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="has-submenu" id="ReferenceToggle">Reference <i class="fas fa-caret-down" style="float:right;"></i></a>
+        <ul class="submenu" id="ReferenceSubmenu">
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="blog.html">Conference</a></li>
+          <li><a href="blog.html">Lecture Series</a></li>
+          <li><a href="blog.html">Reading List</a></li>
+          <li><a href="blog.html">System Design</a></li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+
+  <aside id="right-sidebar" class="right-sidebar" aria-label="Context Tools Sidebar">
+    <button id="close-btn-right" aria-label="Close right menu"><i class="fas fa-times"></i></button>
+    <ul>
+      <li><a href="#">📌 Notes</a></li>
+      <li><a href="#">📅 Schedule</a></li>
+      <li><a href="#">📚 Reading</a></li>
+      <li><a href="#">🧠 Ideas</a></li>
     </ul>
   </aside>
 
   <main>
-  <!-- Publications Section -->
+<!-- Publications Section -->
   <section id="publications">
     <h2><i class="fas fa-graduation-cap"></i> Selected Publications</h2>
 
@@ -244,23 +323,20 @@
 <div class="publication"><h3><a href="https://www.oreilly.com/library/view/python-algorithmic-trading/9781838989354/5a031893-2066-4458-bede-d8c1e6f3c40b.xhtml" target="_blank">📘 Python Algorithmic Trading Cookbook</h3><p><strong>Publisher:</strong> Packt Publishing Ltd<br><strong>Year:</strong> 2020</p></div></a>
 
   
-</section>
-
-  </main>
+</  </main>
 
   <footer>
     <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
-    <p>
-      Contact:
+    <p>Contact:
       <a href="mailto:ratanlalmahanta@gmail.com" title="Email"><i class="fas fa-envelope"></i><span class="sr-only">Email</span></a>
     </p>
     <div class="social-media">
-      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="sr-only">LinkedIn</span></a>
-      <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a>
-      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i><span class="sr-only">GitHub</span></a>
-      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i><span class="sr-only">Google Scholar</span></a>
-      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i><span class="sr-only">Gemini</span></a>
-      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i><span class="sr-only">Grok</span></a>
+      <a href="https://www.linkedin.com/in/ratanlalmahanta" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/ratanlalmahanta" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/ratanlalmahanta" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
+      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i></a>
     </div>
   </footer>
 
@@ -277,6 +353,33 @@
     closeBtn.addEventListener("click", () => {
       sidebar.classList.remove("active");
       toggleBtn.setAttribute("aria-expanded", "false");
+    });
+
+    document.getElementById("RDToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("rdSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.getElementById("workToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("workExpSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.getElementById("quantToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("quantSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.getElementById("ReferenceToggle").addEventListener("click", () => {
+      const submenu = document.getElementById("ReferenceSubmenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+
+    const rightSidebar = document.getElementById("right-sidebar");
+    const closeRightBtn = document.getElementById("close-btn-right");
+
+    closeRightBtn.addEventListener("click", () => {
+      rightSidebar.classList.remove("active");
     });
   </script>
 </body>
