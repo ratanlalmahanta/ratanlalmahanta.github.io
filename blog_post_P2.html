@@ -273,37 +273,75 @@
   </aside>
 
   <main>
-<section id="blog-post">
-        <h2>Introduction to Risk Management in Finance</h2>
-        <p><strong>Risk management</strong> in the financial sector is a critical aspect of ensuring stability and profitability. Traditional risk management strategies rely heavily on historical data and pre-defined models to forecast potential losses and mitigate risks. However, these methods are often limited in their ability to handle the complexities of modern financial markets, where volatility and uncertainty are prevalent. With the advent of <strong>Machine Learning (ML)</strong>, financial institutions are now empowered to improve their risk management strategies through predictive analytics, anomaly detection, and dynamic adjustments to market changes.</p>
+<body>
+  <div class="container">
+    <h1>Heston Model Calibration for Volatility</h1>
 
-        <h3>1. Predictive Analytics for Risk Assessment</h3>
-        <p>Machine learning algorithms enable predictive analytics by analyzing vast amounts of historical and real-time data. By identifying patterns and trends in the data, ML models can forecast future risks more accurately than traditional models. For example, risk managers use ML algorithms to predict the likelihood of credit defaults, market crashes, or liquidity crises. Techniques such as regression analysis, decision trees, and neural networks allow for the creation of models that can learn from past events and adapt to new market conditions, providing a more dynamic approach to risk management.</p>
+    <p>
+      The Heston model is a popular stochastic volatility model used in derivative pricing, particularly for options where implied
+      volatility varies with strike and maturity. It models the underlying asset price and its variance as coupled stochastic
+      processes:
+    </p>
 
-        <h3>2. Anomaly Detection for Identifying Emerging Risks</h3>
-        <p>One of the core strengths of machine learning is its ability to detect anomalies in large datasets. In the context of risk management, anomaly detection can help identify emerging risks or unusual market behavior that may go unnoticed by traditional methods. By continuously monitoring market data, transaction records, or asset prices, ML algorithms can flag irregularities and provide early warnings of potential risks. This can be particularly useful in detecting fraud, unusual trading activity, or sudden shifts in market sentiment.</p>
+    <div class="equation">
+      $$
+      \begin{aligned}
+      dS_t &= \mu S_t \, dt + \sqrt{v_t} S_t \, dW_t^S \\\\
+      dv_t &= \kappa(\theta - v_t) \, dt + \sigma \sqrt{v_t} \, dW_t^v \\\\
+      dW_t^S \cdot dW_t^v &= \rho \, dt
+      \end{aligned}
+      $$
+    </div>
 
-        <h3>3. Real-Time Risk Monitoring and Dynamic Risk Models</h3>
-        <p>Machine learning models can continuously analyze data in real-time, allowing risk managers to adjust their strategies proactively. Unlike static models that rely on historical data and fixed parameters, ML-based models can update in real-time, incorporating new information as it becomes available. This dynamic nature of ML models helps risk managers respond more swiftly to changing market conditions, adjusting risk exposures, and making informed decisions to mitigate potential losses.</p>
+    <p>
+      Here, \( S_t \) is the asset price, \( v_t \) the stochastic variance, \( \kappa \) the rate of mean reversion, \( \theta \)
+      the long-run variance, \( \sigma \) the volatility of volatility, and \( \rho \) the correlation between the asset and volatility
+      shocks.
+    </p>
 
-        <h3>4. Optimizing Risk-Return Trade-Off</h3>
-        <p>Machine learning can be used to optimize the risk-return trade-off in investment portfolios. Portfolio managers can use ML algorithms to analyze the historical performance of various assets and their correlations, developing strategies that maximize returns while minimizing risks. Advanced techniques such as <strong>reinforcement learning</strong> are used to create adaptive trading strategies that continuously optimize the risk-return ratio based on real-time market data.</p>
+    <h2>Calibration Approach</h2>
+    <p>
+      We calibrate the Heston model to market-observed implied volatilities using a non-linear least squares optimization:
+    </p>
 
-        <h3>5. Stress Testing and Scenario Analysis with Machine Learning</h3>
-        <p>Stress testing is a critical component of risk management, where financial institutions simulate extreme market conditions to assess their exposure to potential risks. ML models can enhance stress testing by creating more realistic scenarios that account for complex interdependencies between market factors. By simulating a wide range of market conditions—such as economic downturns, political instability, or unexpected events—ML algorithms help organizations evaluate their resilience to various risk scenarios and develop more robust risk mitigation strategies.</p>
+    <div class="equation">
+      $$
+      \text{Loss}(\vec{\theta}) = \sum_{i=1}^N \left[ \text{IV}_{\text{market}}^{(i)} - \text{IV}_{\text{Heston}}^{(i)}(\vec{\theta}) \right]^2
+      $$
+    </div>
 
-        <h3>6. Machine Learning in Credit Risk Assessment</h3>
-        <p>Credit risk assessment involves determining the likelihood of a borrower defaulting on a loan or credit obligation. Traditional credit scoring models often rely on static features such as credit scores, income, and debt levels. Machine learning enhances credit risk assessment by incorporating a broader set of data points, including transaction history, social media activity, and even alternative data sources like payment behavior. This allows financial institutions to create more accurate credit models, improving the precision of lending decisions and reducing the risk of defaults.</p>
+    <p>
+      where \( \vec{\theta} = (\kappa, \theta, \sigma, v_0, \rho) \) is the parameter vector. The goal is to minimize the squared
+      differences between market and model implied volatilities across a range of strikes and maturities.
+    </p>
 
-        <h3>7. Challenges and Limitations of Machine Learning in Risk Management</h3>
-        <p>While machine learning offers significant advantages in risk management, there are challenges to its adoption. One of the primary concerns is the interpretability of ML models. Many machine learning algorithms, particularly deep learning models, operate as "black boxes," making it difficult for risk managers to understand how decisions are made. This lack of transparency can be a barrier to regulatory compliance and trust. Additionally, ML models are only as good as the data they are trained on, and biased or incomplete data can lead to inaccurate predictions and flawed risk management decisions.</p>
+    <h2>Model Validation & Error Surface</h2>
+    <p>
+      After calibration, we analyze the stability of the estimated parameters by perturbing initial conditions and using
+      <em>bootstrapped sub-samples</em> of option chains. The error surface is visualized in 2D and 3D plots to identify
+      <strong>local minima</strong> and degeneracies in parameter space.
+    </p>
 
-        <h3>8. The Future of Machine Learning in Risk Management</h3>
-        <p>The integration of machine learning into risk management is still in its early stages, but its potential is immense. As data availability and computational power continue to grow, ML models will become even more sophisticated, enabling more accurate and efficient risk management strategies. In the future, we can expect to see the widespread use of AI-driven risk management systems, offering real-time decision-making, enhanced predictive capabilities, and more personalized risk mitigation strategies tailored to individual market conditions and organizational needs.</p>
+    <p>
+      Additionally, we perform out-of-sample backtesting by comparing pricing errors and hedging performance against the
+      <strong>Black-Scholes</strong> and <strong>SABR</strong> models:
+    </p>
 
-        <h3>Conclusion</h3>
-        <p>Machine learning is reshaping the landscape of risk management by offering enhanced predictive capabilities, real-time monitoring, and the ability to optimize risk-return trade-offs. While challenges remain, the future of risk management looks increasingly driven by AI and machine learning technologies. By harnessing the power of ML, financial institutions can make smarter, data-driven decisions that mitigate risk and enhance financial stability, ultimately improving the resilience of markets and organizations in the face of uncertainty.</p>
-    </section>
+    <ul>
+      <li>Black-Scholes assumes constant volatility, often underpricing OTM options.</li>
+      <li>SABR captures skew but lacks stochastic variance dynamics.</li>
+      <li>Heston performs best in capturing volatility smiles and forward skew.</li>
+    </ul>
+
+    <p>
+      The Heston model, while computationally intensive, provides superior calibration performance in capturing market
+      volatility structures. It forms the basis for advanced derivative pricing engines and risk-neutral scenario generators
+      in real-time trading systems.
+    </p>
+
+    <img src="assets/images/HS.png" alt="Heston surface example" />
+  </div>
+</body>
     
  </main>
 
