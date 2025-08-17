@@ -14,6 +14,7 @@
   <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -64,9 +65,7 @@
       z-index: 1000;
     }
 
-    .sidebar.active {
-      left: 0;
-    }
+    .sidebar.active { left: 0; }
 
     .sidebar ul {
       list-style: none;
@@ -74,9 +73,7 @@
       margin: 0;
     }
 
-    .sidebar ul li {
-      padding: 15px 20px;
-    }
+    .sidebar ul li { padding: 15px 20px; }
 
     .sidebar ul li a {
       color: white;
@@ -98,19 +95,11 @@
       transition: all 0.3s ease-in-out;
     }
 
-    .submenu li {
-      padding: 8px 20px;
-      font-weight: normal;
-    }
+    .submenu li { padding: 8px 20px; font-weight: normal; }
 
-    .submenu li a {
-      color: #ccc;
-      font-weight: normal;
-    }
+    .submenu li a { color: #ccc; font-weight: normal; }
 
-    .submenu li a:hover {
-      color: #2ecc71;
-    }
+    .submenu li a:hover { color: #2ecc71; }
 
     #close-btn {
       position: absolute;
@@ -137,9 +126,7 @@
       z-index: 1000;
     }
 
-    .right-sidebar.active {
-      right: 0;
-    }
+    .right-sidebar.active { right: 0; }
 
     main {
       padding: 20px;
@@ -147,9 +134,7 @@
       margin: auto;
     }
 
-    h2, h3 {
-      color: #1a1a1a;
-    }
+    h2, h3 { color: #1a1a1a; }
 
     footer {
       background: #1a1a1a;
@@ -164,9 +149,7 @@
       text-decoration: none;
     }
 
-    footer a:hover {
-      color: #2ecc71;
-    }
+    footer a:hover { color: #2ecc71; }
 
     .social-media i {
       margin: 0 5px;
@@ -182,22 +165,91 @@
       overflow: hidden;
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.4em;
+    /* --- TIMELINE DESIGN --- */
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px 0;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background: #2ecc71;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .container {
+      padding: 20px 40px;
+      position: relative;
+      width: 50%;
+    }
+
+    .container.left { left: 0; }
+    .container.right { left: 50%; }
+
+    .container::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -13px;
+      background: #fff;
+      border: 4px solid #2ecc71;
+      top: 30px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .container.right::after { left: -13px; }
+
+    .content {
+      padding: 20px;
+      background: #fff;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .content:hover { transform: translateY(-5px); }
+
+    .content h3 {
+      margin-top: 0;
+      font-size: 1.2em;
+      color: #1a1a1a;
+    }
+
+    .content p {
+      margin: 10px 0 0;
+      color: #444;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+
+    .content i {
+      color: #2ecc71;
+      margin-right: 8px;
+    }
+
+    /* RESPONSIVE */
+    @media screen and (max-width: 768px) {
+      .timeline::after { left: 20px; }
+
+      .container {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 25px;
       }
 
-      #menu-toggle {
-        font-size: 1.3em;
-      }
+      .container.right { left: 0%; }
 
-      .sidebar ul li {
-        padding: 12px 16px;
-      }
-
-      main {
-        padding: 15px;
-      }
+      .container::after { left: 10px; }
     }
   </style>
 </head>
@@ -215,7 +267,6 @@
     <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
-
       <li>
         <a class="has-submenu" id="RDToggle">R&D <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="rdSubmenu">
@@ -225,7 +276,6 @@
           <li><a href="Lab.html">Lab & Innovation</a></li>
         </ul>
       </li>
-
       <li>
         <a class="has-submenu" id="workToggle">Work Experience <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="workExpSubmenu">
@@ -237,103 +287,67 @@
           <li><a href="sharekhan.html">Sharekhan</a></li>
         </ul>
       </li>
-
-      <li>
-        <a class="has-submenu" id="quantToggle">Quant Research <i class="fas fa-caret-down" style="float:right;"></i></a>
-        <ul class="submenu" id="quantSubmenu">
-          <li><a href="FX.html">FX & IR</a></li>
-          <li><a href="Com.html">Commodity</a></li>
-          <li><a href="Eq.html">Equity</a></li>
-          <li><a href="Crypto.html">Crypto</a></li>
-          <li><a href="research_update.html">Product Design</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <a class="has-submenu" id="ReferenceToggle">Reference <i class="fas fa-caret-down" style="float:right;"></i></a>
-        <ul class="submenu" id="ReferenceSubmenu">
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="blog.html">Conference</a></li>
-          <li><a href="blog.html">Lecture Series</a></li>
-          <li><a href="blog.html">Reading List</a></li>
-          <li><a href="blog.html">System Design</a></li>
-        </ul>
-      </li>
-    </ul>
-  </aside>
-
-  <aside id="right-sidebar" class="right-sidebar" aria-label="Context Tools Sidebar">
-    <button id="close-btn-right" aria-label="Close right menu"><i class="fas fa-times"></i></button>
-    <ul>
-      <li><a href="#">📌 Notes</a></li>
-      <li><a href="#">📅 Schedule</a></li>
-      <li><a href="#">📚 Reading</a></li>
-      <li><a href="#">🧠 Ideas</a></li>
     </ul>
   </aside>
 
   <main>
-      <body>
-  <h2>GPSK Investment Timeline</h2>
-  <div class="timeline">
-    <div class="container left">
-      <div class="content">
-        <h3>Mean Reversion - GPSK</h3>
-        <p>Developed and deployed statistical arbitrage strategies based on price reversion logic across equities and ETFs.</p>
+    <h2>GPSK Investment Timeline</h2>
+    <div class="timeline">
+      <div class="container left">
+        <div class="content">
+          <h3><i class="fas fa-chart-line"></i> Mean Reversion </h3>
+          <p>Developed and deployed statistical arbitrage strategies based on price reversion logic across equities and ETFs.</p>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h3><i class="fas fa-bolt"></i> Momentum Strategy</h3>
+          <p>Designed trend-following algorithms for mid-frequency strategies using cross-asset signals and regime detection.</p>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h3><i class="fas fa-signal"></i> Vol Strategy</h3>
+          <p>Implemented volatility models using options market data and variance swaps.</p>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h3><i class="fas fa-microchip"></i> HFT Desk Setup</h3>
+          <p>Led infrastructure and codebase setup for high-frequency trading systems; latency optimization & exchange connectivity.</p>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h3><i class="fas fa-brain"></i> Algo Strategies Development</h3>
+          <p>Built multiple alpha engines using machine learning, signal stacking, and market microstructure models.</p>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h3><i class="fas fa-server"></i> Colo Management</h3>
+          <p>Oversaw co-location infrastructure for low-latency execution and redundancy across exchange data centers.</p>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h3><i class="fas fa-check-circle"></i> System & Internal Audit</h3>
+          <p>Ensured system robustness, audit logging, and compliance with internal trading rules and external regulations.</p>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h3><i class="fas fa-exchange-alt"></i> Trading and Execution</h3>
+          <p>Managed live trading, risk monitoring, order execution optimization, and P&amp;L attribution across strategies.</p>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h3><i class="fas fa-user-tie"></i> Head of Business Quant Desk</h3>
+          <p>Directed the quant team across R&amp;D, implementation, and live deployment; strategic leadership and team mentoring.</p>
+        </div>
       </div>
     </div>
-    <div class="container right">
-      <div class="content">
-        <h3>Momentum Strategy</h3>
-        <p>Designed trend-following algorithms for mid-frequency strategies using cross-asset signals and regime detection.</p>
-      </div>
-    </div>
-    <div class="container left">
-      <div class="content">
-        <h3>Vol Strategy</h3>
-        <p>Implemented volatility models using option.</p>
-      </div>
-    </div>
-    <div class="container right">
-      <div class="content">
-        <h3>HFT Desk Setup</h3>
-        <p>Led infrastructure and codebase setup for high-frequency trading systems; latency optimization & exchange connectivity.</p>
-      </div>
-    </div>
-    <div class="container left">
-      <div class="content">
-        <h3>Algo Strategies Development</h3>
-        <p>Built multiple alpha engines using machine learning, signal stacking, and market microstructure models.</p>
-      </div>
-    </div>
-    <div class="container right">
-      <div class="content">
-        <h3>Colo Management</h3>
-        <p>Oversaw co-location infrastructure for low-latency execution and redundancy across Exchange data center.</p>
-      </div>
-    </div>
-    <div class="container left">
-      <div class="content">
-        <h3>System & Internal Audit</h3>
-        <p>Ensured system robustness, audit logging, and compliance with internal trading rules and external regulations.</p>
-      </div>
-    </div>
-    <div class="container right">
-      <div class="content">
-        <h3>Trading and Execution</h3>
-        <p>Managed live trading, risk monitoring, order execution optimization, and P&amp;L attribution across strategies.</p>
-      </div>
-    </div>
-    <div class="container left">
-      <div class="content">
-        <h3>Head of Business Quant Desk</h3>
-        <p>Directed the quant team across R&amp;D, implementation, and live deployment; strategic leadership and team mentoring.</p>
-      </div>
-    </div>
-  </div>
-</body>
-
-
   </main>
 
   <footer>
@@ -346,8 +360,6 @@
       <a href="https://twitter.com/ratanlalmahanta/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
       <a href="https://github.com/ratanlalmahanta/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
-      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i></a>
     </div>
   </footer>
 
@@ -374,23 +386,6 @@
     document.getElementById("workToggle").addEventListener("click", () => {
       const submenu = document.getElementById("workExpSubmenu");
       submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-    });
-
-    document.getElementById("quantToggle").addEventListener("click", () => {
-      const submenu = document.getElementById("quantSubmenu");
-      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-    });
-
-    document.getElementById("ReferenceToggle").addEventListener("click", () => {
-      const submenu = document.getElementById("ReferenceSubmenu");
-      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-    });
-
-    const rightSidebar = document.getElementById("right-sidebar");
-    const closeRightBtn = document.getElementById("close-btn-right");
-
-    closeRightBtn.addEventListener("click", () => {
-      rightSidebar.classList.remove("active");
     });
   </script>
 </body>
