@@ -187,3 +187,29 @@ footer .social-media a {
     left: 20px; /* override right-side dots */
   }
 }
+
+
+
+/* Mobile Fix */
+@media screen and (max-width: 768px) {
+  .timeline {
+    margin: 20px auto;
+    padding: 10px 0;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 60px; /* space for green circle */
+    padding-right: 20px;
+    left: 0 !important; /* override right alignment */
+  }
+
+  .container::after {
+    left: 25px; /* position the green dot properly */
+    right: auto;
+  }
+
+  .container.right::after {
+    left: 25px; /* fix for right-side dots */
+  }
+}
