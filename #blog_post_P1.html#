@@ -15,8 +15,190 @@
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* Existing styles unchanged */
-    /* (Omitted here for brevity — your original styles are fine) */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #222;
+    }
+
+    header {
+      background: #1a1a1a;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    #menu-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+
+    aside.sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #333;
+      padding-top: 60px;
+      overflow-y: auto;
+      transition: left 0.3s ease-in-out;
+      z-index: 1000;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar ul li {
+      padding: 15px 20px;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .sidebar ul li a:hover,
+    .sidebar ul li a.active {
+      background: #444;
+      color: #2ecc71;
+    }
+
+    .submenu {
+      display: none;
+      padding-left: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .submenu li {
+      padding: 8px 20px;
+      font-weight: normal;
+    }
+
+    .submenu li a {
+      color: #ccc;
+      font-weight: normal;
+    }
+
+    .submenu li a:hover {
+      color: #2ecc71;
+    }
+
+    #close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    .right-sidebar {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: #222;
+      color: white;
+      padding-top: 60px;
+      overflow-y: auto;
+      transition: right 0.3s ease-in-out;
+      z-index: 1000;
+    }
+
+    .right-sidebar.active {
+      right: 0;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2, h3 {
+      color: #1a1a1a;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #ccc;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #2ecc71;
+    }
+
+    .social-media i {
+      margin: 0 5px;
+      font-size: 1.2em;
+    }
+
+    .sr-only {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.4em;
+      }
+
+      #menu-toggle {
+        font-size: 1.3em;
+      }
+
+      .sidebar ul li {
+        padding: 12px 16px;
+      }
+
+      main {
+        padding: 15px;
+      }
+    }
   </style>
 </head>
 
@@ -33,15 +215,17 @@
     <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
+
       <li>
         <a class="has-submenu" id="RDToggle">R&D <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="rdSubmenu">
           <li><a href="about.html">About</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="publications.html">Publications</a></li>
           <li><a href="Lab.html">Lab & Innovation</a></li>
         </ul>
       </li>
+
       <li>
         <a class="has-submenu" id="workToggle">Work Experience <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="workExpSubmenu">
@@ -53,6 +237,7 @@
           <li><a href="sharekhan.html">Sharekhan</a></li>
         </ul>
       </li>
+
       <li>
         <a class="has-submenu" id="quantToggle">Quant Research <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="quantSubmenu">
@@ -63,6 +248,7 @@
           <li><a href="research_update.html">Product Design</a></li>
         </ul>
       </li>
+
       <li>
         <a class="has-submenu" id="ReferenceToggle">Reference <i class="fas fa-caret-down" style="float:right;"></i></a>
         <ul class="submenu" id="ReferenceSubmenu">
@@ -87,46 +273,62 @@
   </aside>
 
   <main>
-    <div class="container">
-      <h1>Heston Model Calibration for Volatility</h1>
+<!-- Publications Section -->
+  <section id="strategies">
+    <h2>Advanced Trading Strategies</h2>
 
-      <p>The Heston model is a popular stochastic volatility model...</p>
-
-      <div class="equation">
-        $$
-        \begin{aligned}
-        dS_t &= \mu S_t \, dt + \sqrt{v_t} S_t \, dW_t^S \\\\
-        dv_t &= \kappa(\theta - v_t) \, dt + \sigma \sqrt{v_t} \, dW_t^v \\\\
-        dW_t^S \cdot dW_t^v &= \rho \, dt
-        \end{aligned}
-        $$
-      </div>
-
-      <p>Here, \( S_t \), \( v_t \), \( \kappa \), \( \theta \), \( \sigma \), \( \rho \)...</p>
-
-      <h2>Calibration Approach</h2>
-      <p>We calibrate the Heston model to market-observed implied volatilities...</p>
-
-      <div class="equation">
-        $$
-        \text{Loss}(\vec{\theta}) = \sum_{i=1}^N \left[ \text{IV}_{\text{market}}^{(i)} - \text{IV}_{\text{Heston}}^{(i)}(\vec{\theta}) \right]^2
-        $$
-      </div>
-
-      <h2>Model Validation & Error Surface</h2>
-      <p>After calibration, we analyze the stability...</p>
-
-      <ul>
-        <li>Black-Scholes assumes constant volatility...</li>
-        <li>SABR captures skew...</li>
-        <li>Heston performs best...</li>
-      </ul>
-
-      <p>The Heston model provides superior calibration performance...</p>
-
-      <img src="assets/images/HS.png" alt="Heston surface example" />
+    <div class="strategy">
+      <h3>1. Trend Following Strategies</h3>
+      <p>
+        We analyze financial time series spanning 10–20 years to uncover underlying market direction using advanced quant models.
+        Techniques include <strong>Genetic Algorithms</strong>, <strong>Support Vector Machines (SVMs)</strong>, and <strong>Artificial Neural Networks (ANNs)</strong>,
+        which allow adaptive, non-linear modeling of price dynamics. These models are particularly effective in capturing persistent
+        momentum across asset classes.
+      </p>
     </div>
-  </main>
+
+    <div class="strategy">
+      <h3>2. Mean Reversion Strategies (Statistical Arbitrage)</h3>
+      <p>
+        Statistical arbitrage is a market-neutral strategy that involves matching long and short positions in highly correlated
+        instruments—such as pairs of stocks, ETFs, or options. We compute the <strong>half-life of mean reversion</strong> using an
+        <strong>Ornstein-Uhlenbeck process</strong>, allowing precise calibration of historical lookback windows. Cointegration
+        analysis forms the core of identifying tradeable spreads.
+      </p>
+    </div>
+
+    <div class="strategy">
+      <h3>3. Volatility Arbitrage Strategies</h3>
+      <p>
+        These strategies exploit mispricings between implied and realized volatility. Due to the <em>volatility smile</em>,
+        out-of-the-money options often trade at inflated prices. By shorting high-IV strikes and longing lower-IV counterparts,
+        we construct delta-neutral portfolios. Greeks—especially <strong>Vega</strong>, <strong>Gamma</strong>, and <strong>Theta</strong>—
+        are dynamically monitored to manage risk and capture time decay asymmetries.
+      </p>
+    </div>
+
+    <div class="strategy">
+      <h3>4. Gamma Scalping Strategies</h3>
+      <p>
+        Gamma scalping profits from large movements in the underlying while maintaining delta neutrality. Short options positions
+        typically have <strong>negative gamma</strong>, while long positions provide <strong>positive gamma</strong>. As delta changes
+        with price, we adjust hedges dynamically. Positive gamma helps traders outperform delta forecasts by profiting more on
+        large moves and losing less on small reversals.
+      </p>
+    </div>
+
+    <div class="strategy">
+      <h3>5. Machine Learning-Based Strategies</h3>
+      <p>
+        Predicting market direction is notoriously noisy. We employ <strong>Deep Neural Networks (DNNs)</strong> with multiple hidden
+        layers to classify market states in a binary manner—upward or downward. Additionally, we apply <strong>K-Means clustering</strong>,
+        an unsupervised algorithm, to segment market regimes without labeled data. This approach is useful in real-world settings
+        where human labeling is infeasible.
+      </p>
+    </div>
+  </section>
+   
+ </main>
 
   <footer>
     <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
@@ -135,8 +337,7 @@
     </p>
     <div class="social-media">
       <a href="https://www.linkedin.com/in/ratanlalmahanta/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://twitter.com/ratanlalmahanta/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://github.com/ratanlalmahanta/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+       target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
       <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
       <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i></a>
