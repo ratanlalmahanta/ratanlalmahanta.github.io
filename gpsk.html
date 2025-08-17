@@ -173,16 +173,7 @@
       padding: 20px 0;
     }
 
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 6px;
-      background: #2ecc71;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -3px;
-    }
+    /* Removed the green line (.timeline::after) */
 
     .container {
       padding: 20px 40px;
@@ -239,8 +230,6 @@
 
     /* RESPONSIVE */
     @media screen and (max-width: 768px) {
-      .timeline::after { left: 20px; }
-
       .container {
         width: 100%;
         padding-left: 60px;
