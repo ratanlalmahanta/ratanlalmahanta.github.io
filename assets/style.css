@@ -164,7 +164,6 @@ footer .social-media a {
 }
 
 
-/* --- TIMELINE DESIGN --- */
 .timeline {
   position: relative;
   max-width: 1000px;
@@ -175,12 +174,12 @@ footer .social-media a {
 .timeline::after {
   content: '';
   position: absolute;
-  width: 6px;
+  width: 4px;                /* thinner line */
   background: #2ecc71;
   top: 0;
   bottom: 0;
-  left: 50%;
-  margin-left: -3px;
+  left: 50%;                 /* keep perfectly centered */
+  transform: translateX(-50%); /* ensures alignment */
 }
 
 .container {
@@ -195,8 +194,8 @@ footer .social-media a {
 .container::after {
   content: '';
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   background: #fff;
   border: 4px solid #2ecc71;
   top: 30px;
@@ -204,8 +203,8 @@ footer .social-media a {
   z-index: 1;
 }
 
-.container.left::after { right: -13px; }
-.container.right::after { left: -13px; }
+.container.left::after { right: -12px; }   /* perfectly touching line */
+.container.right::after { left: -12px; }  /* perfectly touching line */
 
 .content {
   padding: 20px;
@@ -213,35 +212,20 @@ footer .social-media a {
   position: relative;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  display: inline-block;  /* ensures clean alignment */
+  display: inline-block;
   max-width: 90%;
-  text-align: left; /* keep text consistent */
+  text-align: left;
   transition: transform 0.3s ease-in-out;
 }
 
 .content:hover { transform: translateY(-5px); }
 
-.content h3 {
-  margin-top: 0;
-  font-size: 1.2em;
-  color: #1a1a1a;
-}
-
-.content p {
-  margin: 10px 0 0;
-  color: #444;
-  font-size: 0.95em;
-  line-height: 1.6;
-}
-
-.content i {
-  color: #2ecc71;
-  margin-right: 8px;
-}
-
-/* RESPONSIVE */
+/* Responsive */
 @media screen and (max-width: 768px) {
-  .timeline::after { left: 20px; }
+  .timeline::after {
+    left: 20px;
+    transform: none;
+  }
 
   .container {
     width: 100%;
@@ -252,9 +236,4 @@ footer .social-media a {
   .container.right { left: 0%; }
 
   .container::after { left: 10px; }
-
-  .content {
-    max-width: 100%;
-  }
 }
-
