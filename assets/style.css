@@ -164,76 +164,86 @@ footer .social-media a {
 }
 
 
-/* General Timeline Styles */
+/* --- TIMELINE DESIGN --- */
 .timeline {
   position: relative;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: 50px auto;
   padding: 20px 0;
-  max-width: 900px;
 }
 
-.timeline ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.timeline ul li {
+.container {
+  padding: 20px 40px;
   position: relative;
-  margin: 20px 0;
-  display: flex;
-  align-items: flex-start;
+  width: 50%;
 }
 
-/* Timeline circle */
-.timeline ul li::before {
-  content: "";
+.container.left { left: 0; }
+.container.right { left: 50%; }
+
+.container::after {
+  content: '';
   position: absolute;
-  left: -15px;
-  top: 15px;
   width: 20px;
   height: 20px;
-  border: 3px solid #22c55e; /* green circle */
+  right: -10px;
+  background: #fff;
+  border: 4px solid #2ecc71;
+  top: 30px;
   border-radius: 50%;
+  z-index: 1;
+}
+
+.container.right::after { left: -10px; }
+
+.content {
+  padding: 20px;
   background: #fff;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Card Style */
-.timeline .content {
-  background: #fff;
-  padding: 15px 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  flex: 1;
-  margin-left: 40px; /* space for circle */
+.content:hover { transform: translateY(-5px); }
+
+.content h3 {
+  margin-top: 0;
+  font-size: 1.2em;
+  color: #1a1a1a;
 }
 
-.timeline .content h3 {
-  margin: 0 0 10px;
-  font-size: 18px;
+.content p {
+  margin: 10px 0 0;
+  color: #444;
+  font-size: 0.95em;
+  line-height: 1.6;
 }
 
-.timeline .content p {
-  margin: 0;
-  font-size: 15px;
-  color: #555;
+.content i {
+  color: #2ecc71;
+  margin-right: 8px;
 }
 
-/* ============= Responsive Fix ============= */
+/* --- MOBILE FIX --- */
 @media screen and (max-width: 768px) {
-  .timeline ul li {
-    flex-direction: column; /* stack items */
-    align-items: flex-start;
+  .timeline {
+    margin: 20px auto;
+    padding: 10px 0;
   }
 
-  .timeline ul li::before {
-    left: 10px;  /* keep circle close to edge */
-    top: -10px;  /* move slightly above card */
-  }
-
-  .timeline .content {
-    margin-left: 0;   /* remove extra spacing */
-    margin-top: 25px; /* add gap below circle */
+  .container {
     width: 100%;
+    padding: 20px;
+    left: 0 !important;
+  }
+
+  .container::after {
+    left: 15px;
+    right: auto;
+  }
+
+  .content {
+    margin-left: 40px; /* keeps text aligned properly */
   }
 }
