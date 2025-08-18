@@ -2,365 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ratanlal Mahanta's profile in Computational Finance and AI-driven Quantitative Research." />
-  <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Derivatives, Machine Learning, Fintech" />
-  <meta name="author" content="Ratanlal Mahanta" />
-  <meta name="theme-color" content="#1a1a1a" />
-  <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
-  <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
-  <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
-  <meta property="og:type" content="website" />
-  <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advanced Trading Strategies</title>
+  <!-- MathJax for formulas -->
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #222;
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;   /* slate-900 */
+      --muted: #475569;  /* slate-600 */
+      --accent: #111827; /* gray-900 */
+      --card: #f8fafc;   /* slate-50 */
+      --border: #e2e8f0; /* slate-200 */
     }
-
-    header {
-      background: #1a1a1a;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.8em;
-    }
-
-    header p {
-      margin: 0;
-      font-size: 0.9em;
-      color: #ccc;
-    }
-
-    #menu-toggle {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5em;
-      cursor: pointer;
-    }
-
-    aside.sidebar {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background: #333;
-      padding-top: 60px;
-      overflow-y: auto;
-      transition: left 0.3s ease-in-out;
-      z-index: 1000;
-    }
-
-    .sidebar.active {
-      left: 0;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .sidebar ul li {
-      padding: 15px 20px;
-    }
-
-    .sidebar ul li a {
-      color: white;
-      text-decoration: none;
-      display: block;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .sidebar ul li a:hover,
-    .sidebar ul li a.active {
-      background: #444;
-      color: #2ecc71;
-    }
-
-    .submenu {
-      display: none;
-      padding-left: 10px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .submenu li {
-      padding: 8px 20px;
-      font-weight: normal;
-    }
-
-    .submenu li a {
-      color: #ccc;
-      font-weight: normal;
-    }
-
-    .submenu li a:hover {
-      color: #2ecc71;
-    }
-
-    #close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.2em;
-      cursor: pointer;
-    }
-
-    .right-sidebar {
-      position: fixed;
-      top: 0;
-      right: -250px;
-      width: 250px;
-      height: 100%;
-      background: #222;
-      color: white;
-      padding-top: 60px;
-      overflow-y: auto;
-      transition: right 0.3s ease-in-out;
-      z-index: 1000;
-    }
-
-    .right-sidebar.active {
-      right: 0;
-    }
-
-    main {
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2, h3 {
-      color: #1a1a1a;
-    }
-
-    footer {
-      background: #1a1a1a;
-      color: #ccc;
-      text-align: center;
-      padding: 20px;
-    }
-
-    footer a {
-      color: #ccc;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: #2ecc71;
-    }
-
-    .social-media i {
-      margin: 0 5px;
-      font-size: 1.2em;
-    }
-
-    .sr-only {
-      position: absolute;
-      left: -9999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.4em;
-      }
-
-      #menu-toggle {
-        font-size: 1.3em;
-      }
-
-      .sidebar ul li {
-        padding: 12px 16px;
-      }
-
-      main {
-        padding: 15px;
-      }
-    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.65; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1080px; margin: 3rem auto; padding: 0 1.25rem; }
+    header { margin-bottom: 2rem; }
+    h1 { font-size: 2.2rem; margin: 0 0 0.25rem; letter-spacing: -0.02em; }
+    .subtitle { color: var(--muted); margin-top: 0.25rem; }
+    section { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem; margin: 1rem 0 1.25rem; }
+    h2 { font-size: 1.25rem; margin: 0 0 0.5rem; }
+    .lead { color: var(--muted); margin-top: 0.25rem; }
+    .formula { background: #fff; border: 1px dashed var(--border); border-radius: 12px; padding: 0.75rem 1rem; margin: 0.85rem 0; overflow-x: auto; }
+    ul { margin: 0.5rem 0 0.75rem 1.1rem; }
+    .badge { display: inline-block; font-size: 0.8rem; background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 0.15rem 0.6rem; margin-right: 0.35rem; color: var(--muted); }
+    code { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 0.1rem 0.35rem; }
+    footer { color: var(--muted); font-size: 0.9rem; margin-top: 2rem; text-align: center; }
   </style>
 </head>
-
 <body>
-  <header>
-    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
-    <div>
-      <h1>Ratanlal Mahanta</h1>
-      <p>Computational Finance | AI-Driven Quantitative Research</p>
-    </div>
-  </header>
+  <div class="container">
+    <header>
+      <h1>Advanced Trading Strategies</h1>
+      <p class="subtitle">Quant-driven approaches with key mathematical formulas</p>
+      <div>
+        <span class="badge">Momentum</span>
+        <span class="badge">Stat-Arb</span>
+        <span class="badge">Vol-Arb</span>
+        <span class="badge">Gamma</span>
+        <span class="badge">Machine Learning</span>
+      </div>
+    </header>
 
-  <aside id="sidebar" class="sidebar" aria-label="Main Navigation">
-    <button id="close-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-
-      <li>
-        <a class="has-submenu" id="RDToggle">R&D <i class="fas fa-caret-down" style="float:right;"></i></a>
-        <ul class="submenu" id="rdSubmenu">
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="publications.html">Publications</a></li>
-          <li><a href="Lab.html">Lab & Innovation</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <a class="has-submenu" id="workToggle">Work Experience <i class="fas fa-caret-down" style="float:right;"></i></a>
-        <ul class="submenu" id="workExpSubmenu">
-          <li><a href="Work.html">Timeline</a></li>
-          <li><a href="rsrl.html">RsRL</a></li>
-          <li><a href="cts.html">Cognizant</a></li>
-          <li><a href="gpsk.html">GPSK</a></li>
-          <li><a href="algotech.html">Algotech</a></li>
-          <li><a href="sharekhan.html">Sharekhan</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <a class="has-submenu" id="quantToggle">Quant Research <i class="fas fa-caret-down" style="float:right;"></i></a>
-        <ul class="submenu" id="quantSubmenu">
-          <li><a href="FX.html">FX & IR</a></li>
-          <li><a href="Com.html">Commodity</a></li>
-          <li><a href="Eq.html">Equity</a></li>
-          <li><a href="Crypto.html">Crypto</a></li>
-          <li><a href="research_update.html">Product Design</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <a class="has-submenu" id="ReferenceToggle">Reference <i class="fas fa-caret-down" style="float:right;"></i></a>
-        <ul class="submenu" id="ReferenceSubmenu">
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="blog.html">Conference</a></li>
-          <li><a href="blog.html">Lecture Series</a></li>
-          <li><a href="blog.html">Reading List</a></li>
-          <li><a href="blog.html">System Design</a></li>
-        </ul>
-      </li>
-    </ul>
-  </aside>
-
-  <aside id="right-sidebar" class="right-sidebar" aria-label="Context Tools Sidebar">
-    <button id="close-btn-right" aria-label="Close right menu"><i class="fas fa-times"></i></button>
-    <ul>
-      <li><a href="#">📌 Notes</a></li>
-      <li><a href="#">📅 Schedule</a></li>
-      <li><a href="#">📚 Reading</a></li>
-      <li><a href="#">🧠 Ideas</a></li>
-    </ul>
-  </aside>
-
-  <main>
-<!-- Publications Section -->
-  <section id="blog-post">
-        <h2>The Role of AI in Financial Modeling</h2>
-        <p><strong>Artificial Intelligence (AI)</strong> has rapidly evolved from a theoretical concept to a powerful tool transforming industries, and its influence on financial modeling is no exception. As finance becomes more data-driven and complex, AI enables models that are not only more accurate but also capable of predicting market trends, assessing risk, and optimizing portfolios in ways traditional methods cannot. In this blog, we explore the pivotal role AI plays in financial modeling.</p>
-
-        <h3>1. AI in Risk Management</h3>
-        <p>In the financial world, managing risk is critical, and AI provides tools that enhance the precision and speed of risk analysis. Traditional risk models often rely on static assumptions and linear projections. However, AI-driven models can incorporate vast amounts of data, identifying patterns and correlations that might not be immediately apparent. Machine learning (ML) techniques, such as supervised learning and deep learning, are used to predict potential risk events, simulate market scenarios, and dynamically adjust strategies based on real-time market conditions.</p>
-
-        <h3>2. AI in Portfolio Optimization</h3>
-        <p>Portfolio optimization has traditionally been driven by statistical models that assume normal distributions and static correlations. AI models, particularly reinforcement learning and deep reinforcement learning, allow for dynamic portfolio optimization that adapts to changing market conditions. These models continuously learn from past performance and adjust portfolio allocations in real-time, improving the portfolio’s risk-return ratio over time.</p>
-
-        <h3>3. AI in Algorithmic Trading</h3>
-        <p>AI has revolutionized algorithmic trading, providing the ability to process and analyze market data at unprecedented speeds. Machine learning algorithms are used to develop trading strategies that can analyze massive amounts of data in real-time, detect trading signals, and execute trades at optimal times. Unlike traditional models, AI algorithms can learn from past mistakes and successes, iterating and improving over time without human intervention.</p>
-
-        <h3>4. AI in Forecasting Market Trends</h3>
-        <p>Accurate market forecasting is essential for informed decision-making, and AI significantly enhances forecasting accuracy. Traditional methods rely on historical data and simple models to predict future outcomes, but AI can handle large and complex datasets, including unstructured data like text, images, and videos.</p>
-
-        <h3>5. AI in Valuation Models</h3>
-        <p>AI plays a key role in enhancing the accuracy of financial valuations. Traditional valuation models, such as discounted cash flow (DCF) or comparable company analysis, have inherent limitations in their assumptions and inputs. AI models, however, can dynamically adjust to market changes and optimize valuation by considering a broader set of factors such as changing interest rates, market volatility, or even environmental factors influencing company performance.</p>
-
-        <h3>6. Challenges and Limitations of AI in Financial Modeling</h3>
-        <p>While AI offers substantial benefits to financial modeling, its integration into financial markets does come with challenges. One of the key limitations is the black-box nature of some machine learning models. This lack of transparency can be problematic for regulatory compliance and risk management, as financial institutions must understand the rationale behind decisions made by AI models.</p>
-
-        <h3>7. The Future of AI in Financial Modeling</h3>
-        <p>The future of AI in financial modeling looks promising. As AI technologies continue to evolve, financial institutions are likely to see increased automation, enhanced predictive capabilities, and deeper insights into market behavior. Hybrid models that combine traditional finance with AI will also become more common, with AI augmenting, rather than replacing, human decision-making.</p>
-
-        <h3>Conclusion</h3>
-        <p>AI is undeniably reshaping financial modeling by enhancing risk management, optimizing portfolios, improving market forecasting, and refining valuation models. Its ability to process and analyze complex data in real-time, learn from past trends, and adapt to changing conditions gives financial institutions a competitive edge in today’s rapidly evolving markets. The continued integration of AI in finance holds the promise of more intelligent, data-driven financial strategies that will drive the future of the industry.</p>
+    <!-- 1. Trend Following -->
+    <section id="trend-following">
+      <h2>1. Trend Following Strategies</h2>
+      <p class="lead">We analyze 10–20 years of price data to uncover persistent market direction using adaptive, non‑linear models such as Genetic Algorithms, SVMs, and ANNs.</p>
+      <ul>
+        <li><strong>Momentum signal (simple):</strong> $M_t = P_t - P_{t-L}$</li>
+        <li><strong>Dual moving average rule:</strong> Go long if $\mathrm{SMA}_{\text{fast}}(t) > \mathrm{SMA}_{\text{slow}}(t)$</li>
+        <li><strong>SVM decision function:</strong> $f(\mathbf{x}) = \operatorname{sign}\!\left(\sum_{i=1}^{n} 
+          \alpha_i y_i \, K(\mathbf{x}_i, \mathbf{x}) + b\right)$</li>
+        <li><strong>ANN layer mapping:</strong> $\mathbf{a}^{(\ell)} = \sigma\!\left(\mathbf{W}^{(\ell)} \mathbf{a}^{(\ell-1)} + \mathbf{b}^{(\ell)}\right)$</li>
+      </ul>
+      <div class="formula">Signal-to-noise via information ratio:
+        $$\mathrm{IR} = \frac{\mathbb{E}[R_p - R_b]}{\sqrt{\operatorname{Var}(R_p - R_b)}}$$
+      </div>
     </section>
-    
- </main>
 
-  <footer>
-    <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
-    <p>Contact:
-      <a href="mailto:ratanlalmahanta@gmail.com" title="Email"><i class="fas fa-envelope"></i><span class="sr-only">Email</span></a>
-    </p>
-    <div class="social-media">
-      <a href="https://www.linkedin.com/in/ratanlalmahanta/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://twitter.com/ratanlalmahanta/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://github.com/ratanlalmahanta/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
-      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i></a>
-    </div>
-  </footer>
+    <!-- 2. Mean Reversion / Stat Arb -->
+    <section id="mean-reversion">
+      <h2>2. Mean Reversion Strategies (Statistical Arbitrage)</h2>
+      <p class="lead">We construct market‑neutral long/short spreads from cointegrated instruments and size trades by mean‑reversion speed.</p>
+      <ul>
+        <li><strong>Cointegration (Engle–Granger):</strong> For two price series $(X_t, Y_t)$, estimate $Y_t = \beta X_t + u_t$. If $u_t$ is stationary (ADF rejects unit root), the spread $u_t$ is tradeable.</li>
+      </ul>
+      <div class="formula">Ornstein–Uhlenbeck (OU) process for spread $X_t$:
+        $$\mathrm{d}X_t = \kappa(\mu - X_t)\,\mathrm{d}t + \sigma\,\mathrm{d}W_t$$
+        <div>Half‑life of mean reversion:
+          $$t_{1/2} = \frac{\ln 2}{\kappa}$$
+        </div>
+      </div>
+      <div class="formula">Discrete‑time estimation via AR(1):
+        $$\Delta X_t = X_t - X_{t-1} = \phi - \kappa X_{t-1} + \varepsilon_t \;\Rightarrow\; \hat{\kappa} = -\widehat{\text{slope}}\;.$$
+      </div>
+      <ul>
+        <li><strong>z‑score entry/exit:</strong> $z_t = \dfrac{X_t - \hat{\mu}}{\hat{\sigma}}$; enter at $|z_t| > z_\text{in}$, exit at $|z_t| < z_\text{out}$.</li>
+      </ul>
+    </section>
+
+    <!-- 3. Volatility Arbitrage -->
+    <section id="vol-arb">
+      <h2>3. Volatility Arbitrage Strategies</h2>
+      <p class="lead">Exploit gaps between implied volatility (IV) and realized volatility (RV) while managing Greeks in a delta‑neutral book.</p>
+      <div class="formula">Realized variance (close‑to‑close):
+        $$\mathrm{RV} = \sum_{t=1}^{T} r_t^2, \quad r_t = \ln\!\left(\frac{P_t}{P_{t-1}}\right)$$
+      </div>
+      <div class="formula">Delta‑neutrality and Greeks:
+        $$\sum_i w_i\,\Delta_i = 0,\qquad \Gamma = \frac{\partial \Delta}{\partial S},\qquad \Theta = \frac{\partial V}{\partial t},\qquad \text{Vega} = \frac{\partial V}{\partial \sigma}$$
+      </div>
+      <div class="formula">First‑order P&amp;L approximation for an options book $V$:
+        $$\mathrm{d}V \approx \Delta\,\mathrm{d}S + \tfrac{1}{2}\,\Gamma\,(\mathrm{d}S)^2 + \text{Vega}\,\mathrm{d}\sigma + \Theta\,\mathrm{d}t$$
+      </div>
+      <ul>
+        <li><strong>Smile exploitation:</strong> Short overpriced OTM (high IV) and long relatively underpriced strikes; rebalance to keep $\sum w_i\,\Delta_i \approx 0$.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Gamma Scalping -->
+    <section id="gamma-scalping">
+      <h2>4. Gamma Scalping Strategies</h2>
+      <p class="lead">Harvest convexity from positive gamma while re‑hedging delta as price moves.</p>
+      <div class="formula">With frequent re‑hedging of $\Delta$, expected scalping P&amp;L from convexity over small horizon:
+        $$\mathbb{E}[\mathrm{P\&L}] \approx \tfrac{1}{2}\,\Gamma\,\mathbb{E}[(\Delta S)^2] - \text{(financing/theta costs)}$$
+      </div>
+      <ul>
+        <li><strong>Sign of gamma:</strong> Long options $\Rightarrow \Gamma>0$ (benefit from large moves); short options $\Rightarrow \Gamma<0$.</li>
+        <li><strong>Dynamic hedging rule:</strong> After price change $\Delta S$, update hedge by $\Delta h \approx \Gamma\,\Delta S$ to restore $\Delta\!\approx 0$.</li>
+      </ul>
+    </section>
+
+    <!-- 5. Machine Learning -->
+    <section id="ml-strategies">
+      <h2>5. Machine Learning‑Based Strategies</h2>
+      <p class="lead">Supervised DNNs for direction classification and unsupervised clustering for regime discovery.</p>
+      <div class="formula">Binary cross‑entropy (logistic head):
+        $$\mathcal{L}(\theta) = -\big[y\,\log p_\theta(\text{up}|\mathbf{x}) + (1-y)\,\log (1-p_\theta(\text{up}|\mathbf{x}))\big]$$
+      </div>
+      <div class="formula">K‑Means objective:
+        $$\min_{\{\mu_k\}} \sum_{k=1}^{K} \sum_{\mathbf{x}_i \in C_k} \lVert \mathbf{x}_i - \mu_k \rVert^2$$
+      </div>
+      <ul>
+        <li><strong>Regime labels (unsupervised):</strong> Apply K‑Means to volatility/return features; map clusters to regimes (e.g., <em>low‑vol trend</em>, <em>high‑vol chop</em>).</li>
+        <li><strong>Regularization:</strong> L2 weight decay $\lambda\lVert\theta\rVert_2^2$ and dropout stabilize noisy financial features.</li>
+      </ul>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Advanced Trading Strategies 
+    </footer>
+  </div>
 
   <script>
-    const sidebar = document.getElementById("sidebar");
-    const toggleBtn = document.getElementById("menu-toggle");
-    const closeBtn = document.getElementById("close-btn");
-
-    toggleBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-      toggleBtn.setAttribute("aria-expanded", sidebar.classList.contains("active"));
-    });
-
-    closeBtn.addEventListener("click", () => {
-      sidebar.classList.remove("active");
-      toggleBtn.setAttribute("aria-expanded", "false");
-    });
-
-    document.getElementById("RDToggle").addEventListener("click", () => {
-      const submenu = document.getElementById("rdSubmenu");
-      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-    });
-
-    document.getElementById("workToggle").addEventListener("click", () => {
-      const submenu = document.getElementById("workExpSubmenu");
-      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-    });
-
-    document.getElementById("quantToggle").addEventListener("click", () => {
-      const submenu = document.getElementById("quantSubmenu");
-      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-    });
-
-    document.getElementById("ReferenceToggle").addEventListener("click", () => {
-      const submenu = document.getElementById("ReferenceSubmenu");
-      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-    });
-
-    const rightSidebar = document.getElementById("right-sidebar");
-    const closeRightBtn = document.getElementById("close-btn-right");
-
-    closeRightBtn.addEventListener("click", () => {
-      rightSidebar.classList.remove("active");
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
