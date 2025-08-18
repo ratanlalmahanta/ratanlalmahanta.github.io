@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CDS Pricing with Merton Model — Monte Carlo & Stress Testing</title>
+  <meta name="description" content="CDS pricing using the Merton model, Monte Carlo simulation for CDS spread distribution, and stress testing under multiple factors." />
+
+  <!-- MathJax for LaTeX rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(','\\)'], ['$', '$']],
+        displayMath: [['\\[','\\]'], ['$$','$$']],
+        processEscapes: true,
+        packages: {'[+]': ['ams']}
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    :root{
+      --bg:#ffffff; --panel:#f9fbfd; --ink:#1a1a1a; --sub:#444; --accent:#0057b7; --line:#d9e1ea;
+      --muted:#777;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+      background:var(--bg); color:var(--ink);
+    }
+    header{
+      padding:48px 20px 24px; text-align:center; border-bottom:1px solid var(--line);
+      background: radial-gradient(1200px 400px at 50% -50px, rgba(0,87,183,.05), transparent 60%);
+    }
+    h1{margin:.2em 0 .3em; font-size:clamp(1.6rem, 2.2vw + 1rem, 2.2rem); letter-spacing:.2px}
+    .lead{color:var(--sub); max-width:900px; margin:0 auto; font-size:1.05rem}
+    main{max-width:1000px; margin:0 auto; padding:28px 20px 64px; display:grid; gap:18px}
+    section{
+      background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:22px;
+      box-shadow: 0 3px 10px rgba(0,0,0,.05);
+    }
+    h2{margin:.1em 0 .6em; font-size:1.35rem}
+    h3{margin:1.2em 0 .4em; font-size:1.05rem; color:var(--accent)}
+    p{color:var(--sub); line-height:1.65}
+    ul,ol{color:var(--sub); line-height:1.7; padding-left:1.2rem}
+    code, kbd{background:#f0f3f7; border:1px solid var(--line); padding:.15rem .35rem; border-radius:6px; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
+    .callout{
+      border-left:4px solid var(--accent); padding:12px 14px; background:#f3f8fc; border-radius:8px; margin:10px 0; color:var(--sub)
+    }
+    .grid{display:grid; gap:12px}
+    @media (min-width: 850px){ .grid.two{grid-template-columns:1fr 1fr} }
+    .small{font-size:.95rem}
+    footer{color:var(--muted); text-align:center; padding:28px 16px; border-top:1px solid var(--line)}
+    .eq{margin:.8em 0; padding:.6em .8em; background:#f8fafc; border:1px solid var(--line); border-radius:8px; color:var(--ink)}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CDS Pricing with the Merton Model</h1>
+    <p class="lead">
+      Monte Carlo simulation for CDS spread distribution and stress testing under changing risk factors.
+    </p>
+  </header>
+
+  <main>
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>
+        The CDS pricing model here uses the Merton framework where default probabilities stem from the dynamics of a firm’s asset value.
+        Asset dynamics follow Geometric Brownian Motion (GBM). We estimate CDS spreads via Monte Carlo and examine sensitivity through stress tests.
+      </p>
+      <div class="callout small">
+        <strong>Note:</strong> In simulation, generate one asset path per iteration (rather than <code>num_simulations</code> paths inside each iteration) to avoid redundant work.
+      </div>
+    </section>
+
+    <section id="gbm">
+      <h2>Asset Dynamics (GBM)</h2>
+      <div class="eq">
+        \[
+        \mathrm{d}S_t = r\,S_t\,\mathrm{d}t + \sigma\,S_t\,\mathrm{d}W_t
+        \]
+      </div>
+      <ul>
+        <li>\(S_t\): asset value at time \(t\)</li>
+        <li>\(r\): risk-free rate</li>
+        <li>\(\sigma\): asset volatility</li>
+        <li>\(W_t\): standard Brownian motion</li>
+      </ul>
+    </section>
+
+    <section id="pd">
+      <h2>Probability of Default (PD)</h2>
+      <p>Distance to Default (DD):</p>
+      <div class="eq">
+        \[
+        \mathrm{DD} = \frac{\ln\!\left(\frac{V_0}{D}\right) + \left(r + \tfrac{1}{2}\sigma^2\right)T}{\sigma\sqrt{T}}
+        \]
+      </div>
+      <p>Default probability at maturity \(T\):</p>
+      <div class="eq">
+        \[
+        \mathrm{PD} = \Phi(-\mathrm{DD})
+        \]
+      </div>
+    </section>
+
+    <section id="spread">
+      <h2>CDS Spread (bps)</h2>
+      <p>Given a recovery rate \(R\) and probability of default \(\mathrm{PD}\), an illustrative spread formula is:</p>
+      <div class="eq">
+        \[
+        s = (1 - \mathrm{PD}) \times 10000
+        \]
+      </div>
+    </section>
+
+    <section id="mc">
+      <h2>Monte Carlo Simulation</h2>
+      <p>
+        For each iteration, simulate one terminal asset value \(S_i\) under GBM, compute PD from the simulated state, then the spread. The Monte Carlo estimator is:
+      </p>
+      <div class="eq">
+        \[
+        \hat{s}_{\mathrm{MC}} = \frac{1}{N}\sum_{i=1}^{N}
+        \Bigg(
+        \Big(1 - \Phi\!\Big(
+          -\frac{\ln(S_i / D) + (r + \tfrac{1}{2}\sigma^2)T}{\sigma\sqrt{T}}
+        \Big)\Big)\times 10000
+        \Bigg)
+        \]
+      </div>
+    </section>
+
+    <section id="stress">
+      <h2>Stress Testing</h2>
+      <p>
+        Examine sensitivity of CDS spreads to shocks in key inputs such as volatility \(\sigma\), risk-free rate \(r\), recovery rate \(R\), or default threshold \(D\).
+      </p>
+      <ul>
+        <li>\(\sigma_{\mathrm{stressed}} = \sigma \times \mathrm{stress\_factor}\)</li>
+        <li>\(r_{\mathrm{stressed}} = r \times \mathrm{stress\_factor}\)</li>
+        <li>Recovery \(R\): vary up/down</li>
+        <li>Default threshold \(D\): adjust leverage assumptions</li>
+      </ul>
+    </section>
+
+    <section id="summary">
+      <h2>Summary</h2>
+      <ul>
+        <li>Model defaults via Merton; compute PD from distance-to-default.</li>
+        <li>Estimate spreads through Monte Carlo using one path per iteration.</li>
+        <li>Stress test \(\sigma\), \(r\), \(R\), and \(D\) to gauge sensitivity.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> CDS Pricing Demo • Merton Model
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
