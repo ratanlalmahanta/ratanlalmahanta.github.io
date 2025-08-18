@@ -2,145 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Advanced Trading Strategies</title>
-  <!-- MathJax for formulas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ratanlal Mahanta's profile in Computational Finance and AI-driven Quantitative Research." />
+  <meta name="keywords" content="Computational Finance, AI, Quantitative Research, Risk Management, Derivatives, Machine Learning, Fintech" />
+  <meta name="author" content="Ratanlal Mahanta" />
+  <meta name="theme-color" content="#1a1a1a" />
+  <meta property="og:title" content="Ratanlal Mahanta | Computational Finance & AI Quant Research" />
+  <meta property="og:description" content="Quantitative Finance, AI research, and model validation expertise. Explore simulation engines, CVA, FRTB, repo risk, and more." />
+  <meta property="og:image" content="https://yourdomain.com/assets/images/ratanlal-mahanta.jpg" />
+  <meta property="og:type" content="website" />
+  <title>Ratanlal Mahanta | Computational Finance & AI Quant Research</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- MathJax -->
   <script>
-    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-    :root {
-      --bg: #ffffff;
-      --text: #0f172a;   /* slate-900 */
-      --muted: #475569;  /* slate-600 */
-      --accent: #111827; /* gray-900 */
-      --card: #f8fafc;   /* slate-50 */
-      --border: #e2e8f0; /* slate-200 */
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.65; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 1080px; margin: 3rem auto; padding: 0 1.25rem; }
-    header { margin-bottom: 2rem; }
-    h1 { font-size: 2.2rem; margin: 0 0 0.25rem; letter-spacing: -0.02em; }
-    .subtitle { color: var(--muted); margin-top: 0.25rem; }
-    section { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem; margin: 1rem 0 1.25rem; }
-    h2 { font-size: 1.25rem; margin: 0 0 0.5rem; }
-    .lead { color: var(--muted); margin-top: 0.25rem; }
-    .formula { background: #fff; border: 1px dashed var(--border); border-radius: 12px; padding: 0.75rem 1rem; margin: 0.85rem 0; overflow-x: auto; }
-    ul { margin: 0.5rem 0 0.75rem 1.1rem; }
-    .badge { display: inline-block; font-size: 0.8rem; background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 0.15rem 0.6rem; margin-right: 0.35rem; color: var(--muted); }
-    code { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 0.1rem 0.35rem; }
-    footer { color: var(--muted); font-size: 0.9rem; margin-top: 2rem; text-align: center; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #222; }
+    header { background: #1a1a1a; color: white; display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; }
+    header h1 { margin: 0; font-size: 1.8em; }
+    header p { margin: 0; font-size: 0.9em; color: #ccc; }
+    #menu-toggle { background: none; border: none; color: white; font-size: 1.5em; cursor: pointer; }
+    main { padding: 20px; max-width: 1000px; margin: auto; background: white; }
+    h2, h3 { color: #1a1a1a; }
+    .formula { background:#fff; border:1px dashed #e5e7eb; border-radius:12px; padding:12px 14px; margin:12px 0; }
+    footer { background: #1a1a1a; color: #ccc; text-align: center; padding: 20px; }
+    footer a { color: #ccc; margin: 0 10px; text-decoration: none; }
+    footer a:hover { color: #2ecc71; }
+    .social-media i { margin: 0 5px; font-size: 1.2em; }
+    .sr-only { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <h1>Advanced Trading Strategies</h1>
-      <p class="subtitle">Quant-driven approaches with key mathematical formulas</p>
-      <div>
-        <span class="badge">Momentum</span>
-        <span class="badge">Stat-Arb</span>
-        <span class="badge">Vol-Arb</span>
-        <span class="badge">Gamma</span>
-        <span class="badge">Machine Learning</span>
-      </div>
-    </header>
+  <header>
+    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <div>
+      <h1>Ratanlal Mahanta</h1>
+      <p>Computational Finance | AI-Driven Quantitative Research</p>
+    </div>
+  </header>
 
-    <!-- 1. Trend Following -->
-    <section id="trend-following">
-      <h2>1. Trend Following Strategies</h2>
-      <p class="lead">We analyze 10–20 years of price data to uncover persistent market direction using adaptive, non‑linear models such as Genetic Algorithms, SVMs, and ANNs.</p>
-      <ul>
-        <li><strong>Momentum signal (simple):</strong> $M_t = P_t - P_{t-L}$</li>
-        <li><strong>Dual moving average rule:</strong> Go long if $\mathrm{SMA}_{\text{fast}}(t) > \mathrm{SMA}_{\text{slow}}(t)$</li>
-        <li><strong>SVM decision function:</strong> $f(\mathbf{x}) = \operatorname{sign}\!\left(\sum_{i=1}^{n} 
-          \alpha_i y_i \, K(\mathbf{x}_i, \mathbf{x}) + b\right)$</li>
-        <li><strong>ANN layer mapping:</strong> $\mathbf{a}^{(\ell)} = \sigma\!\left(\mathbf{W}^{(\ell)} \mathbf{a}^{(\ell-1)} + \mathbf{b}^{(\ell)}\right)$</li>
-      </ul>
-      <div class="formula">Signal-to-noise via information ratio:
-        $$\mathrm{IR} = \frac{\mathbb{E}[R_p - R_b]}{\sqrt{\operatorname{Var}(R_p - R_b)}}$$
-      </div>
+  <main>
+    <!-- Alpha-Generating Strategy — Mathematical Model -->
+    <section id="alpha-model" style="margin-top:8px">
+      <h2>Alpha-Generating Strategy — Mathematical Model</h2>
+      <p>Designed and tested alpha-generating trading strategies combining time-series momentum, machine-learning classification signals, statistical and arbitrage based capital allocation. Deployed backtesting platform with walk-forward validation and multi-asset optimization.</p>
+
+      <h3>1) Time-Series Momentum (TSMOM)</h3>
+      <p>Directional momentum signal over lookback <em>L</em> (price or log-return form):</p>
+      <div class="formula">$$ m_t = \operatorname{sign}\big(R_{t,L}\big),\quad R_{t,L} = \sum_{j=1}^{L} r_{t-j} \quad \text{or} \quad m_t = P_t - P_{t-L} $$</div>
+      <p>Scaled position with risk targeting (volatility $ \hat{\sigma}_t $):</p>
+      <div class="formula">$$ x_t^{\text{mom}} = \tau\,\dfrac{R_{t,L}}{\hat{\sigma}_t} $$</div>
+
+      <h3>2) ML Classification Signal</h3>
+      <p>Classifier outputs up-move probability $ p_t = \Pr(r_{t+1} > 0\mid \mathbf{x}_t) $. Signed score and position:</p>
+      <div class="formula">$$ s_t^{\text{ml}} = 2p_t - 1 \in [-1,1], \qquad x_t^{\text{ml}} = \tau\,\dfrac{s_t^{\text{ml}}}{\hat{\sigma}_t} $$</div>
+
+      <h3>3) Statistical Arbitrage Spread</h3>
+      <p>Cointegrated spread $ X_t $ as OU process and half-life:</p>
+      <div class="formula">$$ \mathrm{d}X_t = \kappa(\mu - X_t)\,\mathrm{d}t + \sigma\,\mathrm{d}W_t, \qquad t_{1/2} = \dfrac{\ln 2}{\kappa} $$</div>
+      <p>Z-score and mean-reversion position:</p>
+      <div class="formula">$$ z_t = \dfrac{X_t - \hat{\mu}}{\hat{\sigma}}, \qquad x_t^{\text{stat}} = -\eta\,z_t $$</div>
+
+      <h3>4) Signal Combination & Vol Targeting</h3>
+      <p>Blend signals with weights $ w_1,w_2,w_3 $ ($\sum w_i = 1$) and target portfolio risk $ \sigma^* $:</p>
+      <div class="formula">$$ x_t^{\text{raw}} = w_1 x_t^{\text{mom}} + w_2 x_t^{\text{ml}} + w_3 x_t^{\text{stat}}, \qquad x_t = x_t^{\text{raw}} \cdot \frac{\sigma^*}{\hat{\sigma}_p(t)} $$</div>
+
+      <h3>5) Walk-Forward Validation</h3>
+      <p>Rolling train/validation/test; for window $k$:</p>
+      <div class="formula">$$ \theta_k = \arg\min_\theta\, \mathcal{L}(\theta; \mathcal{D}^{\text{train}}_k), \quad \text{evaluate on } \mathcal{D}^{\text{test}}_k $$</div>
+
+      <h3>6) Multi-Asset Optimization with Costs</h3>
+      <p>Mean–variance with transaction costs and turnover cap:</p>
+      <div class="formula">$$\begin{aligned}
+        \max_{\mathbf{w}}\; & \mathbf{w}^T\boldsymbol{\mu} - \tfrac{\lambda}{2}\,\mathbf{w}^T\Sigma\,\mathbf{w} - \left\lVert \Gamma(\mathbf{w}-\mathbf{w}_{t-1}) \right\rVert_1 \\
+        \text{s.t.}\; & \mathbf{1}^T\mathbf{w}=1,\quad \left\lVert \mathbf{w}-\mathbf{w}_{t-1} \right\rVert_1 \le \Lambda,\quad w_i\in[w_i^{\min}, w_i^{\max}]
+      \end{aligned}$$</div>
+
+      <h3>7) Performance & Risk</h3>
+      <p>Information ratio and drawdown:</p>
+      <div class="formula">$$ \mathrm{IR} = \dfrac{\mathbb{E}[R_p - R_b]}{\sqrt{\operatorname{Var}(R_p - R_b)}} ,\qquad \mathrm{DD}_t = \dfrac{\max_{\tau\le t} (\mathrm{NAV}_\tau - \mathrm{NAV}_t)}{\max_{\tau\le t} \mathrm{NAV}_\tau} $$</div>
     </section>
 
-    <!-- 2. Mean Reversion / Stat Arb -->
-    <section id="mean-reversion">
-      <h2>2. Mean Reversion Strategies (Statistical Arbitrage)</h2>
-      <p class="lead">We construct market‑neutral long/short spreads from cointegrated instruments and size trades by mean‑reversion speed.</p>
-      <ul>
-        <li><strong>Cointegration (Engle–Granger):</strong> For two price series $(X_t, Y_t)$, estimate $Y_t = \beta X_t + u_t$. If $u_t$ is stationary (ADF rejects unit root), the spread $u_t$ is tradeable.</li>
-      </ul>
-      <div class="formula">Ornstein–Uhlenbeck (OU) process for spread $X_t$:
-        $$\mathrm{d}X_t = \kappa(\mu - X_t)\,\mathrm{d}t + \sigma\,\mathrm{d}W_t$$
-        <div>Half‑life of mean reversion:
-          $$t_{1/2} = \frac{\ln 2}{\kappa}$$
-        </div>
-      </div>
-      <div class="formula">Discrete‑time estimation via AR(1):
-        $$\Delta X_t = X_t - X_{t-1} = \phi - \kappa X_{t-1} + \varepsilon_t \;\Rightarrow\; \hat{\kappa} = -\widehat{\text{slope}}\;.$$
-      </div>
-      <ul>
-        <li><strong>z‑score entry/exit:</strong> $z_t = \dfrac{X_t - \hat{\mu}}{\hat{\sigma}}$; enter at $|z_t| > z_\text{in}$, exit at $|z_t| < z_\text{out}$.</li>
-      </ul>
-    </section>
+   
 
-    <!-- 3. Volatility Arbitrage -->
-    <section id="vol-arb">
-      <h2>3. Volatility Arbitrage Strategies</h2>
-      <p class="lead">Exploit gaps between implied volatility (IV) and realized volatility (RV) while managing Greeks in a delta‑neutral book.</p>
-      <div class="formula">Realized variance (close‑to‑close):
-        $$\mathrm{RV} = \sum_{t=1}^{T} r_t^2, \quad r_t = \ln\!\left(\frac{P_t}{P_{t-1}}\right)$$
-      </div>
-      <div class="formula">Delta‑neutrality and Greeks:
-        $$\sum_i w_i\,\Delta_i = 0,\qquad \Gamma = \frac{\partial \Delta}{\partial S},\qquad \Theta = \frac{\partial V}{\partial t},\qquad \text{Vega} = \frac{\partial V}{\partial \sigma}$$
-      </div>
-      <div class="formula">First‑order P&amp;L approximation for an options book $V$:
-        $$\mathrm{d}V \approx \Delta\,\mathrm{d}S + \tfrac{1}{2}\,\Gamma\,(\mathrm{d}S)^2 + \text{Vega}\,\mathrm{d}\sigma + \Theta\,\mathrm{d}t$$
-      </div>
+    <!-- Applications in Practice -->
+    <section id="applications">
+      <h2>Applications</h2>
       <ul>
-        <li><strong>Smile exploitation:</strong> Short overpriced OTM (high IV) and long relatively underpriced strikes; rebalance to keep $\sum w_i\,\Delta_i \approx 0$.</li>
+        <li>Design of systematic trading strategies across asset classes</li>
+        <li>Portfolio risk management under stress testing and scenario generation</li>
+        
       </ul>
     </section>
 
-    <!-- 4. Gamma Scalping -->
-    <section id="gamma-scalping">
-      <h2>4. Gamma Scalping Strategies</h2>
-      <p class="lead">Harvest convexity from positive gamma while re‑hedging delta as price moves.</p>
-      <div class="formula">With frequent re‑hedging of $\Delta$, expected scalping P&amp;L from convexity over small horizon:
-        $$\mathbb{E}[\mathrm{P\&L}] \approx \tfrac{1}{2}\,\Gamma\,\mathbb{E}[(\Delta S)^2] - \text{(financing/theta costs)}$$
-      </div>
-      <ul>
-        <li><strong>Sign of gamma:</strong> Long options $\Rightarrow \Gamma>0$ (benefit from large moves); short options $\Rightarrow \Gamma<0$.</li>
-        <li><strong>Dynamic hedging rule:</strong> After price change $\Delta S$, update hedge by $\Delta h \approx \Gamma\,\Delta S$ to restore $\Delta\!\approx 0$.</li>
-      </ul>
-    </section>
+    
+  </main>
 
-    <!-- 5. Machine Learning -->
-    <section id="ml-strategies">
-      <h2>5. Machine Learning‑Based Strategies</h2>
-      <p class="lead">Supervised DNNs for direction classification and unsupervised clustering for regime discovery.</p>
-      <div class="formula">Binary cross‑entropy (logistic head):
-        $$\mathcal{L}(\theta) = -\big[y\,\log p_\theta(\text{up}|\mathbf{x}) + (1-y)\,\log (1-p_\theta(\text{up}|\mathbf{x}))\big]$$
-      </div>
-      <div class="formula">K‑Means objective:
-        $$\min_{\{\mu_k\}} \sum_{k=1}^{K} \sum_{\mathbf{x}_i \in C_k} \lVert \mathbf{x}_i - \mu_k \rVert^2$$
-      </div>
-      <ul>
-        <li><strong>Regime labels (unsupervised):</strong> Apply K‑Means to volatility/return features; map clusters to regimes (e.g., <em>low‑vol trend</em>, <em>high‑vol chop</em>).</li>
-        <li><strong>Regularization:</strong> L2 weight decay $\lambda\lVert\theta\rVert_2^2$ and dropout stabilize noisy financial features.</li>
-      </ul>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Advanced Trading Strategies •
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <footer>
+    <p>&copy; 2025 Ratanlal Mahanta | All Rights Reserved</p>
+    <p>Contact:
+      <a href="mailto:ratanlalmahanta@gmail.com" title="Email"><i class="fas fa-envelope"></i><span class="sr-only">Email</span></a>
+    </p>
+    <div class="social-media">
+      <a href="https://www.linkedin.com/in/ratanlalmahanta/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/ratanlalmahanta/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/ratanlalmahanta/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://gemini.google.com/share/a59f97ec4a99" target="_blank" title="Google Gemini"><i class="fas fa-atom"></i></a>
+      <a href="https://x.com/i/grok/share/lGBpiRp0JUbOaTs2s3fLUtjHW" target="_blank" title="View on Grok via X"><i class="fas fa-brain"></i></a>
+    </div>
+  </footer>
 </body>
 </html>
