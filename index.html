@@ -1045,46 +1045,112 @@ CONTACT + SOCIAL LINKS
 </footer>
 
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+
 function scrollToSection(id){
- document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
-const cfg={responsive:true,maintainAspectRatio:false};
+const cfg = {
+  responsive:true,
+  maintainAspectRatio:false
+};
 
-new Chart(domainChart,{type:'doughnut',
-data:{labels:['FRTB','IRRBB','CVA','Derivatives','AI'],
-datasets:[{data:[25,20,20,25,10],
-backgroundColor:['#3D5A80','#D16D54','#E8C547','#5E8C61','#2D2A26']}]},
-options:cfg});
+/* === CANVAS CONTEXTS === */
+const domainCtx = document.getElementById("domainChart");
+const growthCtx = document.getElementById("growthChart");
+const hftCtx = document.getElementById("hftPerformanceChart");
+const latencyCtx = document.getElementById("latencyChart");
+const strategyCtx = document.getElementById("strategyChart");
+const riskCtx = document.getElementById("riskStrategyChart");
 
-new Chart(growthChart,{type:'bar',
-data:{labels:['2019','2020','2021','2022','2023','2024','2025'],
-datasets:[{data:[4,6,7,9,11,13,16],backgroundColor:'#D16D54'}]},
-options:cfg});
+/* ===== DOMAIN ===== */
+new Chart(domainCtx,{
+  type:'doughnut',
+  data:{
+    labels:['FRTB','IRRBB','CVA','Derivatives','AI'],
+    datasets:[{
+      label:'Domain Distribution',
+      data:[25,20,20,25,10],
+      backgroundColor:['#3D5A80','#D16D54','#E8C547','#5E8C61','#2D2A26']
+    }]
+  },
+  options:cfg
+});
 
-new Chart(hftPerformanceChart,{type:'line',
-data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'],
-datasets:[{data:[0,2,4,6,9,11,15,18],
-borderColor:'#D16D54',
-backgroundColor:'rgba(209,109,84,.2)',fill:true}]},
-options:cfg});
+/* ===== GROWTH ===== */
+new Chart(growthCtx,{
+  type:'bar',
+  data:{
+    labels:['2019','2020','2021','2022','2023','2024','2025'],
+    datasets:[{
+      label:'Model Output Growth',
+      data:[4,6,7,9,11,13,16],
+      backgroundColor:'#D16D54'
+    }]
+  },
+  options:cfg
+});
 
-new Chart(latencyChart,{type:'bar',
-data:{labels:['<5ms','5-10ms','10-15ms','15-20ms','20ms+'],
-datasets:[{data:[18,35,28,12,7],backgroundColor:'#3D5A80'}]},
-options:cfg});
+/* ===== HFT ===== */
+new Chart(hftCtx,{
+  type:'line',
+  data:{
+    labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'],
+    datasets:[{
+      label:'HFT Performance',
+      data:[0,2,4,6,9,11,15,18],
+      borderColor:'#D16D54',
+      backgroundColor:'rgba(209,109,84,.2)',
+      fill:true
+    }]
+  },
+  options:cfg
+});
 
-new Chart(strategyChart,{type:'doughnut',
-data:{labels:['HFT','Stat Arb','Vol Arb','Momentum','Mean Rev','AI'],
-datasets:[{data:[34,22,18,10,8,8],
-backgroundColor:['#D16D54','#3D5A80','#E8C547','#5E8C61','#2D2A26','#7A5AF8']}]},
-options:cfg});
+/* ===== LATENCY ===== */
+new Chart(latencyCtx,{
+  type:'bar',
+  data:{
+    labels:['<5ms','5-10ms','10-15ms','15-20ms','20ms+'],
+    datasets:[{
+      label:'Latency Distribution',
+      data:[18,35,28,12,7],
+      backgroundColor:'#3D5A80'
+    }]
+  },
+  options:cfg
+});
 
-new Chart(riskStrategyChart,{type:'bar',
-data:{labels:['HFT','Stat-Arb','Vol-Arb','Momentum','Mean Rev','AI'],
-datasets:[{data:[28,24,20,12,8,8],backgroundColor:'#3D5A80'}]},
-options:cfg});
+/* ===== STRATEGY ===== */
+new Chart(strategyCtx,{
+  type:'doughnut',
+  data:{
+    labels:['HFT','Stat Arb','Vol Arb','Momentum','Mean Rev','AI'],
+    datasets:[{
+      label:'Strategy Allocation',
+      data:[34,22,18,10,8,8],
+      backgroundColor:['#D16D54','#3D5A80','#E8C547','#5E8C61','#2D2A26','#7A5AF8']
+    }]
+  },
+  options:cfg
+});
+
+/* ===== RISK ===== */
+new Chart(riskCtx,{
+  type:'bar',
+  data:{
+    labels:['HFT','Stat-Arb','Vol-Arb','Momentum','Mean Rev','AI'],
+    datasets:[{
+      label:'Risk Strategy Exposure',
+      data:[28,24,20,12,8,8],
+      backgroundColor:'#3D5A80'
+    }]
+  },
+  options:cfg
+});
+
+});
 </script>
-
 </body>
 </html>
