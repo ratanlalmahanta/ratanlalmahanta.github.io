@@ -109,3 +109,17 @@ footer .social-media a:hover {
   border: 4px solid #1a1a1a;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+
+html{
+  scroll-behavior:smooth;
+}
+
+.timeline-dot{
+  width:10px;
+  height:10px;
+  background:#D16D54;
+  border-radius:50%;
+  position:absolute;
+  left:-22px;
+  top:8px;
+}
