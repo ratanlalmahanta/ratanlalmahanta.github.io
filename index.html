@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ratanlal Mahanta — Senior Quant</title>
+<title>Ratanlal Mahanta — Senior Quant Dashboard</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -76,7 +76,7 @@ h1,h2,h3,h4{font-family:'Merriweather',serif;}
 
 <div class="flex items-center">
 <span class="text-2xl font-bold text-[#D16D54]">RM</span>
-<span class="ml-2 font-medium text-sm md:text-base">Senior Quant</span>
+<span class="ml-2 font-medium text-sm md:text-base">Senior Quant Dashboard</span>
 </div>
 
 <div class="flex space-x-4 text-sm">
@@ -401,6 +401,8 @@ new Chart(document.getElementById('impactRadarChart'),{
 });
 
 </script>
+
+
 
 <!-- PUBLICATIONS -->
 <section id="publications" class="max-w-7xl mx-auto px-6 py-14">
@@ -830,6 +832,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 </script>
 
+
+
+
 <!-- EXPERIENCE -->
 <section id="experience" class="max-w-7xl mx-auto px-4 py-14">
 <div class="border-l-4 border-[#D16D54] pl-4 mb-8">
@@ -929,15 +934,16 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
 
-<!-- ================= HFT ================= -->
-<section id="hft" class="max-w-7xl mx-auto px-6 py-14">
-<div class="border-l-4 border-[#D16D54] pl-4 mb-8">
-<h2 class="text-3xl font-bold">HFT & Quant Trading Analytics</h2>
-</div>
 
-<div class="bg-white rounded-xl p-8 card-shadow">
-<div class="grid md:grid-cols-2 gap-8">
+<!-- ANALYTICS -->
 
+<!-- HFT -->
+<section id="hft" class="max-w-7xl mx-auto px-4 md:px-6 py-10">
+<h2 class="text-2xl md:text-3xl font-bold mb-6 border-l-4 border-[#D16D54] pl-3">
+HFT & Quant Trading Analytics
+</h2>
+
+<div class="bg-white rounded-xl p-4 md:p-8 card-shadow grid md:grid-cols-2 gap-6">
 <div>
 <h3 class="text-center font-bold mb-3">Strategy Performance (PnL)</h3>
 <div class="chart-container"><canvas id="hftPerformanceChart"></canvas></div>
@@ -947,20 +953,16 @@ document.addEventListener('DOMContentLoaded',()=>{
 <h3 class="text-center font-bold mb-3">Execution Latency</h3>
 <div class="chart-container"><canvas id="latencyChart"></canvas></div>
 </div>
-
-</div>
 </div>
 </section>
 
-<!-- ================= STRATEGY ================= -->
-<section id="strategy" class="max-w-7xl mx-auto px-6 py-14">
-<div class="border-l-4 border-[#3D5A80] pl-4 mb-8">
-<h2 class="text-3xl font-bold">Strategy Distribution Analytics</h2>
-</div>
+<!-- STRATEGY -->
+<section id="strategy" class="max-w-7xl mx-auto px-4 md:px-6 py-10">
+<h2 class="text-2xl md:text-3xl font-bold mb-6 border-l-4 border-[#3D5A80] pl-3">
+Strategy Distribution Analytics
+</h2>
 
-<div class="bg-white rounded-xl p-8 card-shadow">
-<div class="grid md:grid-cols-2 gap-8">
-
+<div class="bg-white rounded-xl p-4 md:p-8 card-shadow grid md:grid-cols-2 gap-6">
 <div>
 <h3 class="text-center font-bold mb-3">Strategy Allocation</h3>
 <div class="chart-container"><canvas id="strategyChart"></canvas></div>
@@ -970,90 +972,118 @@ document.addEventListener('DOMContentLoaded',()=>{
 <h3 class="text-center font-bold mb-3">Risk Contribution</h3>
 <div class="chart-container"><canvas id="riskStrategyChart"></canvas></div>
 </div>
-
-</div>
 </div>
 </section>
 
-
-<footer class="bg-[#2D2A26] text-white text-center py-10 mt-20">
+<!-- FOOTER -->
+<footer class="bg-[#2D2A26] text-white text-center py-10 mt-16">
 <h2 class="text-xl">Ratanlal Mahanta — Senior Quant</h2>
+<!-- =========================
+CONTACT + SOCIAL LINKS
+========================= -->
+<div class="mt-6">
 
-<div class="mt-4 flex justify-center gap-5 text-lg">
-<a href="https://github.com/ratanlalmahanta"><i class="fab fa-github"></i></a>
-<a href="https://www.linkedin.com/in/ratanlalmahanta/"><i class="fab fa-linkedin"></i></a>
-<a href="mailto:ratanlalmahanta@gmail.com"><i class="fas fa-envelope"></i></a>
+  <p class="text-sm text-gray-300">
+    Contact:
+    <a href="mailto:ratanlalmahanta@gmail.com"
+       title="Email"
+       class="ml-2 hover:text-[#D16D54] transition">
+      <i class="fas fa-envelope"></i>
+      <span class="sr-only">Email</span>
+    </a>
+  </p>
+
+  <div class="social-media flex justify-center gap-5 mt-4 text-lg">
+
+    <a href="https://www.linkedin.com/in/ratanlalmahanta/"
+       target="_blank"
+       title="LinkedIn"
+       class="hover:text-[#0A66C2] transition">
+       <i class="fab fa-linkedin"></i>
+    </a>
+
+    <a href="https://twitter.com/ratanlalmahanta/"
+       target="_blank"
+       title="Twitter"
+       class="hover:text-[#1DA1F2] transition">
+       <i class="fab fa-twitter"></i>
+    </a>
+
+    <a href="https://github.com/ratanlalmahanta/"
+       target="_blank"
+       title="GitHub"
+       class="hover:text-white transition">
+       <i class="fab fa-github"></i>
+    </a>
+
+    <a href="https://scholar.google.com/citations?user=SpE58EQAAAAJ&hl=en"
+       target="_blank"
+       title="Google Scholar"
+       class="hover:text-[#E8C547] transition">
+       <i class="fas fa-graduation-cap"></i>
+    </a>
+
+    <a href="https://gemini.google.com/share/a59f97ec4a99"
+       target="_blank"
+       title="Google Gemini"
+       class="hover:text-[#D16D54] transition">
+       <i class="fas fa-atom"></i>
+    </a>
+
+    <a href="https://ima.academia.edu/RatanlalMahanta"
+       target="_blank"
+       title="View on Academia"
+       class="hover:text-[#3D5A80] transition">
+       <i class="fas fa-brain"></i>
+    </a>
+
+  </div>
+
 </div>
+
+
 </footer>
-
-<script>
-
+fix the undefined to rename "<script>
 function scrollToSection(id){
  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
-/* DOMAIN */
-new Chart(document.getElementById('domainChart'),{
-type:'doughnut',
-data:{
-labels:['FRTB','IRRBB','CVA','Derivatives','AI'],
+const cfg={responsive:true,maintainAspectRatio:false};
+
+new Chart(domainChart,{type:'doughnut',
+data:{labels:['FRTB','IRRBB','CVA','Derivatives','AI'],
 datasets:[{data:[25,20,20,25,10],
-backgroundColor:['#3D5A80','#D16D54','#E8C547','#5E8C61','#2D2A26']}]
-}
-});
+backgroundColor:['#3D5A80','#D16D54','#E8C547','#5E8C61','#2D2A26']}]},
+options:cfg});
 
-/* MODEL GROWTH */
-new Chart(document.getElementById('growthChart'),{
-type:'bar',
-data:{
-labels:['2019','2020','2021','2022','2023','2024','2025'],
-datasets:[{label:'Models Delivered',
-data:[4,6,7,9,11,13,16],backgroundColor:'#D16D54'}]
-}
-});
+new Chart(growthChart,{type:'bar',
+data:{labels:['2019','2020','2021','2022','2023','2024','2025'],
+datasets:[{data:[4,6,7,9,11,13,16],backgroundColor:'#D16D54'}]},
+options:cfg});
 
-/* HFT */
-new Chart(document.getElementById('hftPerformanceChart'),{
-type:'line',
-data:{
-labels:['Jan','Feb','Mar','Apr','May','Jun','Jul'],
-datasets:[{label:'PnL Curve',
-data:[0,2,4,6,9,11,15],
+new Chart(hftPerformanceChart,{type:'line',
+data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'],
+datasets:[{data:[0,2,4,6,9,11,15,18],
 borderColor:'#D16D54',
-backgroundColor:'rgba(209,109,84,.2)',fill:true}]
-}
-});
+backgroundColor:'rgba(209,109,84,.2)',fill:true}]},
+options:cfg});
 
-/* LATENCY */
-new Chart(document.getElementById('latencyChart'),{
-type:'bar',
-data:{
-labels:['<5ms','5-10ms','10-15ms','15-20ms',],
-datasets:[{label:'Orders %',
-data:[18,35,28,12],backgroundColor:'#3D5A80'}]
-}
-});
+new Chart(latencyChart,{type:'bar',
+data:{labels:['<5ms','5-10ms','10-15ms','15-20ms','20ms+'],
+datasets:[{data:[18,35,28,12,7],backgroundColor:'#3D5A80'}]},
+options:cfg});
 
-/* STRATEGY */
-new Chart(document.getElementById('strategyChart'),{
-type:'doughnut',
-data:{
-labels:['HFT','Stat Arb','Vol Arb','Momentum','Mean Rev',],
-datasets:[{data:[34,22,18,10,8],
-backgroundColor:['#D16D54','#3D5A80','#E8C547','#5E8C61','#2D2A26']}]
-}
-});
+new Chart(strategyChart,{type:'doughnut',
+data:{labels:['HFT','Stat Arb','Vol Arb','Momentum','Mean Rev','AI'],
+datasets:[{data:[34,22,18,10,8,8],
+backgroundColor:['#D16D54','#3D5A80','#E8C547','#5E8C61','#2D2A26','#7A5AF8']}]},
+options:cfg});
 
-/* RISK */
-new Chart(document.getElementById('riskStrategyChart'),{
-type:'bar',
-data:{
-labels:['HFT','Stat-Arb','Vol-Arb','Momentum','Mean Rev'],
-datasets:[{label:'Risk Contribution %',
-data:[28,24,20,12,8],backgroundColor:'#3D5A80'}]
-}
-});
+new Chart(riskStrategyChart,{type:'bar',
+data:{labels:['HFT','Stat-Arb','Vol-Arb','Momentum','Mean Rev','AI'],
+datasets:[{data:[28,24,20,12,8,8],backgroundColor:'#3D5A80'}]},
+options:cfg});
 </script>
-
+"
 </body>
 </html>
