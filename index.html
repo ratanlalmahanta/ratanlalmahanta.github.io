@@ -1016,9 +1016,9 @@ data:[4,6,7,9,11,13,16],backgroundColor:'#D16D54'}]
 new Chart(document.getElementById('hftPerformanceChart'),{
 type:'line',
 data:{
-labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'],
+labels:['Jan','Feb','Mar','Apr','May','Jun','Jul'],
 datasets:[{label:'PnL Curve',
-data:[0,2,4,6,9,11,15,18],
+data:[0,2,4,6,9,11,15],
 borderColor:'#D16D54',
 backgroundColor:'rgba(209,109,84,.2)',fill:true}]
 }
@@ -1028,9 +1028,9 @@ backgroundColor:'rgba(209,109,84,.2)',fill:true}]
 new Chart(document.getElementById('latencyChart'),{
 type:'bar',
 data:{
-labels:['<5ms','5-10ms','10-15ms','15-20ms','20ms+'],
+labels:['<5ms','5-10ms','10-15ms','15-20ms',],
 datasets:[{label:'Orders %',
-data:[18,35,28,12,7],backgroundColor:'#3D5A80'}]
+data:[18,35,28,12],backgroundColor:'#3D5A80'}]
 }
 });
 
@@ -1038,9 +1038,9 @@ data:[18,35,28,12,7],backgroundColor:'#3D5A80'}]
 new Chart(document.getElementById('strategyChart'),{
 type:'doughnut',
 data:{
-labels:['HFT','Stat Arb','Vol Arb','Momentum','Mean Rev','AI'],
-datasets:[{data:[34,22,18,10,8,8],
-backgroundColor:['#D16D54','#3D5A80','#E8C547','#5E8C61','#2D2A26','#7A5AF8']}]
+labels:['HFT','Stat Arb','Vol Arb','Momentum','Mean Rev',],
+datasets:[{data:[34,22,18,10,8],
+backgroundColor:['#D16D54','#3D5A80','#E8C547','#5E8C61','#2D2A26']}]
 }
 });
 
@@ -1048,9 +1048,9 @@ backgroundColor:['#D16D54','#3D5A80','#E8C547','#5E8C61','#2D2A26','#7A5AF8']}]
 new Chart(document.getElementById('riskStrategyChart'),{
 type:'bar',
 data:{
-labels:['HFT','Stat-Arb','Vol-Arb','Momentum','Mean Rev','AI'],
+labels:['HFT','Stat-Arb','Vol-Arb','Momentum','Mean Rev'],
 datasets:[{label:'Risk Contribution %',
-data:[28,24,20,12,8,8],backgroundColor:'#3D5A80'}]
+data:[28,24,20,12,8],backgroundColor:'#3D5A80'}]
 }
 });
 </script>
